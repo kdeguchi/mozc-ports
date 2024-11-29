@@ -34,7 +34,7 @@ USE_GITHUB=	yes
 GH_TUPLE=	fcitx:mozc:671cec2
 GH_TUPLE+=	abseil:abseil-cpp:4447c75:abseil/src/third_party/abseil-cpp
 GH_TUPLE+=	google:googletest:b514bdc:googletest/src/third_party/gtest
-GH_TUPLE+=	protocolbuffers:protobuf:5fda5ab:protobuf/src/third_party/protobuf
+GH_TUPLE+=	protocolbuffers:protobuf:7cc670c:protobuf/src/third_party/protobuf
 
 USE_JAVA=	yes
 JAVA_VERSION=	21

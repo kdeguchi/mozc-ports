@@ -1,4 +1,4 @@
-TIMESTAMP = 1732868578
+TIMESTAMP = 1732869512
 SHA256 (mozc/apple_support.1.16.0.tar.gz) = c31ce8e531b50ef1338392ee29dd3db3689668701ec3237b9c61e26a1937ab07
 SIZE (mozc/apple_support.1.16.0.tar.gz) = 86001
 SHA256 (mozc/bazel_features-v1.11.0.tar.gz) = 2cd9e57d4c38675d321731d65c15258f3a66438ad531ae09cb8bb14217dc8572
@@ -51,8 +51,8 @@ SHA256 (mozc/abseil-abseil-cpp-4447c75_GH0.tar.gz) = 27faabd1ef627ea99020a1d6b93
 SIZE (mozc/abseil-abseil-cpp-4447c75_GH0.tar.gz) = 2242788
 SHA256 (mozc/google-googletest-b514bdc_GH0.tar.gz) = dcefc4adaca27f89b69371eadef42c4d311d2debfdee2a9a5985cae740463f98
 SIZE (mozc/google-googletest-b514bdc_GH0.tar.gz) = 872710
-SHA256 (mozc/protocolbuffers-protobuf-5fda5ab_GH0.tar.gz) = a0cc5734627eeb3107a6f11388b8dd769d53b423284a3e60b7d22f27bce5b6b5
-SIZE (mozc/protocolbuffers-protobuf-5fda5ab_GH0.tar.gz) = 9257575
+SHA256 (mozc/protocolbuffers-protobuf-7cc670c_GH0.tar.gz) = f2b825219d7e1ecb69662a4811951734b27075fd998e7f1a45dd3e33a0ffb754
+SIZE (mozc/protocolbuffers-protobuf-7cc670c_GH0.tar.gz) = 6282278
 SHA256 (mozc/hiroyuki-komatsu-japanese-usage-dictionary-a4a6677_GH0.tar.gz) = 2d20d64456dc081be84e7c0aa7be53cdf79d4e9f4ba3fcaf06e4fca74394c714
 SIZE (mozc/hiroyuki-komatsu-japanese-usage-dictionary-a4a6677_GH0.tar.gz) = 71282
 SHA256 (mozc/utuhiro78-mozcdic-ut-alt-cannadic-bf26bcb_GH0.tar.gz) = a6dce2569d5ad91dd0d26b43192a854aaddab6593920745a07dbb6a2c67e66d1
