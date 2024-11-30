@@ -35,7 +35,8 @@ SHEBANG_REGEX=	.*(sh|txt|_stub|stub_.*|bazel|get_workspace_status|protobuf_suppo
 
 CONFLICTS_INSTALL=	bazel[0-9]* bazel
 
-CFLAGS+=	-Wno-gnu-offsetof-extensions
+CFLAGS+=	-Wno-gnu-offsetof-extensions \
+		-Wno-c23-extensions
 # The bazel binary is also a zip archive (extracted by the elf part), it must not be stripped
 STRIP=
 
