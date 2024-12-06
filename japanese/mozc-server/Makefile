@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.30.5618.102
-PORTREVISION=	17
+PORTREVISION=	18
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -95,26 +95,26 @@ UTDIC_DESC=		Additional UT Dictionary
 ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:bf26bcb:altcannadic
 
 # CC-BY-SA-4.0
-EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:33b4d09:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:f96884c:jawiki
+EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:520fbc9:edict2
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:e217e16:jawiki
 
 # APACHE20
-NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:5a275dc:neologd
+NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 
 # APACHE20
 PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:ea85549:personal
 
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:d189fce:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:f0489f7:place
 
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:c52cdb1:skkjisyo
 
 # APACHE20
-SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:d12da3c:sudachi
+SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:3eb0a18:sudachi
 
 # APACHE20 multi
-UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:4d59023:ut
+UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:3fd7a6c:ut
 UTDIC_MASTER_SITES=	https://dumps.wikimedia.org/jawiki/latest/:title
 UTDIC_DISTFILES=	jawiki-latest-all-titles-in-ns0.gz:title
 
