@@ -9,3 +9,9 @@ only that poudriere will build everything.
 
 You can download these files and overwrite ports tree, or use ports overlays method.
 I recommend using ports overlays method.
+
+## ports overlay method
+
+Add in your `/etc/make.conf` as follows:
+
+`OVERLAYS+=/your/download/directory/mozc-ports`
