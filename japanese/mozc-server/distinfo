@@ -1,4 +1,4 @@
-TIMESTAMP = 1733446152
+TIMESTAMP = 1733452914
 SHA256 (mozc/apple_support.1.16.0.tar.gz) = c31ce8e531b50ef1338392ee29dd3db3689668701ec3237b9c61e26a1937ab07
 SIZE (mozc/apple_support.1.16.0.tar.gz) = 86001
 SHA256 (mozc/bazel_features-v1.11.0.tar.gz) = 2cd9e57d4c38675d321731d65c15258f3a66438ad531ae09cb8bb14217dc8572
@@ -49,8 +49,6 @@ SHA256 (mozc/stardoc-0.5.3.tar.gz) = 3fd8fec4ddec3c670bd810904e2e33170bedfe12f90
 SIZE (mozc/stardoc-0.5.3.tar.gz) = 21627189
 SHA256 (mozc/abbbfce7c3fccf1d4b87afa28140d9ce53f80057.zip) = fdcbe47efb68af5c24dfe752749ab0b2a0c1ac0215e3d28cf6e9ee28e0c2aefb
 SIZE (mozc/abbbfce7c3fccf1d4b87afa28140d9ce53f80057.zip) = 157473
-SHA256 (mozc/sha256.txt) = c69540da0321dd5b07d759f4d41557f15761ee0ad8ba7626577423206b250401
-SIZE (mozc/sha256.txt) = 2111
 SHA256 (mozc/zlib-1.3.1.tar.gz) = 9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23
 SIZE (mozc/zlib-1.3.1.tar.gz) = 1512791
 SHA256 (mozc/ken_all.zip) = 8e7dacdcb1b038deda06dc06dbe9d6a82bf6e1831d82137ebb2ca35e425c7664

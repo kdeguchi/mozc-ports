@@ -48,7 +48,5 @@ MASTER_SITES+=	https://github.com/bazelbuild/stardoc/releases/download/0.5.3/:st
 DISTFILES+=	stardoc-0.5.3.tar.gz:stardoc
 MASTER_SITES+=	https://github.com/bufbuild/rules_buf/archive/:rules_buf
 DISTFILES+=	abbbfce7c3fccf1d4b87afa28140d9ce53f80057.zip:rules_buf
-MASTER_SITES+=	https://github.com/bufbuild/buf/releases/download/v1.27.0/:buf_sha256
-DISTFILES+=	sha256.txt:buf_sha256
 MASTER_SITES+=	https://github.com/madler/zlib/releases/download/v1.3.1/:zlib
 DISTFILES+=	zlib-1.3.1.tar.gz:zlib
