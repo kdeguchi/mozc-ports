@@ -1,4 +1,4 @@
-TIMESTAMP = 1733452914
+TIMESTAMP = 1733453963
 SHA256 (mozc/apple_support.1.16.0.tar.gz) = c31ce8e531b50ef1338392ee29dd3db3689668701ec3237b9c61e26a1937ab07
 SIZE (mozc/apple_support.1.16.0.tar.gz) = 86001
 SHA256 (mozc/bazel_features-v1.11.0.tar.gz) = 2cd9e57d4c38675d321731d65c15258f3a66438ad531ae09cb8bb14217dc8572
@@ -29,8 +29,6 @@ SHA256 (mozc/rules_java-7.9.0.tar.gz) = 41131de4417de70b9597e6ebd515168ed0ba843a
 SIZE (mozc/rules_java-7.9.0.tar.gz) = 27948
 SHA256 (mozc/rules_jvm_external-5.1.tar.gz) = 8c3b207722e5f97f1c83311582a6c11df99226e65e2471086e296561e57cc954
 SIZE (mozc/rules_jvm_external-5.1.tar.gz) = 6971014
-SHA256 (mozc/rules_license-0.0.7.tar.gz) = 4531deccb913639c30e5c7512a054d5d875698daeb75d8cf90f284375fe7c360
-SIZE (mozc/rules_license-0.0.7.tar.gz) = 31476
 SHA256 (mozc/rules_license-0.0.8.tar.gz) = 241b06f3097fd186ff468832150d6cc142247dc42a32aaefb56d0099895fd229
 SIZE (mozc/rules_license-0.0.8.tar.gz) = 32497
 SHA256 (mozc/rules_nodejs-core-5.8.2.tar.gz) = 764a3b3757bb8c3c6a02ba3344731a3d71e558220adcb0cf7e43c9bba2c37ba8
