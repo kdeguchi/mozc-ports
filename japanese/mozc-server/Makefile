@@ -6,7 +6,14 @@ CATEGORIES=	japanese
 DIST_SUBDIR=	${PORTNAME}
 .include "Makefile.MASTER_SITES"
 
-EXTRACT_ONLY=	${_DISTFILES:C@^([0-9]|apple|bazel|include|jawiki|platforms|pybind|re2|rules|sha256|stardoc|zlib).*@@}
+EXTRACT_ONLY=	${_DISTFILES:Mabseil-*} \
+		${_DISTFILES:Mfcitx-*} \
+		${_DISTFILES:Mgoogle-*} \
+		${_DISTFILES:Mhiroyuki-komatsu-*} \
+		${_DISTFILES:Mjigyosyo*} \
+		${_DISTFILES:Mken_all*} \
+		${_DISTFILES:Mprotocolbuffers-*} \
+		${_DISTFILES:Mutuhiro78-*}
 
 MAINTAINER=	kdeguchi@sz.tokoha-u.ac.jp
 COMMENT?=	Mozc Japanese Input Method, Server
