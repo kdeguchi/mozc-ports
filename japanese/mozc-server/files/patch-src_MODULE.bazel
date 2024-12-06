@@ -1,4 +1,4 @@
---- src/MODULE.bazel.orig	2024-11-07 05:46:36 UTC
+--- src/MODULE.bazel.orig	2024-12-04 11:24:26 UTC
 +++ src/MODULE.bazel
 @@ -48,6 +48,7 @@ bazel_dep(
      name = "rules_python",
@@ -8,7 +8,20 @@
  
  # Bazel macOS build (3.5.1 2024-04-09)
  # Note, versions after 3.5.1 result a build failure of universal binary.
-@@ -128,11 +129,13 @@ pkg_config_repository(
+@@ -71,6 +72,12 @@ bazel_dep(
+     name = "rules_java",
+     version = "7.9.0",
+ )
++single_version_override(
++    module_name = "rules_buf",
++    patches = [
++      "//:rules_buf.patch",
++    ],
++)
+ 
+ # Android NDK rules (0.1.2 2024-07-23)
+ # https://github.com/bazelbuild/rules_android_ndk
+@@ -128,11 +135,13 @@ pkg_config_repository(
  )
  
  # Fcitx
@@ -26,7 +39,7 @@
  )
  
  # Fcitx 5
-@@ -151,6 +154,7 @@ pkg_config_repository(
+@@ -151,6 +160,7 @@ pkg_config_repository(
          "Qt6Core",
          "Qt6Gui",
          "Qt6Widgets",
@@ -34,7 +47,7 @@
      ],
  )
  
-@@ -276,20 +280,18 @@ SHA256_ZIP_CODE_KEN_ALL = None
+@@ -276,20 +286,18 @@ SHA256_ZIP_CODE_KEN_ALL = None
  # SHA256_ZIP_CODE_KEN_ALL = "e5a32c0199ebc890ea5c48c06fd817a168b26d68ce1c3a86ba0ae1cdf6c2d1c4"
  SHA256_ZIP_CODE_KEN_ALL = None
  

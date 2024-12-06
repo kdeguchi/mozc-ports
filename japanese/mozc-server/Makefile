@@ -6,7 +6,7 @@ CATEGORIES=	japanese
 DIST_SUBDIR=	${PORTNAME}
 .include "Makefile.MASTER_SITES"
 
-EXTRACT_ONLY=	${_DISTFILES:C@^([0-9]|apple|bazel|include|jawiki|platforms|pybind|re2|rules|stardoc|zlib).*@@}
+EXTRACT_ONLY=	${_DISTFILES:C@^([0-9]|apple|bazel|include|jawiki|platforms|pybind|re2|rules|sha256|stardoc|zlib).*@@}
 
 MAINTAINER=	kdeguchi@sz.tokoha-u.ac.jp
 COMMENT?=	Mozc Japanese Input Method, Server
@@ -34,7 +34,7 @@ USE_GITHUB=	yes
 GH_TUPLE=	fcitx:mozc:dbccf7f
 GH_TUPLE+=	abseil:abseil-cpp:4447c75:abseil/src/third_party/abseil-cpp
 GH_TUPLE+=	google:googletest:b514bdc:googletest/src/third_party/gtest
-GH_TUPLE+=	protocolbuffers:protobuf:7cc670c:protobuf/src/third_party/protobuf
+GH_TUPLE+=	protocolbuffers:protobuf:5fda5ab:protobuf/src/third_party/protobuf
 
 USE_JAVA=	yes
 JAVA_VERSION=	21
@@ -46,7 +46,7 @@ BUILD_MOZC_LIST?=	mozc_server
 BUILD_MOZC_CMD=	bazel ${BAZEL_BOOT} --server_javabase=${JAVA_HOME} \
 		build ${BAZEL_ENV} ${BAZEL_COMMON_OPTS} \
 		-c opt --copt=-fPIC --host_linkopt=-lm \
-		--verbose_failures --sandbox_debug \
+		--verbose_failures --sandbox_debug --subcommands \
 		--tool_java_language_version=${JAVA_VERSION} \
 		--config oss_linux
 
@@ -184,6 +184,8 @@ post-patch:
 			-e 's,^#ifdef __linux__$$,#if defined(__linux__) || defined(__FreeBSD__),;' \
 			-e 's,^#ifdef __linux$$,#if defined(__linux__) || defined(__FreeBSD__),;' \
 			-e 's,ByteSize\(,ByteSizeLong\(,g;' {} \;
+	@${CP} ${PATCHDIR}/extra-patch-rules_buf~_buf_internal_toolchain.bzl \
+		${BAZEL_WRKSRC}/rules_buf.patch
 
 .if ${BUILD_MOZC_LIST:Mfcitx_mozc} == "fcitx_mozc"
 	${REINPLACE_CMD} 's,/po/mo},%po}mo,g' \
