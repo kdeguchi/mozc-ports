@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.30.5618.102
-PORTREVISION=	19
+PORTREVISION=	20
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -38,7 +38,7 @@ USES=	compiler:c++20-lang gmake localbase ninja:build pkgconfig \
 	python:3.8+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:d2b55bc
+GH_TUPLE=	fcitx:mozc:f539903
 GH_TUPLE+=	abseil:abseil-cpp:4447c75:abseil/src/third_party/abseil-cpp
 GH_TUPLE+=	google:googletest:b514bdc:googletest/src/third_party/gtest
 GH_TUPLE+=	protocolbuffers:protobuf:5fda5ab:protobuf/src/third_party/protobuf
@@ -53,7 +53,8 @@ BUILD_MOZC_LIST?=	mozc_server
 BUILD_MOZC_CMD=	bazel ${BAZEL_BOOT} --server_javabase=${JAVA_HOME} \
 		build ${BAZEL_ENV} ${BAZEL_COMMON_OPTS} \
 		-c opt --copt=-fPIC --host_linkopt=-lm \
-		--verbose_failures --sandbox_debug --subcommands \
+		--cxxopt=-Wno-uninitialized --host_cxxopt=-Wno-uninitialized \
+		--verbose_failures --sandbox_debug \
 		--tool_java_language_version=${JAVA_VERSION} \
 		--config oss_linux
 
@@ -103,7 +104,7 @@ ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:bf26bcb:altcannadic
 
 # CC-BY-SA-4.0
 EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:520fbc9:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:e217e16:jawiki
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:0ed7150:jawiki
 
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
@@ -121,9 +122,9 @@ SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:c52cdb1:skkjisyo
 SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:3eb0a18:sudachi
 
 # APACHE20 multi
-UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:3fd7a6c:ut
+UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:59f9f6b:ut
 UTDIC_MASTER_SITES=	https://dumps.wikimedia.org/jawiki/latest/:title
-UTDIC_DISTFILES=	jawiki-latest-all-titles-in-ns0.gz:title
+UTDIC_DISTFILES=	jawiki-latest-pages-articles-multistream-index.txt.bz2:title
 
 .elif ${BUILD_MOZC_LIST:Mmozc_tool} == "mozc_tool"
 
