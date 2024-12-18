@@ -608,7 +608,7 @@ fetch-bcr:
 	${RM} -r ${BAZEL_BCR_LOCAL}
 .endif
 .if ! exists(${BAZEL_BCR_LOCAL})
-	cd ${DISTDIR} && git clone ${BAZEL_BCR_URL}
+	cd ${DISTDIR} && git clone ${BAZEL_BCR_URL} ${BAZEL_BCR_LOCAL}
 .else
 . if make(fetch)
 	cd ${BAZEL_BCR_LOCAL} && ( git pull 2> /dev/null || exit 0 )
