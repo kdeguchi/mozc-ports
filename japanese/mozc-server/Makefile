@@ -7,6 +7,7 @@ DIST_SUBDIR=	${PORTNAME}
 .include "Makefile.MASTER_SITES"
 
 EXTRACT_ONLY=	${_DISTFILES:Mabseil-*} \
+		${_DISTFILES:Me-kato-*} \
 		${_DISTFILES:Mfcitx-*} \
 		${_DISTFILES:Mgoogle-*} \
 		${_DISTFILES:Mhiroyuki-komatsu-*} \
