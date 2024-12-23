@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.30.5618.102
-PORTREVISION=	23
+PORTREVISION=	24
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -39,7 +39,7 @@ USES=	compiler:c++20-lang gmake localbase ninja:build pkgconfig \
 	python:3.8+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:22ab9e6
+GH_TUPLE=	fcitx:mozc:56fbb9c
 GH_TUPLE+=	abseil:abseil-cpp:4447c75:abseil/src/third_party/abseil-cpp
 GH_TUPLE+=	google:googletest:b514bdc:googletest/src/third_party/gtest
 GH_TUPLE+=	protocolbuffers:protobuf:796e49f6ca82f763d1087d2ff7355d2f0d7b71b1:protobuf/src/third_party/protobuf
