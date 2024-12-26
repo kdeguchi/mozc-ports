@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.30.5618.102
-PORTREVISION=	24
+PORTREVISION=	25
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -39,7 +39,7 @@ USES=	compiler:c++20-lang gmake localbase ninja:build pkgconfig \
 	python:3.8+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:2358d1e
+GH_TUPLE=	fcitx:mozc:e191411
 GH_TUPLE+=	abseil:abseil-cpp:4447c75:abseil/src/third_party/abseil-cpp
 GH_TUPLE+=	google:googletest:b514bdc:googletest/src/third_party/gtest
 GH_TUPLE+=	protocolbuffers:protobuf:796e49f6ca82f763d1087d2ff7355d2f0d7b71b1:protobuf/src/third_party/protobuf
@@ -57,7 +57,7 @@ BUILD_MOZC_CMD=	bazel ${BAZEL_BOOT} --server_javabase=${JAVA_HOME} \
 		--cxxopt=-Wno-uninitialized --host_cxxopt=-Wno-uninitialized \
 		--verbose_failures --sandbox_debug \
 		--tool_java_language_version=${JAVA_VERSION} \
-		--config oss_linux
+		--config oss_linux --define server=1
 
 BAZEL_BCR_LOCAL=	${DISTDIR}/bazel-central-registry
 BAZEL_BCR_URL=	https://github.com/bazelbuild/bazel-central-registry.git
