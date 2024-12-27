@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.30.5618.102
-PORTREVISION=	25
+PORTREVISION=	26
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -31,7 +31,7 @@ LICENSE_DISTFILES_NAISTL=	${DISTNAME}${EXTRACT_SUFX}
 
 FETCH_DEPENDS=	git:devel/git
 PATCH_DEPENDS=	${PYTHON_CMD}:${PYTHON_PORTSDIR}
-BUILD_DEPENDS=	bazel:devel/bazel7 \
+BUILD_DEPENDS=	bazel:devel/bazel8 \
 		python3:lang/python3
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
@@ -39,7 +39,7 @@ USES=	compiler:c++20-lang gmake localbase ninja:build pkgconfig \
 	python:3.8+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:e191411
+GH_TUPLE=	fcitx:mozc:8fc360d
 GH_TUPLE+=	abseil:abseil-cpp:4447c75:abseil/src/third_party/abseil-cpp
 GH_TUPLE+=	google:googletest:b514bdc:googletest/src/third_party/gtest
 GH_TUPLE+=	protocolbuffers:protobuf:796e49f6ca82f763d1087d2ff7355d2f0d7b71b1:protobuf/src/third_party/protobuf
