@@ -1,0 +1,10 @@
+g-- tools/cpp/modules_tools/BUILD.orig	1979-12-31 15:00:00 UTC
++++ tools/cpp/modules_tools/BUILD
+@@ -40,6 +40,7 @@ cc_library(
+         "common/json.hpp",
+     ],
+     copts = COPTS,
++    linkopts = select({ "//src/conditions:freebsd": ["-lm"], }),
+     includes = ["."],
+ )
+ 
