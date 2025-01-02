@@ -35,7 +35,7 @@ BUILD_DEPENDS=	bazel:devel/bazel8 \
 		python3:lang/python3
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
-USES=	compiler:c++20-lang gmake localbase ninja:build pkgconfig \
+USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.8+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
@@ -44,10 +44,8 @@ GH_TUPLE+=	abseil:abseil-cpp:4447c75:abseil/src/third_party/abseil-cpp
 GH_TUPLE+=	google:googletest:b514bdc:googletest/src/third_party/gtest
 GH_TUPLE+=	protocolbuffers:protobuf:796e49f6ca82f763d1087d2ff7355d2f0d7b71b1:protobuf/src/third_party/protobuf
 
-USE_JAVA=	yes
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
-JAVA_BUILD=	yes
 
 BUILD_MOZC_LIST?=	mozc_server
 
