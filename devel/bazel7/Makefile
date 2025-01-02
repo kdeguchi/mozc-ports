@@ -21,15 +21,12 @@ BUILD_DEPENDS=	bash:shells/bash \
 RUN_DEPENDS=	bash:shells/bash \
 		python3:lang/python3
 
-USES=		cpe python:3.8+ shebangfix zip
+USES=		cpe java python:3.8+ shebangfix zip
 
 CPE_VENDOR=	google
 
-USE_JAVA=	yes
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
-JAVA_BUILD=	yes
-JAVA_RUN=	yes
 
 SHEBANG_REGEX=	.*(sh|txt|_stub|stub_.*|bazel|get_workspace_status|protobuf_support|_so)
 
