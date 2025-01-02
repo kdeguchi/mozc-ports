@@ -21,15 +21,12 @@ BUILD_DEPENDS=	bash:shells/bash \
 RUN_DEPENDS=	bash:shells/bash \
 		python3:lang/python3
 
-USES=		cpe python:3.8+ shebangfix zip
+USES=		cpe java python:3.8+ shebangfix zip
 
 CPE_VENDOR=	google
 
-USE_JAVA=	yes
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
-JAVA_BUILD=	yes
-JAVA_RUN=	yes
 
 SHEBANG_REGEX=	.*(sh|txt|_stub|stub_.*|bazel|get_workspace_status|protobuf_support|_so)
 
@@ -80,14 +77,12 @@ do-build:
 	EXTRA_BAZEL_ARGS='--host_linkopt=-lm --tool_java_runtime_version=local_jdk --java_language_version=${JAVA_VERSION} --tool_java_language_version=${JAVA_VERSION}' \
 	${LOCALBASE}/bin/bash ./compile.sh)
 
+post-build:
+	${CHMOD} -R u=rw,+X ${WRKDIR}
+
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/output/bazel ${STAGEDIR}${PREFIX}/bin
 	@${MKDIR} ${STAGEDIR}${ETCDIR}
 	${INSTALL_DATA} ${WRKSRC}/scripts/packages/bazel.bazelrc ${STAGEDIR}${ETCDIR}/bazel.bazelrc.sample
-
-pre-clean:
-.if exist(WRKDIR)
-	@${CHMOD} -R u+w ${WRKDIR}
-.endif
 
 .include <bsd.port.post.mk>
