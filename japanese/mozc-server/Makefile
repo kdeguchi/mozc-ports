@@ -622,6 +622,7 @@ bazel-mod: configure
 		${GREP} '@[0-9]' | ${SORT} -u
 
 bazel-modules: configure
+	@${CP} -a ${MASTERDIR}/Makefile.MASTER_SITES ${MASTERDIR}/Makefile.MASTER_SITES.bak
 	@cd ${BAZEL_WRKSRC} && \
 		bazel ${BAZEL_BOOT} mod show_repo \
 			$$( bazel ${BAZEL_BOOT} mod graph \
