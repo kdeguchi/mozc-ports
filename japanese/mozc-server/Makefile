@@ -122,8 +122,8 @@ SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:3eb0a18:sudachi
 
 # APACHE20 multi
 UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:59f9f6b:ut
-UTDIC_MASTER_SITES=	https://dumps.wikimedia.org/jawiki/latest/:title
-UTDIC_DISTFILES=	jawiki-latest-pages-articles-multistream-index.txt.bz2:title
+UTDIC_MASTER_SITES=	https://dumps.wikimedia.org/jawiki/latest/:jawiki_latest_pages_articles_multistream_index
+UTDIC_DISTFILES=	jawiki-latest-pages-articles-multistream-index.txt.bz2:jawiki_latest_pages_articles_multistream_index
 
 .elif ${BUILD_MOZC_LIST:Mmozc_tool} == "mozc_tool"
 
