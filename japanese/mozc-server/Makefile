@@ -229,7 +229,7 @@ post-patch-mozc_server:
 	cd ${WRKSRC_ut}/src/merge && \
 		${PATCH} < ${PATCHDIR}/extra-patch-merge_dictionaries.py && \
 		${CP} ${BAZEL_WRKSRC}/data/dictionary_oss/id.def . && \
-		${CP} ${DISTDIR}/${DIST_SUBDIR}/${UTDIC_DISTFILES:M*\:title:C@\:title@@} . && \
+		${CP} ${DISTDIR}/${DIST_SUBDIR}/${UTDIC_DISTFILES:M*\:jawiki_latest_pages_articles_multistream_index:C@\:title@@} . && \
 		${BZCAT} ../../../mozcdic-ut-*/mozcdic-ut-*.txt.bz2 > mozcdic-ut.txt && \
 		${PYTHON_CMD} merge_dictionaries.py mozcdic-ut.txt && \
 		${CAT} mozcdic-ut.txt \
