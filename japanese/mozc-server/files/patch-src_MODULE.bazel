@@ -26,7 +26,7 @@
      ],
  )
  
-@@ -276,20 +279,19 @@ SHA256_ZIP_CODE_KEN_ALL = None
+@@ -276,20 +279,20 @@ SHA256_ZIP_CODE_KEN_ALL = None
  # SHA256_ZIP_CODE_KEN_ALL = "e5a32c0199ebc890ea5c48c06fd817a168b26d68ce1c3a86ba0ae1cdf6c2d1c4"
  SHA256_ZIP_CODE_KEN_ALL = None
  
@@ -51,4 +51,5 @@
 -    url = "https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip",
 +    path = "third_party",
  )
++
 +register_toolchains("@bazel_tools//tools/python:autodetecting_toolchain")
