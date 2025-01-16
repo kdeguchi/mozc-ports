@@ -1,3 +1,5 @@
+MASTER_SITES+=	https://github.com/abseil/abseil-cpp/releases/download/20240722.0/:abseil_cpp
+DISTFILES+=	abseil-cpp-20240722.0.tar.gz:abseil_cpp
 MASTER_SITES+=	https://github.com/bazelbuild/apple_support/releases/download/1.16.0/:apple_support
 DISTFILES+=	apple_support.1.16.0.tar.gz:apple_support
 MASTER_SITES+=	https://github.com/bazel-contrib/bazel_features/releases/download/v1.21.0/:bazel_features
