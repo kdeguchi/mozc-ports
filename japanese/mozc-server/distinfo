@@ -1,4 +1,4 @@
-TIMESTAMP = 1737012849
+TIMESTAMP = 1737116259
 SHA256 (mozc/abseil-cpp-20240722.0.tar.gz) = f50e5ac311a81382da7fa75b97310e4b9006474f9560ac46f54a9967f07d4ae3
 SIZE (mozc/abseil-cpp-20240722.0.tar.gz) = 2242861
 SHA256 (mozc/apple_support.1.16.0.tar.gz) = c31ce8e531b50ef1338392ee29dd3db3689668701ec3237b9c61e26a1937ab07
@@ -57,8 +57,8 @@ SHA256 (mozc/jigyosyo.zip) = 0e62af72f56a3039409dc105057051df0e374c2e373a2a06817
 SIZE (mozc/jigyosyo.zip) = 773907
 SHA256 (mozc/jawiki-latest-pages-articles-multistream-index.txt.bz2) = 3cb690b2faf073d0e5c5c158ebc4757a6d794071926b775871d9ee8eb4060bb8
 SIZE (mozc/jawiki-latest-pages-articles-multistream-index.txt.bz2) = 29616630
-SHA256 (mozc/fcitx-mozc-2.30.5618.102-3214ae6_GH0.tar.gz) = 4a2dcd1ff630f6786cb855bd3fae4e712e81e631611ae7faa451fdf296da12c3
-SIZE (mozc/fcitx-mozc-2.30.5618.102-3214ae6_GH0.tar.gz) = 28352380
+SHA256 (mozc/fcitx-mozc-2.31.5712.102-9dc8247_GH0.tar.gz) = d144c1b344de8e3751ee0d0ff350974d7d828c65c918fd49b4a58730cb380974
+SIZE (mozc/fcitx-mozc-2.31.5712.102-9dc8247_GH0.tar.gz) = 28352489
 SHA256 (mozc/google-googletest-b514bdc_GH0.tar.gz) = dcefc4adaca27f89b69371eadef42c4d311d2debfdee2a9a5985cae740463f98
 SIZE (mozc/google-googletest-b514bdc_GH0.tar.gz) = 872710
 SHA256 (mozc/protocolbuffers-protobuf-796e49f6ca82f763d1087d2ff7355d2f0d7b71b1_GH0.tar.gz) = 14a8b7c98eef64082d5d413c9f2304ffc598f7219649518f2c0ea33cdca5b95f
