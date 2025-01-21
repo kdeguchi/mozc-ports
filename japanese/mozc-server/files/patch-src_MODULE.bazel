@@ -1,6 +1,6 @@
---- src/MODULE.bazel.orig	2025-01-16 04:39:27 UTC
+--- src/MODULE.bazel.orig	2025-01-21 06:39:26 UTC
 +++ src/MODULE.bazel
-@@ -138,11 +138,13 @@ pkg_config_repository(
+@@ -155,11 +155,13 @@ pkg_config_repository(
  )
  
  # Fcitx
@@ -18,7 +18,7 @@
  )
  
  # Fcitx 5
-@@ -161,6 +163,7 @@ pkg_config_repository(
+@@ -178,6 +180,7 @@ pkg_config_repository(
          "Qt6Core",
          "Qt6Gui",
          "Qt6Widgets",
@@ -26,7 +26,7 @@
      ],
  )
  
-@@ -279,16 +282,16 @@ http_archive(
+@@ -296,16 +299,16 @@ http_archive(
  )
  
  # Zip code (2025-01-12)

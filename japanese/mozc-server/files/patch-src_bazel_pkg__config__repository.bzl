@@ -1,4 +1,4 @@
---- src/bazel/pkg_config_repository.bzl.orig	2024-10-30 16:54:27 UTC
+--- src/bazel/pkg_config_repository.bzl.orig	2025-01-21 06:39:26 UTC
 +++ src/bazel/pkg_config_repository.bzl
 @@ -71,6 +71,9 @@ cc_library(
      linkopts = [
@@ -28,7 +28,8 @@
      data = {
          # In bzlmod, repo_ctx.attr.name has a prefix like "_main~_repo_rules~ibus".
          # Note also that Bazel 8.0+ uses "+" instead of "~".
-@@ -119,6 +133,7 @@ def _pkg_config_repository_impl(repo_ctx):
+@@ -118,7 +132,8 @@ def _pkg_config_repository_impl(repo_ctx):
+         "hdrs": _make_strlist([item + "/**" for item in includes]),
          "copts": _make_strlist(_exec_pkg_config(repo_ctx, ["--cflags-only-other"])),
          "includes": _make_strlist(includes),
 -        "linkopts": _make_strlist(_exec_pkg_config(repo_ctx, ["--libs-only-l"])),
