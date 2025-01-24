@@ -39,7 +39,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.8+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:8af51f8
+GH_TUPLE=	fcitx:mozc:c0ed34e
 #GH_TUPLE+=	abseil:abseil-cpp:4447c75:abseil/src/third_party/abseil-cpp
 GH_TUPLE+=	google:googletest:b514bdc:googletest/src/third_party/gtest
 GH_TUPLE+=	protocolbuffers:protobuf:796e49f6ca82f763d1087d2ff7355d2f0d7b71b1:protobuf/src/third_party/protobuf
@@ -109,7 +109,7 @@ JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:342b9b0:jawiki
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:5221f96:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:f10af20:personal
 
 # APCHE20
 PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:9789d69:place
