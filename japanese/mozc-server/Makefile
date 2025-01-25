@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.31.5712.102
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -39,7 +39,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.8+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:c0ed34e
+GH_TUPLE=	fcitx:mozc:8f998f8
 #GH_TUPLE+=	abseil:abseil-cpp:4447c75:abseil/src/third_party/abseil-cpp
 GH_TUPLE+=	google:googletest:b514bdc:googletest/src/third_party/gtest
 GH_TUPLE+=	protocolbuffers:protobuf:796e49f6ca82f763d1087d2ff7355d2f0d7b71b1:protobuf/src/third_party/protobuf
@@ -645,7 +645,7 @@ bazel-modules: configure
 renew-makesum:
 	@for url in `${MAKE} fetch-url-list | ${GREP} -v 'FreeBSD\.org'`; do \
 		case $${url} in \
-		*${UTDIC_DISTFILES:M*\:title:C@\:title@@}) urls="$${urls} $${url}" ;; \
+		*${UTDIC_DISTFILES:M*\:jawiki_latest_pages_articles_multistream_index:C@\:jawiki_latest_pages_articles_multistream_index@@}) urls="$${urls} $${url}" ;; \
 		*${DISTFILES:M*\:kenall:C@\:kenall@@}) urls="$${urls} $${url}" ;; \
 		*${DISTFILES:M*\:jigyosyo:C@\:jigyosyo@@}) urls="$${urls} $${url}" ;; \
 		*) continue ;; \
