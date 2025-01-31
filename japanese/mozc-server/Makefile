@@ -72,6 +72,8 @@ BAZEL_WRKSRC=	${WRKSRC}/src
 
 .if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
 
+PORTREVISION=	6
+
 PKGNAMEPREFIX=	ja-
 PKGNAMESUFFIX=	-server
 
