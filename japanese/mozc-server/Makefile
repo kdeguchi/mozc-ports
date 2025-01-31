@@ -118,7 +118,7 @@ PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:9789d69:place
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:c52cdb1:skkjisyo
 
 # APACHE20
-SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:3eb0a18:sudachi
+SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:170e370:sudachi
 
 # APACHE20 multi
 UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:e8b1255:ut
