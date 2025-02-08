@@ -72,7 +72,7 @@ BAZEL_WRKSRC=	${WRKSRC}/src
 
 .if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
 
-PORTREVISION=	9
+PORTREVISION=	10
 
 PKGNAMEPREFIX=	ja-
 PKGNAMESUFFIX=	-server
@@ -114,7 +114,7 @@ NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:13b99a6:personal
 
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:9789d69:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:a02b663:place
 
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:c52cdb1:skkjisyo
