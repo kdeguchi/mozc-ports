@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.31.5712.102
-PORTREVISION=	8
+PORTREVISION=	9
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -9,11 +9,11 @@ DIST_SUBDIR=	${PORTNAME}
 EXTRACT_ONLY=	${_DISTFILES:Mabseil-*} \
 		${_DISTFILES:Me-kato-*} \
 		${_DISTFILES:Mfcitx-*} \
-		${_DISTFILES:Mgoogle-*} \
+		${_DISTFILES:Mgoogle*} \
 		${_DISTFILES:Mhiroyuki-komatsu-*} \
 		${_DISTFILES:Mjigyosyo*} \
 		${_DISTFILES:Mken_all*} \
-		${_DISTFILES:Mprotocolbuffers-*} \
+		${_DISTFILES:Mprotobuf-*} \
 		${_DISTFILES:Mutuhiro78-*}
 
 MAINTAINER=	kdeguchi@sz.tokoha-u.ac.jp
@@ -39,10 +39,10 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.8+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:fb00f36
-#GH_TUPLE+=	abseil:abseil-cpp:4447c75:abseil/src/third_party/abseil-cpp
-GH_TUPLE+=	google:googletest:b514bdc:googletest/src/third_party/gtest
-GH_TUPLE+=	protocolbuffers:protobuf:796e49f6ca82f763d1087d2ff7355d2f0d7b71b1:protobuf/src/third_party/protobuf
+GH_TUPLE=	fcitx:mozc:36648ed
+#GH_TUPLE+=	abseil:abseil-cpp:20250127.0:abseil/src/third_party/abseil-cpp
+#GH_TUPLE+=	google:googletest:v1.16.0:googletest/src/third_party/gtest
+#GH_TUPLE+=	protocolbuffers:protobuf:v29.3:protobuf/src/third_party/protobuf
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -72,7 +72,7 @@ BAZEL_WRKSRC=	${WRKSRC}/src
 
 .if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
 
-PORTREVISION=	10
+PORTREVISION=	11
 
 PKGNAMEPREFIX=	ja-
 PKGNAMESUFFIX=	-server
@@ -105,13 +105,13 @@ ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:bf26bcb:altcannadic
 
 # CC-BY-SA-4.0
 EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:863c224:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:ed72fe6:jawiki
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:f39c3b5:jawiki
 
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:13b99a6:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:987989e:personal
 
 # APCHE20
 PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:a02b663:place
@@ -176,6 +176,8 @@ post-extract:
 .if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
 	@${CP} -a ${WRKDIR}/*.CSV ${BAZEL_WRKSRC}/third_party
 	@${CP} -a ${WRKDIR}/abseil-cpp*/ ${BAZEL_WRKSRC}/third_party/abseil-cpp/
+	@${CP} -a ${WRKDIR}/googletest*/ ${BAZEL_WRKSRC}/third_party/gtest/
+	@${CP} -a ${WRKDIR}/protobuf*/ ${BAZEL_WRKSRC}/third_party/protobuf/
 .endif
 
 post-patch:
