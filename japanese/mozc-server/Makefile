@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.31.5712.102
-PORTREVISION=	10
+PORTREVISION=	11
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -39,7 +39,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.8+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:b9a30c9
+GH_TUPLE=	fcitx:mozc:8ed09cd
 #GH_TUPLE+=	abseil:abseil-cpp:20250127.0:abseil/src/third_party/abseil-cpp
 #GH_TUPLE+=	google:googletest:v1.16.0:googletest/src/third_party/gtest
 #GH_TUPLE+=	protocolbuffers:protobuf:v29.3:protobuf/src/third_party/protobuf
@@ -72,7 +72,7 @@ BAZEL_WRKSRC=	${WRKSRC}/src
 
 .if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
 
-PORTREVISION=	12
+PORTREVISION=	13
 
 PKGNAMEPREFIX=	ja-
 PKGNAMESUFFIX=	-server
@@ -196,6 +196,8 @@ post-patch:
 			-e 's,^#ifdef __linux__$$,#if defined(__linux__) || defined(__FreeBSD__),;' \
 			-e 's,^#ifdef __linux$$,#if defined(__linux__) || defined(__FreeBSD__),;' \
 			-e 's,ByteSize\(,ByteSizeLong\(,g;' {} \;
+	@${CP} ${PATCHDIR}/extra-patch-rules_buf+_buf_internal_toolchain.bzl \
+		${BAZEL_WRKSRC}/rules_buf.patch
 
 .if ${BUILD_MOZC_LIST:Mfcitx_mozc} == "fcitx_mozc"
 	${REINPLACE_CMD} 's,/po/mo},%po}mo,g' \
