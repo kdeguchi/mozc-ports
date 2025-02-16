@@ -1,5 +1,5 @@
 PORTNAME=	bazel
-DISTVERSION=	8.0.0
+DISTVERSION=	8.1.0
 CATEGORIES=	devel java
 MASTER_SITES=	https://github.com/bazelbuild/${PORTNAME}/releases/download/${DISTVERSION}/
 DISTNAME=	bazel-${DISTVERSION}-dist
