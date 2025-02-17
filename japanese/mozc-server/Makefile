@@ -643,9 +643,12 @@ bazel-modules: configure
 		${AWK} -F / ' / urls = / { \
 			sub(/.* urls = \["/, ""); sub(/"\],/, ""); \
 			group=$$5; gsub(/-/, "_", group); \
-			printf( "MASTER_SITES+=\t%s/%s/%s/%s/%s/%s/%s/%s/:%s\n", \
-				$$1, $$2, $$3, $$4, $$5, $$6, $$7, $$8, group ); \
-			printf( "DISTFILES+=\t%s:%s\n", $$9, group ); \
+			if ( $$8 ~ /^[[:alnum:]].*/ ) \
+				printf( "MASTER_SITES+=\t%s/%s/%s/%s/%s/%s/%s/%s/:%s\nDISTFILES+=\t%s:%s\n", \
+					$$1, $$2, $$3, $$4, $$5, $$6, $$7, $$8, group, $$9, group ); \
+			else \
+				printf( "MASTER_SITES+=\t%s/%s/%s/%s/%s/%s/:%s\nDISTFILES+=\t%s:%s\n", \
+					$$1, $$2, $$3, $$4, $$5, $$6, group, $$7, group ); \
 			} ' > ${MASTERDIR}/Makefile.MASTER_SITES
 
 # Create new distinfo: `make renew-makesum`
