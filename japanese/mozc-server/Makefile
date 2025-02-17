@@ -173,11 +173,11 @@ _CCTYPE=	gcc
 .include <bsd.port.pre.mk>
 
 post-extract:
-.if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
-	@${CP} -a ${WRKDIR}/*.CSV ${BAZEL_WRKSRC}/third_party
 	@${CP} -a ${WRKDIR}/abseil-cpp*/ ${BAZEL_WRKSRC}/third_party/abseil-cpp/
 	@${CP} -a ${WRKDIR}/googletest*/ ${BAZEL_WRKSRC}/third_party/gtest/
 	@${CP} -a ${WRKDIR}/protobuf*/ ${BAZEL_WRKSRC}/third_party/protobuf/
+.if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
+	@${CP} -a ${WRKDIR}/*.CSV ${BAZEL_WRKSRC}/third_party
 .endif
 
 post-patch:
