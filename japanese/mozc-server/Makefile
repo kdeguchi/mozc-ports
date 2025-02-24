@@ -196,9 +196,9 @@ post-patch:
 			-e 's,^#ifdef __linux__$$,#if defined(__linux__) || defined(__FreeBSD__),;' \
 			-e 's,^#ifdef __linux$$,#if defined(__linux__) || defined(__FreeBSD__),;' \
 			-e 's,ByteSize\(,ByteSizeLong\(,g;' {} \;
-	@${CP} ${PATCHDIR}/extra-patch-rules_buf+_buf_internal_toolchain.bzl \
+	@${CP} ${PATCHDIR}/extra-patch-rules__buf+_buf_internal_toolchain.bzl \
 		${BAZEL_WRKSRC}/rules_buf.patch
-	@${CP} ${PATCHDIR}/extra-patch-rules_rust+_rust_platform_triple.bzl \
+	@${CP} ${PATCHDIR}/extra-patch-rules__rust+_rust_platform_triple.bzl \
 		${BAZEL_WRKSRC}/rules_rust.patch
 
 .if ${BUILD_MOZC_LIST:Mfcitx_mozc} == "fcitx_mozc"
