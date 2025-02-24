@@ -1,6 +1,6 @@
 PKGNAMEPREFIX=	ja-fcitx5-
 
-COMMENT=	Mozc engine for Fcitx
+COMMENT=	Mozc engine for Fcitx5
 
 DATADIR=	${PREFIX}/share/fcitx5/${PORTNAME}
 
