@@ -72,7 +72,7 @@ BAZEL_WRKSRC=	${WRKSRC}/src
 
 .if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
 
-PORTREVISION=	17
+PORTREVISION=	18
 
 PKGNAMEPREFIX=	ja-
 PKGNAMESUFFIX=	-server
@@ -105,16 +105,16 @@ ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:bf26bcb:altcannadic
 
 # CC-BY-SA-4.0
 EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:863c224:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:f39c3b5:jawiki
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:8c2e6fe:jawiki
 
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:987989e:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:d11384b:personal
 
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:a02b663:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:dcd8b86:place
 
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:c52cdb1:skkjisyo
