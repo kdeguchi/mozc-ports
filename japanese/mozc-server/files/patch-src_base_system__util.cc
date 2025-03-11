@@ -1,6 +1,6 @@
---- src/base/system_util.cc.orig	2023-07-19 07:02:33 UTC
+--- src/base/system_util.cc.orig	2025-03-10 03:54:24 UTC
 +++ src/base/system_util.cc
-@@ -499,11 +499,15 @@ std::string SystemUtil::GetUserNameAsString() {
+@@ -526,11 +526,15 @@ std::string SystemUtil::GetUserNameAsString() {
    DCHECK_NE(FALSE, result);
    return win32::WideToUtf8(wusername);
  #else   // _WIN32
