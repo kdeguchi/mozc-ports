@@ -10,7 +10,6 @@ EXTRACT_ONLY=	${_DISTFILES:Mabseil-*} \
 		${_DISTFILES:Me-kato-*} \
 		${_DISTFILES:Mfcitx-*} \
 		${_DISTFILES:Mgoogle*} \
-		${_DISTFILES:Mhiroyuki-komatsu-*} \
 		${_DISTFILES:Mjigyosyo*} \
 		${_DISTFILES:Mken_all*} \
 		${_DISTFILES:Mprotobuf-*} \
@@ -81,7 +80,8 @@ MASTER_SITES+=	https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/:kenall \
 DISTFILES+=	ken_all.zip:kenall \
 		jigyosyo.zip:jigyosyo
 # usage dictionary
-GH_TUPLE+=	hiroyuki-komatsu:japanese-usage-dictionary:38d3462:udic/src/third_party/japanese_usage_dictionary
+MASTER_SITES+=	https://github.com/hiroyuki-komatsu/japanese-usage-dictionary/archive/refs/tags/:udic
+DISTFILES+=	2025-01-25.tar.gz:udic
 
 OPTIONS_DEFINE=	UTDIC
 OPTIONS_MULTI=	UTDIC
