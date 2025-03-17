@@ -1,9 +1,9 @@
---- src/MODULE.bazel.orig	2025-03-13 17:24:24 UTC
+--- src/MODULE.bazel.orig	2025-03-14 17:54:27 UTC
 +++ src/MODULE.bazel
-@@ -142,15 +142,11 @@ new_local_repository = use_repo_rule(
+@@ -138,21 +138,22 @@ new_local_repository = use_repo_rule(
  )
  
- # Japanese Usage Dictionary
+ # Japanese Usage Dictionary (2025-01-25)
 -bazel_dep(
 +new_local_repository(
      name = "ja_usage_dict",
@@ -11,15 +11,28 @@
 +    build_file = "@//bazel:BUILD.ja_usage_dict.bazel",
 +    path = "third_party/japanese_usage_dictionary",
  )
--git_override(
+ 
+-JA_USAGE_DICT_TAG = "2025-01-25"
++#JA_USAGE_DICT_TAG = "2025-01-25"
+ 
+ # archive_override is used instead of git_override because bazelisk fetch does not work with
+ # git_repository used by git_override. See: https://github.com/bazelbuild/bazel/issues/5116
+-archive_override(
 -    module_name = "ja_usage_dict",
--    remote = "https://github.com/hiroyuki-komatsu/japanese-usage-dictionary",
--    tag = "2025-01-25",
+-    sha256 = "140f24f71f7d78d5eb5b93a9c079f44f23728dca5ab16bf857fe8a3fa1bf20ed",
+-    strip_prefix = "japanese-usage-dictionary-%s" % JA_USAGE_DICT_TAG,
+-    url = "https://github.com/hiroyuki-komatsu/japanese-usage-dictionary/archive/refs/tags/%s.zip" % JA_USAGE_DICT_TAG,
 -)
++#archive_override(
++#    module_name = "ja_usage_dict",
++#    sha256 = "140f24f71f7d78d5eb5b93a9c079f44f23728dca5ab16bf857fe8a3fa1bf20ed",
++#    strip_prefix = "japanese-usage-dictionary-%s" % JA_USAGE_DICT_TAG,
++#    url = "https://github.com/hiroyuki-komatsu/japanese-usage-dictionary/archive/refs/tags/%s.zip" % JA_USAGE_DICT_TAG,
++#)
  
  # Windows Implementation Library (WIL)
  # https://github.com/microsoft/wil/
-@@ -176,11 +172,13 @@ pkg_config_repository(
+@@ -178,11 +179,13 @@ pkg_config_repository(
  )
  
  # Fcitx
@@ -37,7 +50,7 @@
  )
  
  # Fcitx 5
-@@ -199,6 +197,7 @@ pkg_config_repository(
+@@ -201,6 +204,7 @@ pkg_config_repository(
          "Qt6Core",
          "Qt6Gui",
          "Qt6Widgets",
@@ -45,7 +58,7 @@
      ],
  )
  
-@@ -322,16 +321,30 @@ http_archive(
+@@ -324,16 +328,30 @@ http_archive(
  # The data files are mirror of the following files.
  # * https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip
  # * https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip
