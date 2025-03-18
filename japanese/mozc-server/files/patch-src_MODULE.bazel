@@ -1,6 +1,6 @@
---- src/MODULE.bazel.orig	2025-03-14 17:54:27 UTC
+--- src/MODULE.bazel.orig	2025-03-18 01:39:27 UTC
 +++ src/MODULE.bazel
-@@ -138,21 +138,22 @@ new_local_repository = use_repo_rule(
+@@ -125,21 +125,22 @@ new_local_repository = use_repo_rule(
  )
  
  # Japanese Usage Dictionary (2025-01-25)
@@ -32,7 +32,7 @@
  
  # Windows Implementation Library (WIL)
  # https://github.com/microsoft/wil/
-@@ -178,11 +179,13 @@ pkg_config_repository(
+@@ -165,11 +166,13 @@ pkg_config_repository(
  )
  
  # Fcitx
@@ -50,7 +50,7 @@
  )
  
  # Fcitx 5
-@@ -201,6 +204,7 @@ pkg_config_repository(
+@@ -188,6 +191,7 @@ pkg_config_repository(
          "Qt6Core",
          "Qt6Gui",
          "Qt6Widgets",
@@ -58,7 +58,7 @@
      ],
  )
  
-@@ -324,16 +328,30 @@ http_archive(
+@@ -311,16 +315,30 @@ http_archive(
  # The data files are mirror of the following files.
  # * https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip
  # * https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip
