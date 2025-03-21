@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.31.5712.102
-PORTREVISION=	27
+PORTREVISION=	28
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -39,7 +39,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.8+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:7342dd8
+GH_TUPLE=	fcitx:mozc:1eae728
 #GH_TUPLE+=	abseil:abseil-cpp:20250127.0:abseil/src/third_party/abseil-cpp
 #GH_TUPLE+=	google:googletest:v1.16.0:googletest/src/third_party/gtest
 #GH_TUPLE+=	protocolbuffers:protobuf:v29.3:protobuf/src/third_party/protobuf
@@ -102,14 +102,14 @@ UTDIC_DESC=		Additional UT Dictionary
 ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:bf26bcb:altcannadic
 
 # CC-BY-SA-4.0
-EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:863c224:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:8c2e6fe:jawiki
+EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:663f3ad:edict2
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:091f2fe:jawiki
 
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:d11384b:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:b34b3ed:personal
 
 # APCHE20
 PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:dcd8b86:place
