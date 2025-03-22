@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.31.5712.102
-PORTREVISION=	28
+PORTREVISION=	29
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -39,7 +39,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.8+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:1eae728
+GH_TUPLE=	fcitx:mozc:0ad8a98
 #GH_TUPLE+=	abseil:abseil-cpp:20250127.0:abseil/src/third_party/abseil-cpp
 #GH_TUPLE+=	google:googletest:v1.16.0:googletest/src/third_party/gtest
 #GH_TUPLE+=	protocolbuffers:protobuf:v29.3:protobuf/src/third_party/protobuf
@@ -510,6 +510,7 @@ PLIST_FILES+=	lib/fcitx5/fcitx5-mozc.so \
 		share/locale/ko/LC_MESSAGES/fcitx5-mozc.mo \
 		share/locale/ru/LC_MESSAGES/fcitx5-mozc.mo \
 		share/locale/tr/LC_MESSAGES/fcitx5-mozc.mo \
+		share/locale/vi/LC_MESSAGES/fcitx5-mozc.mo \
 		share/locale/zh_CN/LC_MESSAGES/fcitx5-mozc.mo \
 		share/locale/zh_TW/LC_MESSAGES/fcitx5-mozc.mo \
 		share/metainfo/org.fcitx.Fcitx5.Addon.Mozc.metainfo.xml
