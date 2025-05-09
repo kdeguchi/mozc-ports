@@ -1,5 +1,6 @@
 # Attention!
-Due to changes in the UNIX Domain Socket in FreeBSD 15.0-CURRENT at https://github.com/freebsd/freebsd-src/commit/d15792780760ef94647af9b377b5f0a80e1826bc mozc does not work well; update is not recommended if you are using FreeBSD CURRENT.
+Due to changes in the UNIX Domain Socket in FreeBSD 15.0-CURRENT at https://github.com/freebsd/freebsd-src/commit/d15792780760ef94647af9b377b5f0a80e1826bc mozc does not work well.
+Update is not recommended if you are using FreeBSD CURRENT.
 
 # Latest version mozc ports for FreeBSD
 
