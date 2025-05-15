@@ -1,4 +1,4 @@
-TIMESTAMP = 1747205394
+TIMESTAMP = 1747290553
 SHA256 (mozc/abseil-cpp-20250127.0.tar.gz) = 16242f394245627e508ec6bb296b433c90f8d914f73b9c026fddb905e27276e8
 SIZE (mozc/abseil-cpp-20250127.0.tar.gz) = 2267275
 SHA256 (mozc/apple_support.1.16.0.tar.gz) = c31ce8e531b50ef1338392ee29dd3db3689668701ec3237b9c61e26a1937ab07
@@ -31,8 +31,8 @@ SHA256 (mozc/rules_cc-0.0.17.tar.gz) = abc605dd850f813bb37004b77db20106a19311a96
 SIZE (mozc/rules_cc-0.0.17.tar.gz) = 178823
 SHA256 (mozc/rules_fuzzing-0.5.2.zip) = e6bc219bfac9e1f83b327dd090f728a9f973ee99b9b5d8e5a184a2732ef08623
 SIZE (mozc/rules_fuzzing-0.5.2.zip) = 131113
-SHA256 (mozc/rules_java-8.6.1.tar.gz) = c5bc17e17bb62290b1fd8fdd847a2396d3459f337a7e07da7769b869b488ec26
-SIZE (mozc/rules_java-8.6.1.tar.gz) = 104565
+SHA256 (mozc/rules_java-8.11.0.tar.gz) = d31b6c69e479ffa45460b64dc9c7792a431cac721ef8d5219fc9f603fa2ff877
+SIZE (mozc/rules_java-8.11.0.tar.gz) = 109868
 SHA256 (mozc/rules_jvm_external-6.3.tar.gz) = c18a69d784bcd851be95897ca0eca0b57dc86bb02e62402f15736df44160eb02
 SIZE (mozc/rules_jvm_external-6.3.tar.gz) = 4726402
 SHA256 (mozc/rules_kotlin-v1.9.6.tar.gz) = 3b772976fec7bdcda1d84b9d39b176589424c047eb2175bed09aac630e50af43
