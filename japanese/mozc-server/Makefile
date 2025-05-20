@@ -128,6 +128,7 @@ UTDIC_DISTFILES=	jawiki-latest-pages-articles-multistream-index.txt.bz2:jawiki_l
 .elif ${BUILD_MOZC_LIST:Mmozc_tool} == "mozc_tool"
 
 BUILD_DEPENDS+=	libglvnd>0:graphics/libglvnd
+
 USES+=		qt:6
 USE_LOCALE=	C.UTF-8
 USE_QT=		base
@@ -138,11 +139,9 @@ BUILD_DEPENDS+=	libglvnd>0:graphics/libglvnd
 LIB_DEPENDS+=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2
 
-USES+=		gettext-runtime gnome xorg
+USES+=		gettext-runtime gnome qt:6 xorg
 USE_XORG=	xcb
 USE_GNOME=	cairo gdkpixbuf glib20 gtk20
-
-USES+=		qt:6
 USE_LOCALE=	C.UTF-8
 USE_QT=		base
 
