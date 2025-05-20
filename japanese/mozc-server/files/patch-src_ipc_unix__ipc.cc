@@ -51,7 +51,7 @@
                     server_address);
 +#if defined(__FreeBSD__)
 +    address.sun_len = SUN_LEN(&address);
-+    const size_t sun_len = sizeof(address);
++    const size_t sun_len = address.sun_len;
 +#else
      const size_t sun_len = sizeof(address.sun_family) + server_address_length;
 +#endif
@@ -64,7 +64,7 @@
                 sizeof(on));
 +#if defined(__FreeBSD__)
 +  addr.sun_len = SUN_LEN(&addr);
-+  const size_t sun_len = sizeof(addr);
++  const size_t sun_len = addr.sun_len;
 +#else
    const size_t sun_len = sizeof(addr.sun_family) + server_address_.size();
 +#endif
