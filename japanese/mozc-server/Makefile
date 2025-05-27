@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.31.5810.102
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -36,10 +36,10 @@ BUILD_DEPENDS=	bazel:devel/bazel8 \
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
 USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
-	python:3.8+,build shebangfix tar:bzip2
+	python:3.9+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:6dacc30
+GH_TUPLE=	fcitx:mozc:5721ed5
 #GH_TUPLE+=	abseil:abseil-cpp:20250127.0:abseil/src/third_party/abseil-cpp
 #GH_TUPLE+=	google:googletest:v1.16.0:googletest/src/third_party/gtest
 #GH_TUPLE+=	protocolbuffers:protobuf:v29.3:protobuf/src/third_party/protobuf
