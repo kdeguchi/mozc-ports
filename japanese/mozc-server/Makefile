@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.31.5810.102
-PORTREVISION=	9
+PORTREVISION=	10
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -39,7 +39,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.9+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:0582800
+GH_TUPLE=	fcitx:mozc:034aee6
 #GH_TUPLE+=	abseil:abseil-cpp:20250127.0:abseil/src/third_party/abseil-cpp
 #GH_TUPLE+=	google:googletest:v1.16.0:googletest/src/third_party/gtest
 #GH_TUPLE+=	protocolbuffers:protobuf:v29.3:protobuf/src/third_party/protobuf
@@ -102,26 +102,26 @@ UTDIC_DESC=		Additional UT Dictionary
 ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:bf26bcb:altcannadic
 
 # CC-BY-SA-4.0
-EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:663f3ad:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:091f2fe:jawiki
+EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:b43932b:edict2
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:55242e7:jawiki
 
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:b34b3ed:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:f9e05d2:personal
 
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:dcd8b86:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:e762f9a:place
 
 # APACHE20 GPLv2
-SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:c52cdb1:skkjisyo
+SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 
 # APACHE20
-SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:170e370:sudachi
+SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:d1afebf:sudachi
 
 # APACHE20 multi
-UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:e8b1255:ut
+UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:e3200d9:ut
 UTDIC_MASTER_SITES=	https://dumps.wikimedia.org/jawiki/latest/:jawiki_latest_pages_articles_multistream_index
 UTDIC_DISTFILES=	jawiki-latest-pages-articles-multistream-index.txt.bz2:jawiki_latest_pages_articles_multistream_index
 
