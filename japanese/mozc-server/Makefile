@@ -1,5 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.31.5851.102
+PORTREVISION=	1
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -102,7 +103,7 @@ ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:bf26bcb:altcannadic
 
 # CC-BY-SA-4.0
 EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:b43932b:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:55242e7:jawiki
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:1f79374:jawiki
 
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
@@ -111,7 +112,7 @@ NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:f9e05d2:personal
 
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:e762f9a:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:2d942f3:place
 
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
