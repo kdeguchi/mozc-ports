@@ -82,16 +82,16 @@
 +
 +register_toolchains("@bazel_tools//tools/python:autodetecting_toolchain")
 +
-+#single_version_override(
-+#    module_name = "rules_buf",
-+#    patches = [
-+#      "//:rules_buf.patch",
-+#    ],
-+#)
++single_version_override(
++    module_name = "rules_buf",
++    patches = [
++      "//:rules_buf.patch",
++    ],
++)
 +
-+#single_version_override(
-+#    module_name = "rules_rust",
-+#    patches = [
-+#      "//:rules_rust.patch",
-+#    ],
-+#)
++single_version_override(
++    module_name = "rules_rust",
++    patches = [
++      "//:rules_rust.patch",
++    ],
++)
