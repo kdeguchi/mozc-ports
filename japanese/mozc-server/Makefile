@@ -31,8 +31,7 @@ LICENSE_DISTFILES_NAISTL=	${DISTNAME}${EXTRACT_SUFX}
 
 FETCH_DEPENDS=	git:devel/git
 PATCH_DEPENDS=	${PYTHON_CMD}:${PYTHON_PORTSDIR}
-BUILD_DEPENDS=	bazel:devel/bazel8 \
-		python3:lang/python3
+BUILD_DEPENDS=	bazel:devel/bazel8
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
 USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
@@ -46,6 +45,8 @@ GH_TUPLE=	fcitx:mozc:963c63f
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
+
+BINARY_ALIAS=	python3=${PYTHON_CMD}
 
 BUILD_MOZC_LIST?=	mozc_server
 
@@ -66,7 +67,7 @@ BAZEL_BOOT=	--output_base=${WRKDIR}/bazel-out-base \
 BAZEL_COMMON_OPTS=	--distdir=${DISTDIR}/${DIST_SUBDIR} \
 		--registry="file://${BAZEL_BCR_LOCAL}"
 
-BAZEL_ENV=	--action_env=PATH=${JAVA_HOME}/bin:${PATH}
+BAZEL_ENV=	--action_env=PATH=${BINARY_LINKDIR}:${JAVA_HOME}/bin:${PATH}
 
 BAZEL_WRKSRC=	${WRKSRC}/src
 
