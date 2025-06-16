@@ -31,8 +31,7 @@ LICENSE_DISTFILES_NAISTL=	${DISTNAME}${EXTRACT_SUFX}
 
 FETCH_DEPENDS=	git:devel/git
 PATCH_DEPENDS=	${PYTHON_CMD}:${PYTHON_PORTSDIR}
-BUILD_DEPENDS=	bazel:devel/bazel8 \
-		python3:lang/python3
+BUILD_DEPENDS=	bazel:devel/bazel8
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
 USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
@@ -47,26 +46,35 @@ GH_TUPLE=	fcitx:mozc:963c63f
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
 
+BINARY_ALIAS=	python3=${PYTHON_CMD}
+
 BUILD_MOZC_LIST?=	mozc_server
 
-BUILD_MOZC_CMD=	bazel ${BAZEL_BOOT} --server_javabase=${JAVA_HOME} \
-		build ${BAZEL_ENV} ${BAZEL_COMMON_OPTS} \
-		-c opt --copt=-fPIC --host_linkopt=-lm \
-		--cxxopt=-Wno-uninitialized --host_cxxopt=-Wno-uninitialized \
-		--verbose_failures --sandbox_debug \
+BUILD_MOZC_CMD=	bazel ${BAZEL_BOOT} build \
+		${BAZEL_COMMON_OPTS} \
+		--action_env=PATH=${JAVA_HOME}/bin:${PATH} \
+		--host_action_env=PATH=${JAVA_HOME}/bin:${PATH} \
+		--action_env=TMPDIR=${WRKDIR}/bazel_tmp \
+		--host_action_env=TMPDIR=${WRKDIR}/bazel_tmp \
+		-c opt --copt=-fPIC \
+		--linkopt=-lm --host_linkopt=-lm \
+		--cxxopt=-Wno-uninitialized \
+		--host_cxxopt=-Wno-uninitialized \
+		--verbose_failures \
+		--sandbox_debug \
+		--java_language_version=${JAVA_VERSION} \
 		--tool_java_language_version=${JAVA_VERSION} \
-		--config oss_linux --define server=1
+		--config oss_linux \
+		--define server=1
 
 BAZEL_BCR_LOCAL=	${DISTDIR}/bazel-central-registry
 BAZEL_BCR_URL=	https://github.com/bazelbuild/bazel-central-registry.git
 
-BAZEL_BOOT=	--output_base=${WRKDIR}/bazel-out-base \
-		--output_user_root=${WRKDIR}/bazel-out-user
+BAZEL_BOOT=	--output_base=${WRKDIR}/bazel_base \
+		--output_user_root=${WRKDIR}/bazel_user_root
 
 BAZEL_COMMON_OPTS=	--distdir=${DISTDIR}/${DIST_SUBDIR} \
 		--registry="file://${BAZEL_BCR_LOCAL}"
-
-BAZEL_ENV=	--action_env=PATH=${JAVA_HOME}/bin:${PATH}
 
 BAZEL_WRKSRC=	${WRKSRC}/src
 
@@ -246,6 +254,7 @@ post-patch-mozc_server:
 post-patch: post-patch-mozc_server
 
 do-build-mozc_server:
+	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC} && \
 		${BUILD_MOZC_CMD} //server:mozc_server
 
@@ -268,6 +277,7 @@ PLIST_FILES+=	libexec/mozc_tool \
 SUB_FILES+=	mozc_tool
 
 do-build-mozc_tool:
+	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC} && \
 		${BUILD_MOZC_CMD} //gui/tool:mozc_tool
 
@@ -316,6 +326,7 @@ post-patch-ibus_mozc:
 post-patch: post-patch-ibus_mozc
 
 do-build-ibus_mozc:
+	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC} && \
 		${BUILD_MOZC_CMD} //unix/ibus:ibus_mozc \
 			//unix/ibus:gen_mozc_xml \
@@ -386,6 +397,7 @@ post-patch-uim_mozc:
 post-patch: post-patch-uim_mozc
 
 do-build-uim_mozc:
+	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC}&& \
 		${BUILD_MOZC_CMD} //unix/uim:uim-mozc
 
@@ -443,6 +455,7 @@ PLIST_FILES+=	lib/fcitx/fcitx-mozc.so \
 PLIST_DIRS+=	%%DATADIR%%/icon ${DATADIR_REL}
 
 do-build-fcitx_mozc:
+	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC} && \
 		${BUILD_MOZC_CMD} //unix/fcitx:fcitx-mozc.so
 	cd ${BAZEL_WRKSRC}/unix/fcitx && ${SH} gen_fcitx_mozc_i18n.sh ./po
@@ -515,6 +528,7 @@ PLIST_FILES+=	lib/fcitx5/fcitx5-mozc.so \
 		share/metainfo/org.fcitx.Fcitx5.Addon.Mozc.metainfo.xml
 
 do-build-fcitx5_mozc:
+	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC} && \
 		${BUILD_MOZC_CMD} //unix/fcitx5:fcitx5-mozc.so; \
 		msgfmt --xml -d unix/fcitx5/po/ \
@@ -582,6 +596,7 @@ post-patch-mozc_el:
 post-patch: post-patch-mozc_el
 
 do-build-mozc_el:
+	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC} && \
 		${BUILD_MOZC_CMD} //unix/emacs:mozc_emacs_helper
 	cd ${BAZEL_WRKSRC}/unix/emacs && \
