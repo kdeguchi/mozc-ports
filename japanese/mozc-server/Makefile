@@ -31,7 +31,8 @@ LICENSE_DISTFILES_NAISTL=	${DISTNAME}${EXTRACT_SUFX}
 
 FETCH_DEPENDS=	git:devel/git
 PATCH_DEPENDS=	${PYTHON_CMD}:${PYTHON_PORTSDIR}
-BUILD_DEPENDS=	bazel:devel/bazel8
+BUILD_DEPENDS=	bash:shells/bash \
+		bazel:devel/bazel8
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
 USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
