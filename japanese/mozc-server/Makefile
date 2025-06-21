@@ -53,6 +53,10 @@ BUILD_MOZC_LIST?=	mozc_server
 
 BUILD_MOZC_CMD=	bazel ${BAZEL_BOOT} build \
 		${BAZEL_COMMON_OPTS} \
+		--action_env=PATH=${JAVA_HOME}/bin:${PATH} \
+		--host_action_env=PATH=${JAVA_HOME}/bin:${PATH} \
+		--action_env=TMPDIR=${WRKDIR}/bazel_tmp \
+		--host_action_env=TMPDIR=${WRKDIR}/bazel_tmp \
 		-c opt --copt=-fPIC \
 		--cxxopt=-Wno-uninitialized \
 		--host_cxxopt=-Wno-uninitialized \
@@ -72,11 +76,7 @@ BAZEL_BOOT=	\
 		--output_user_root=${WRKDIR}/bazel_user_root
 
 BAZEL_COMMON_OPTS=	\
-		--action_env=PATH=${JAVA_HOME}/bin:${PATH} \
-		--host_action_env=PATH=${JAVA_HOME}/bin:${PATH} \
-		--action_env=TMPDIR=${WRKDIR}/bazel_tmp \
 		--distdir=${DISTDIR}/${DIST_SUBDIR} \
-		--host_action_env=TMPDIR=${WRKDIR}/bazel_tmp \
 		--registry="file://${BAZEL_BCR_LOCAL}"
 
 BAZEL_WRKSRC=	${WRKSRC}/src
