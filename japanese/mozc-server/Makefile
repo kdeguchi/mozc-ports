@@ -53,28 +53,30 @@ BUILD_MOZC_LIST?=	mozc_server
 
 BUILD_MOZC_CMD=	bazel ${BAZEL_BOOT} build \
 		${BAZEL_COMMON_OPTS} \
-		--action_env=PATH=${JAVA_HOME}/bin:${PATH} \
-		--host_action_env=PATH=${JAVA_HOME}/bin:${PATH} \
-		--action_env=TMPDIR=${WRKDIR}/bazel_tmp \
-		--host_action_env=TMPDIR=${WRKDIR}/bazel_tmp \
 		-c opt --copt=-fPIC \
-		--linkopt=-lm --host_linkopt=-lm \
 		--cxxopt=-Wno-uninitialized \
 		--host_cxxopt=-Wno-uninitialized \
-		--verbose_failures \
-		--sandbox_debug \
+		--linkopt=-lm --host_linkopt=-lm \
 		--java_language_version=${JAVA_VERSION} \
 		--tool_java_language_version=${JAVA_VERSION} \
+		--sandbox_debug \
+		--verbose_failures \
 		--config oss_linux \
 		--define server=1
 
 BAZEL_BCR_LOCAL=	${DISTDIR}/bazel-central-registry
 BAZEL_BCR_URL=	https://github.com/bazelbuild/bazel-central-registry.git
 
-BAZEL_BOOT=	--output_base=${WRKDIR}/bazel_base \
+BAZEL_BOOT=	\
+		--output_base=${WRKDIR}/bazel_base \
 		--output_user_root=${WRKDIR}/bazel_user_root
 
-BAZEL_COMMON_OPTS=	--distdir=${DISTDIR}/${DIST_SUBDIR} \
+BAZEL_COMMON_OPTS=	\
+		--action_env=PATH=${JAVA_HOME}/bin:${PATH} \
+		--host_action_env=PATH=${JAVA_HOME}/bin:${PATH} \
+		--action_env=TMPDIR=${WRKDIR}/bazel_tmp \
+		--distdir=${DISTDIR}/${DIST_SUBDIR} \
+		--host_action_env=TMPDIR=${WRKDIR}/bazel_tmp \
 		--registry="file://${BAZEL_BCR_LOCAL}"
 
 BAZEL_WRKSRC=	${WRKSRC}/src
