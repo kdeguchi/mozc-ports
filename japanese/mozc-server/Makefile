@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.31.5851.102
-PORTREVISION?=	7
+PORTREVISION?=	9
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -39,7 +39,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.9+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:963c63f
+GH_TUPLE=	fcitx:mozc:6a2e6e2
 #GH_TUPLE+=	abseil:abseil-cpp:20250127.0:abseil/src/third_party/abseil-cpp
 #GH_TUPLE+=	google:googletest:v1.16.0:googletest/src/third_party/gtest
 #GH_TUPLE+=	protocolbuffers:protobuf:v29.3:protobuf/src/third_party/protobuf
@@ -83,8 +83,6 @@ BAZEL_WRKSRC=	${WRKSRC}/src
 
 .if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
 
-PORTREVISION=	8
-
 PKGNAMEPREFIX=	ja-
 PKGNAMESUFFIX=	-server
 
@@ -113,26 +111,19 @@ UTDIC_DESC=		Additional UT Dictionary
 
 # GPLv2
 ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:bf26bcb:altcannadic
-
 # CC-BY-SA-4.0
-EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:b43932b:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:1f79374:jawiki
-
+EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:73a707b:edict2
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:a608f0d:jawiki
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
-
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:f9e05d2:personal
-
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:cc5ecdd:personal
 # APCHE20
 PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:2d942f3:place
-
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
-
 # APACHE20
 SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:d1afebf:sudachi
-
 # APACHE20 multi
 UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:e3200d9:ut
 UTDIC_MASTER_SITES=	https://dumps.wikimedia.org/jawiki/latest/:jawiki_latest_pages_articles_multistream_index
