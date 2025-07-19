@@ -1,38 +1,6 @@
---- src/MODULE.bazel.orig	2025-07-03 14:24:27 UTC
+--- src/MODULE.bazel.orig	2025-07-18 17:09:27 UTC
 +++ src/MODULE.bazel
-@@ -179,21 +179,22 @@ new_local_repository = use_repo_rule(
- )
- 
- # Japanese Usage Dictionary (2025-01-25)
--bazel_dep(
-+new_local_repository(
-     name = "ja_usage_dict",
--    repo_name = "ja_usage_dict",
-+    build_file = "@//bazel:BUILD.ja_usage_dict.bazel",
-+    path = "third_party/japanese_usage_dictionary",
- )
- 
--JA_USAGE_DICT_TAG = "2025-01-25"
-+#JA_USAGE_DICT_TAG = "2025-01-25"
- 
- # archive_override is used instead of git_override because bazelisk fetch does not work with
- # git_repository used by git_override. See: https://github.com/bazelbuild/bazel/issues/5116
--archive_override(
--    module_name = "ja_usage_dict",
--    sha256 = "140f24f71f7d78d5eb5b93a9c079f44f23728dca5ab16bf857fe8a3fa1bf20ed",
--    strip_prefix = "japanese-usage-dictionary-%s" % JA_USAGE_DICT_TAG,
--    url = "https://github.com/hiroyuki-komatsu/japanese-usage-dictionary/archive/refs/tags/%s.zip" % JA_USAGE_DICT_TAG,
--)
-+#archive_override(
-+#    module_name = "ja_usage_dict",
-+#    sha256 = "140f24f71f7d78d5eb5b93a9c079f44f23728dca5ab16bf857fe8a3fa1bf20ed",
-+#    strip_prefix = "japanese-usage-dictionary-%s" % JA_USAGE_DICT_TAG,
-+#    url = "https://github.com/hiroyuki-komatsu/japanese-usage-dictionary/archive/refs/tags/%s.zip" % JA_USAGE_DICT_TAG,
-+#)
- 
- pkg_config_repository = use_repo_rule(
-     "@//bazel:pkg_config_repository.bzl",
-@@ -211,11 +212,13 @@ pkg_config_repository(
+@@ -185,11 +185,13 @@ pkg_config_repository(
  )
  
  # Fcitx
@@ -50,7 +18,7 @@
  )
  
  # Fcitx 5
-@@ -234,6 +237,7 @@ pkg_config_repository(
+@@ -208,6 +210,7 @@ pkg_config_repository(
          "Qt6Core",
          "Qt6Gui",
          "Qt6Widgets",
@@ -58,7 +26,24 @@
      ],
  )
  
-@@ -367,16 +371,30 @@ http_archive(
+@@ -340,12 +343,11 @@ http_archive(
+ )
+ 
+ # Japanese Usage Dictionary (2025-01-25)
+-JA_USAGE_DICT_TAG = "2025-01-25"
+-http_archive(
++#JA_USAGE_DICT_TAG = "2025-01-25"
++new_local_repository(
+     name = "ja_usage_dict",
+-    sha256 = "140f24f71f7d78d5eb5b93a9c079f44f23728dca5ab16bf857fe8a3fa1bf20ed",
+-    strip_prefix = "japanese-usage-dictionary-%s" % JA_USAGE_DICT_TAG,
+-    url = "https://github.com/hiroyuki-komatsu/japanese-usage-dictionary/archive/refs/tags/%s.zip" % JA_USAGE_DICT_TAG,
++    build_file = "@//bazel:BUILD.ja_usage_dict.bazel",
++    path = "third_party/japanese_usage_dictionary",
+ )
+ 
+ # Zip code (2025-03-08, 6ece210081fb73d0ea4a5ea8e13ac9584d03fd76)
+@@ -354,16 +356,30 @@ http_archive(
  # The data files are mirror of the following files.
  # * https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip
  # * https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip
