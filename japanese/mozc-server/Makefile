@@ -1,19 +1,16 @@
 PORTNAME=	mozc
 PORTVERSION=	2.31.5851.102
-PORTREVISION?=	16
+PORTREVISION?=	17
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
 .include "Makefile.MASTER_SITES"
 
-EXTRACT_ONLY=	${_DISTFILES:Mabseil-*} \
-		${_DISTFILES:Me-kato-*} \
+EXTRACT_ONLY=	${_DISTFILES:Me-kato-*} \
 		${_DISTFILES:Mfcitx-*} \
-		${_DISTFILES:Mgoogle*} \
 		${_DISTFILES:Mhiroyuki-komatsu-*} \
 		${_DISTFILES:Mjigyosyo*} \
 		${_DISTFILES:Mken_all*} \
-		${_DISTFILES:Mprotobuf-*} \
 		${_DISTFILES:Mutuhiro78-*}
 
 MAINTAINER=	kdeguchi@sz.tokoha-u.ac.jp
@@ -39,10 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.9+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:c7dac6a
-#GH_TUPLE+=	abseil:abseil-cpp:20250127.0:abseil/src/third_party/abseil-cpp
-#GH_TUPLE+=	google:googletest:v1.16.0:googletest/src/third_party/gtest
-#GH_TUPLE+=	protocolbuffers:protobuf:v29.3:protobuf/src/third_party/protobuf
+GH_TUPLE=	fcitx:mozc:c31295a
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -173,14 +167,6 @@ _CCTYPE=	gcc
 
 .include <bsd.port.pre.mk>
 
-post-extract:
-	@${CP} -a ${WRKDIR}/abseil-cpp*/ ${BAZEL_WRKSRC}/third_party/abseil-cpp/
-	@${CP} -a ${WRKDIR}/googletest*/ ${BAZEL_WRKSRC}/third_party/gtest/
-	@${CP} -a ${WRKDIR}/protobuf*/ ${BAZEL_WRKSRC}/third_party/protobuf/
-.if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
-	@${CP} -a ${WRKDIR}/*.CSV ${BAZEL_WRKSRC}/third_party
-.endif
-
 post-patch:
 	@${FIND} ${BAZEL_WRKSRC} -type f -not -path '*/third_party/*' \
 		\( -name 'BUILD' -o -name '*.bzl' -o -name '*.cc' -o -name '*.h' \) \
@@ -233,6 +219,9 @@ PLIST_FILES+=	bin/mozc \
 		libexec/mozc_server
 SUB_FILES+=	mozc
 
+post-extract-mozc_server:
+	@${CP} -a ${WRKDIR}/*.CSV ${BAZEL_WRKSRC}/third_party
+
 post-patch-mozc_server:
 .if ${PORT_OPTIONS:MUTDIC}
 	@${ECHO_MSG} "===> Creating mozcdic-ut.txt for UT Dictionary. It takes a long time!"
@@ -246,6 +235,8 @@ post-patch-mozc_server:
 		${CAT} mozcdic-ut.txt \
 			>> ${BAZEL_WRKSRC}/data/dictionary_oss/dictionary00.txt
 .endif
+
+post-extract: post-extract-mozc_server
 
 post-patch: post-patch-mozc_server
 
