@@ -1,6 +1,6 @@
---- src/MODULE.bazel.orig	2025-07-23 14:09:24 UTC
+--- src/MODULE.bazel.orig	2025-07-24 09:24:27 UTC
 +++ src/MODULE.bazel
-@@ -192,11 +192,13 @@ pkg_config_repository(
+@@ -200,11 +200,13 @@ pkg_config_repository(
  )
  
  # Fcitx
@@ -18,7 +18,7 @@
  )
  
  # Fcitx 5
-@@ -215,6 +217,7 @@ pkg_config_repository(
+@@ -223,6 +225,7 @@ pkg_config_repository(
          "Qt6Core",
          "Qt6Gui",
          "Qt6Widgets",
@@ -26,7 +26,7 @@
      ],
  )
  
-@@ -347,13 +350,12 @@ http_archive(
+@@ -355,13 +358,12 @@ http_archive(
  )
  
  # Japanese Usage Dictionary (2025-01-25)
@@ -44,7 +44,7 @@
  )
  
  # Zip code (2025-06-28, 21c6fb3cbc125e4408a8c2715beb1fbfcf03a442)
-@@ -362,16 +364,30 @@ http_archive(
+@@ -370,16 +372,30 @@ http_archive(
  # The data files are mirror of the following files.
  # * https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip
  # * https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip
