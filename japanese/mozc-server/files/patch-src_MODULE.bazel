@@ -1,6 +1,6 @@
---- src/MODULE.bazel.orig	2025-07-18 17:09:27 UTC
+--- src/MODULE.bazel.orig	2025-07-23 14:09:24 UTC
 +++ src/MODULE.bazel
-@@ -185,11 +185,13 @@ pkg_config_repository(
+@@ -192,11 +192,13 @@ pkg_config_repository(
  )
  
  # Fcitx
@@ -18,7 +18,7 @@
  )
  
  # Fcitx 5
-@@ -208,6 +210,7 @@ pkg_config_repository(
+@@ -215,6 +217,7 @@ pkg_config_repository(
          "Qt6Core",
          "Qt6Gui",
          "Qt6Widgets",
@@ -26,7 +26,7 @@
      ],
  )
  
-@@ -340,13 +343,12 @@ http_archive(
+@@ -347,13 +350,12 @@ http_archive(
  )
  
  # Japanese Usage Dictionary (2025-01-25)
@@ -43,8 +43,8 @@
 +    path = "third_party/japanese_usage_dictionary",
  )
  
- # Zip code (2025-03-08, 6ece210081fb73d0ea4a5ea8e13ac9584d03fd76)
-@@ -355,16 +357,30 @@ http_archive(
+ # Zip code (2025-06-28, 21c6fb3cbc125e4408a8c2715beb1fbfcf03a442)
+@@ -362,16 +364,30 @@ http_archive(
  # The data files are mirror of the following files.
  # * https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip
  # * https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip
@@ -52,8 +52,8 @@
 +new_local_repository(
      name = "zip_code_ken_all",
      build_file_content = "exports_files([\"KEN_ALL.CSV\"])",
--    sha256 = "296cfa57f2012c0226afbc64e9e8575fc36285d2fa31d725a176548cd173b3df",
--    url = "https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/6ece210081fb73d0ea4a5ea8e13ac9584d03fd76/ken_all.zip",
+-    sha256 = "9cd7a9235d1869a94f4019a201d61172a0fc633f1957922c3ec23ac7bf75becf",
+-    url = "https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/21c6fb3cbc125e4408a8c2715beb1fbfcf03a442/ken_all.zip",
 +    path = "third_party",
  )
  
@@ -61,8 +61,8 @@
 +new_local_repository(
      name = "zip_code_jigyosyo",
      build_file_content = "exports_files([\"JIGYOSYO.CSV\"])",
--    sha256 = "1c56e79ff4c7f709778e0bf4dfbffdf939efd170845feccae986d22cf4373988",
--    url = "https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/6ece210081fb73d0ea4a5ea8e13ac9584d03fd76/jigyosyo.zip",
+-    sha256 = "f390501cbfe143921a939884178e5b33ca246181803d814e5f58676c19e91a6c",
+-    url = "https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/21c6fb3cbc125e4408a8c2715beb1fbfcf03a442/jigyosyo.zip",
 +    path = "third_party",
  )
 +
