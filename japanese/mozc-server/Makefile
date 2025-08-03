@@ -111,9 +111,9 @@ JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:53f0a88:jawiki
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:1b1ca42:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:a158662:personal
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:1df0af2:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:fcc0e06:place
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 # APACHE20
