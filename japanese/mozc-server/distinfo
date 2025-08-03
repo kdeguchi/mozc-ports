@@ -1,4 +1,4 @@
-TIMESTAMP = 1754263498
+TIMESTAMP = 1754263615
 SHA256 (mozc/abseil-cpp-20250512.0.tar.gz) = 7262daa7c1711406248c10f41026d685e88223bc92817d16fb93c19adb57f669
 SIZE (mozc/abseil-cpp-20250512.0.tar.gz) = 2221435
 SHA256 (mozc/apple_support.1.22.0.tar.gz) = b265beacfa477081caaf2bd05978ee7d11fdb8c202a1b76d0ef28d901d1e7b33
@@ -65,8 +65,8 @@ SHA256 (mozc/hiroyuki-komatsu-japanese-usage-dictionary-38d3462_GH0.tar.gz) = 87
 SIZE (mozc/hiroyuki-komatsu-japanese-usage-dictionary-38d3462_GH0.tar.gz) = 72005
 SHA256 (mozc/utuhiro78-mozcdic-ut-alt-cannadic-bf26bcb_GH0.tar.gz) = a6dce2569d5ad91dd0d26b43192a854aaddab6593920745a07dbb6a2c67e66d1
 SIZE (mozc/utuhiro78-mozcdic-ut-alt-cannadic-bf26bcb_GH0.tar.gz) = 1344248
-SHA256 (mozc/utuhiro78-mozcdic-ut-edict2-73a707b_GH0.tar.gz) = 7d96689990242b6062a5efee1ca2a2570bb96780f48e012bd838445b93b4e0db
-SIZE (mozc/utuhiro78-mozcdic-ut-edict2-73a707b_GH0.tar.gz) = 1396714
+SHA256 (mozc/utuhiro78-mozcdic-ut-edict2-6154f05_GH0.tar.gz) = 098f781a0e8c90874fca9a119dc0893b54c3abe31c0b89cfb063005115cc025a
+SIZE (mozc/utuhiro78-mozcdic-ut-edict2-6154f05_GH0.tar.gz) = 1399065
 SHA256 (mozc/utuhiro78-mozcdic-ut-jawiki-53f0a88_GH0.tar.gz) = e7ea59fb77c7e31e962318de299d866210285c452f6f5a2d4af43e42d31ebd04
 SIZE (mozc/utuhiro78-mozcdic-ut-jawiki-53f0a88_GH0.tar.gz) = 11776644
 SHA256 (mozc/utuhiro78-mozcdic-ut-neologd-e33ac4c_GH0.tar.gz) = 200545285d4108b1af85496bdbd2ecd0138ac6a14e14833e1cfa28fe932b7675

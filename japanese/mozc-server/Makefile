@@ -106,7 +106,7 @@ UTDIC_DESC=		Additional UT Dictionary
 # GPLv2
 ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:bf26bcb:altcannadic
 # CC-BY-SA-4.0
-EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:73a707b:edict2
+EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:6154f05:edict2
 JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:53f0a88:jawiki
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
