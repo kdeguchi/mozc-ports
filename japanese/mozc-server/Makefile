@@ -77,7 +77,6 @@ BAZEL_WRKSRC=	${WRKSRC}/src
 
 .if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
 
-PKGNAMEPREFIX=	ja-
 PKGNAMESUFFIX=	-server
 
 # zip code
@@ -204,15 +203,25 @@ post-patch:
 
 .if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server" || make(makesum)
 
-.if ${PORT_OPTIONS:MNEOLOGD} || ${PORT_OPTIONS:MPERSONALNAME} || \
-	${PORT_OPTIONS:MPLACENAME}
+#utuhiro78-merge-ut-dictionaries-e3200d9_GH0.tar.gz:ut
+
+.if ${PORT_OPTIONS:MUTDIC} || ${PORT_OPTIONS:MNEOLOGD} || \
+	${PORT_OPTIONS:MPERSONALNAME} || ${PORT_OPTIONS:MPLACENAME}
 LICENSE+=	APACHE20
+LICENSE_DISTFILES_APACHE20=	${DISTFILES:M*\:ut:C@\:ut@@} \
+		${DISTFILES:M*\:neologd:C@\:neologd@@} \
+		${DISTFILES:M*\:personal:C@\:personal@@} \
+		${DISTFILES:M*\:place:C@\:place@@}
 .endif
 .if ${PORT_OPTIONS:MEDICT2} || ${PORT_OPTIONS:MJAWIKI}
 LICENSE+=	CC-BY-SA-4.0
+LICENSE_DISTFILES_CC-BY-SA-4.0=	${DISTFILES:M*\:edict2:C@\:edict2@@} \
+		${DISTFILES:M*\:jawiki:C@\:jawiki@@}
 .endif
 .if ${PORT_OPTIONS:MALTCANNADIC} || ${PORT_OPTIONS:MSKKJISYO}
 LICENSE+=	GPLv2
+LICENSE_DISTFILES_GPLv2=	${DISTFILES:M*\:altcannadic:C@\:altcannadic@@} \
+		${DISTFILES:M*\:skkjisyo:C@\:skkjisyo@@}
 .endif
 
 PLIST_FILES+=	bin/mozc \
