@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 PORTVERSION=	2.31.5851.102
-PORTREVISION?=	25
+PORTREVISION?=	26
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -36,7 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.9+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:21681c4
+GH_TUPLE=	fcitx:mozc:d8b4c55
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -661,6 +661,7 @@ bazel-modules: configure
 				printf( "MASTER_SITES+=\t%s/%s/%s/%s/%s/%s/:%s\nDISTFILES+=\t%s:%s\n", \
 					$$1, $$2, $$3, $$4, $$5, $$6, group, $$7, group ); \
 			} ' > ${MASTERDIR}/Makefile.MASTER_SITES
+	@${MAKE} renew-makesum
 
 # Create new distinfo: `make renew-makesum`
 renew-makesum:
