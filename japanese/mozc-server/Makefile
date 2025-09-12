@@ -36,7 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.9+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:d3f511d
+GH_TUPLE=	fcitx:mozc:925c48e
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -513,6 +513,7 @@ PLIST_FILES+=	lib/fcitx5/fcitx5-mozc.so \
 		share/locale/ca/LC_MESSAGES/fcitx5-mozc.mo \
 		share/locale/da/LC_MESSAGES/fcitx5-mozc.mo \
 		share/locale/de/LC_MESSAGES/fcitx5-mozc.mo \
+		share/locale/fr/LC_MESSAGES/fcitx5-mozc.mo \
 		share/locale/he/LC_MESSAGES/fcitx5-mozc.mo \
 		share/locale/ja/LC_MESSAGES/fcitx5-mozc.mo \
 		share/locale/ko/LC_MESSAGES/fcitx5-mozc.mo \
