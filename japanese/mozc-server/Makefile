@@ -105,12 +105,12 @@ UTDIC_DESC=		Additional UT Dictionary
 # GPLv2
 ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:69d40ee:altcannadic
 # CC-BY-SA-4.0
-EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:6154f05:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:e6a4817:jawiki
+EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:4f82fc1:edict2
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:2031f4a:jawiki
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:e3d540f:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:d0ad47d:personal
 # APCHE20
 PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:d22bca4:place
 # APACHE20 GPLv2
@@ -118,7 +118,7 @@ SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 # APACHE20
 SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:7e95138:sudachi
 # APACHE20 multi
-UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:e3200d9:ut
+UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:ceaf433:ut
 UTDIC_MASTER_SITES=	https://dumps.wikimedia.org/jawiki/latest/:jawiki_latest_pages_articles_multistream_index
 UTDIC_DISTFILES=	jawiki-latest-pages-articles-multistream-index.txt.bz2:jawiki_latest_pages_articles_multistream_index
 
