@@ -1,4 +1,4 @@
-TIMESTAMP = 1759280018
+TIMESTAMP = 1759397254
 SHA256 (mozc/abseil-cpp-20250814.0.tar.gz) = 9b2b72d4e8367c0b843fa2bcfa2b08debbe3cee34f7aaa27de55a6cbb3e843db
 SIZE (mozc/abseil-cpp-20250814.0.tar.gz) = 2235497
 SHA256 (mozc/apple_support.1.23.1.tar.gz) = ee20cc5c0bab47065473c8033d462374dd38d172406ecc8de5c8f08487943f2f
@@ -57,8 +57,8 @@ SHA256 (mozc/ken_all.zip) = eb23a75724f1f16d1a87899bf66d5d94ae0bb0ce1807bcacc2df
 SIZE (mozc/ken_all.zip) = 1694691
 SHA256 (mozc/jigyosyo.zip) = 865bcba2da2f94d3e14fdd306a5937999e8f4e2683ce804fc53253df907910f6
 SIZE (mozc/jigyosyo.zip) = 803779
-SHA256 (mozc/jawiki-latest-pages-articles-multistream-index.txt.bz2) = b0343132875dc27daddd3d59ff49da81f6e0499443230b0a731caa9faf57547f
-SIZE (mozc/jawiki-latest-pages-articles-multistream-index.txt.bz2) = 30360499
+SHA256 (mozc/jawiki-latest-pages-articles-multistream-index.txt.bz2) = 167a8c545318f45519cff0cd90321314e11d841aea067ffcce39731d90d8c368
+SIZE (mozc/jawiki-latest-pages-articles-multistream-index.txt.bz2) = 30394621
 SHA256 (mozc/fcitx-mozc-2.31.5851.102-d1a070e_GH0.tar.gz) = 59cb171b0e5a3957f2940a1b5c81bc0ba96a238f76cd70da0ef9f6a01eed559a
 SIZE (mozc/fcitx-mozc-2.31.5851.102-d1a070e_GH0.tar.gz) = 28367083
 SHA256 (mozc/hiroyuki-komatsu-japanese-usage-dictionary-38d3462_GH0.tar.gz) = 87f2a3ff0483e932aab6ac995530ff28929b15a6b0cc0d89c6d44449771f8d89
