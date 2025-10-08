@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 DISTVERSION=	2.31.5851.102
-PORTREVISION?=	28
+PORTREVISION?=	29
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -36,7 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.9+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:d1a070e
+GH_TUPLE=	fcitx:mozc:20ac5be
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -106,19 +106,19 @@ UTDIC_DESC=		Additional UT Dictionary
 ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:69d40ee:altcannadic
 # CC-BY-SA-4.0
 EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:4f82fc1:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:2031f4a:jawiki
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:95d6e3d:jawiki
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 # APACHE20
 PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:d0ad47d:personal
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:d22bca4:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:5d91fc6:place
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 # APACHE20
 SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:7e95138:sudachi
 # APACHE20 multi
-UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:ceaf433:ut
+UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:e173cd1:ut
 UTDIC_MASTER_SITES=	https://dumps.wikimedia.org/jawiki/latest/:jawiki_latest_pages_articles_multistream_index
 UTDIC_DISTFILES=	jawiki-latest-pages-articles-multistream-index.txt.bz2:jawiki_latest_pages_articles_multistream_index
 
@@ -629,7 +629,7 @@ fetch-bcr:
 	cd ${DISTDIR} && git clone ${BAZEL_BCR_URL} ${BAZEL_BCR_LOCAL}
 .else
 . if make(fetch)
-	cd ${BAZEL_BCR_LOCAL} && ( git pull 2> /dev/null || exit 0 )
+	cd ${BAZEL_BCR_LOCAL} && git restore . && ( git pull 2> /dev/null || exit 0 )
 . endif
 .endif
 
