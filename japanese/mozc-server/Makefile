@@ -629,7 +629,9 @@ fetch-bcr:
 	cd ${DISTDIR} && git clone ${BAZEL_BCR_URL} ${BAZEL_BCR_LOCAL}
 .else
 . if make(fetch)
+.  if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
 	cd ${BAZEL_BCR_LOCAL} && git restore . && ( git pull 2> /dev/null || exit 0 )
+.  endif
 . endif
 .endif
 
