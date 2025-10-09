@@ -1,6 +1,6 @@
 PORTNAME=	mozc
-DISTVERSION=	2.31.5851.102
-PORTREVISION?=	29
+DISTVERSION=	2.32.5981.102
+PORTREVISION?=	0
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -36,7 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.9+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:20ac5be
+GH_TUPLE=	fcitx:mozc:29e2b95
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -630,7 +630,7 @@ fetch-bcr:
 .else
 . if make(fetch)
 .  if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
-	cd ${BAZEL_BCR_LOCAL} && git restore . && ( git pull 2> /dev/null || exit 0 )
+	cd ${BAZEL_BCR_LOCAL} && ( git restore . && git pull ) || exit 0
 .  endif
 . endif
 .endif
