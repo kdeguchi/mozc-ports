@@ -1,11 +1,11 @@
 PORTNAME=	bazel
-DISTVERSION=	8.4.0
+DISTVERSION=	8.4.2
 CATEGORIES=	devel java
 MASTER_SITES=	https://github.com/bazelbuild/${PORTNAME}/releases/download/${DISTVERSION}/
 PKGNAMESUFFIX=8
 DISTNAME=	bazel-${DISTVERSION}-dist
 
-PATCH_SITES=	https://github.com/bazelbuild/bazel/commit/
+PR340817440YPPATCH_SITES=	https://github.com/bazelbuild/bazel/commit0
 PATCHFILES=	a55aca5.patch:-p1
 
 MAINTAINER=	vishwin@FreeBSD.org
