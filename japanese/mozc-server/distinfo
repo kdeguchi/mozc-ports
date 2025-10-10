@@ -1,4 +1,4 @@
-TIMESTAMP = 1760053337
+TIMESTAMP = 1760064217
 SHA256 (mozc/abseil-cpp-20250814.0.tar.gz) = 9b2b72d4e8367c0b843fa2bcfa2b08debbe3cee34f7aaa27de55a6cbb3e843db
 SIZE (mozc/abseil-cpp-20250814.0.tar.gz) = 2235497
 SHA256 (mozc/apple_support.1.23.1.tar.gz) = ee20cc5c0bab47065473c8033d462374dd38d172406ecc8de5c8f08487943f2f
@@ -77,8 +77,8 @@ SHA256 (mozc/utuhiro78-mozcdic-ut-place-names-5d91fc6_GH0.tar.gz) = 04298ebe05a0
 SIZE (mozc/utuhiro78-mozcdic-ut-place-names-5d91fc6_GH0.tar.gz) = 1740094
 SHA256 (mozc/utuhiro78-mozcdic-ut-skk-jisyo-384ad92_GH0.tar.gz) = e2ff16c895165de355e9c41f01b0d9c113b12eae859062d2551a6e507c53de66
 SIZE (mozc/utuhiro78-mozcdic-ut-skk-jisyo-384ad92_GH0.tar.gz) = 1172259
-SHA256 (mozc/utuhiro78-mozcdic-ut-sudachidict-7e95138_GH0.tar.gz) = 29c4ec9f4bf91cfce00bf1badce57bdb71cf2585d49b2db024a9dd0705530593
-SIZE (mozc/utuhiro78-mozcdic-ut-sudachidict-7e95138_GH0.tar.gz) = 12016685
+SHA256 (mozc/utuhiro78-mozcdic-ut-sudachidict-662ef19_GH0.tar.gz) = ccbe70d2785e617fde335cdfacc74049667a50347a23d0c8c4f939178682833e
+SIZE (mozc/utuhiro78-mozcdic-ut-sudachidict-662ef19_GH0.tar.gz) = 11467786
 SHA256 (mozc/utuhiro78-merge-ut-dictionaries-e173cd1_GH0.tar.gz) = a5f9098fec459d93a9a2ca59fcdcde4d5c0130131c7ad203a962c420abcdb901
 SIZE (mozc/utuhiro78-merge-ut-dictionaries-e173cd1_GH0.tar.gz) = 32158
 SHA256 (mozc/e-kato-macuim-7beac7b_GH0.tar.gz) = 9241ae481bc15c07ab128f73fc3259c092daea1eec81ae83865ed727a4df336e
