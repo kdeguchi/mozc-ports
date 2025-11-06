@@ -5,8 +5,10 @@ MASTER_SITES=	https://github.com/bazelbuild/${PORTNAME}/releases/download/${DIST
 PKGNAMESUFFIX=	8
 DISTNAME=	bazel-${DISTVERSION}-dist
 
-PR340817440YPPATCH_SITES=	https://github.com/bazelbuild/bazel/commit0
-PATCHFILES=	a55aca5.patch:-p1
+# TODO remove after these commits land in a release
+PATCH_SITES=	https://github.com/bazelbuild/bazel/commit/
+PATCHFILES=	a55aca5.patch:-p1 \
+		00f76ea.patch:-p1
 
 MAINTAINER=	vishwin@FreeBSD.org
 COMMENT=	Fast and correct build system
