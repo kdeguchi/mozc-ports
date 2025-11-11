@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 DISTVERSION=	2.32.5994.102
-PORTREVISION?=	0
+PORTREVISION?=	1
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -36,7 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.9+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:7cd777d
+GH_TUPLE=	fcitx:mozc:1bb7509
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -116,9 +116,9 @@ PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:b10b5c2:place
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 # APACHE20
-SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:662ef19:sudachi
+SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:33f9835:sudachi
 # APACHE20 multi
-UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:e173cd1:ut
+UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:05942c4:ut
 UTDIC_MASTER_SITES=	https://dumps.wikimedia.org/jawiki/latest/:jawiki_latest_pages_articles_multistream_index
 UTDIC_DISTFILES=	jawiki-latest-pages-articles-multistream-index.txt.bz2:jawiki_latest_pages_articles_multistream_index
 
