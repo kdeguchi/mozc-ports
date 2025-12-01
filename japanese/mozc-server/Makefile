@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 DISTVERSION=	2.32.5994.102
-PORTREVISION?=	3
+PORTREVISION?=	4
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -36,7 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.9+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:c7b52d8
+GH_TUPLE=	fcitx:mozc:a02a284
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
