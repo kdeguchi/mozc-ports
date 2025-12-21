@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 DISTVERSION=	2.32.5994.102
-PORTREVISION?=	4
+PORTREVISION?=	5
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -36,7 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.9+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:a02a284
+GH_TUPLE=	fcitx:mozc:d531818
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -110,9 +110,9 @@ JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:0f601b2:jawiki
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:48423ea:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:a64659b:personal
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:b10b5c2:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:2748c88:place
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 # APACHE20
