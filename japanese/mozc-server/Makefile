@@ -1,5 +1,5 @@
 PORTNAME=	mozc
-DISTVERSION=	2.32.5994.2
+DISTVERSION=	3.33.6079.2
 PORTREVISION?=	0
 CATEGORIES=	japanese
 
@@ -33,10 +33,10 @@ BUILD_DEPENDS=	bash:shells/bash \
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
 USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
-	python:3.9+,build shebangfix tar:bzip2
+	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:ff5f9ce
+GH_TUPLE=	fcitx:mozc:02c2c7d
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
