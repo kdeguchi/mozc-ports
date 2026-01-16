@@ -1,5 +1,5 @@
 PORTNAME=	bazel
-DISTVERSION=	8.4.2
+DISTVERSION=	8.5.1
 CATEGORIES=	devel java
 MASTER_SITES=	https://github.com/bazelbuild/${PORTNAME}/releases/download/${DISTVERSION}/
 PKGNAMESUFFIX=	8
@@ -22,7 +22,7 @@ NOT_FOR_ARCHS=	i386
 BUILD_DEPENDS=	bash:shells/bash \
 		zip:archivers/zip
 
-USES=		cpe compiler:c++17-lang java python:3.9+ shebangfix zip
+USES=		cpe compiler:c++17-lang java python:3.10+ shebangfix zip
 CPE_VENDOR=	google
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
