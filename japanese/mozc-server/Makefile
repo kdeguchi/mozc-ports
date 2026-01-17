@@ -388,6 +388,8 @@ post-extract: post-extract-uim_mozc
 post-patch-uim_mozc:
 	${REINPLACE_CMD} -e "s,/usr/lib/mozc,${LOCALBASE}/libexec," \
 		${WRKSRC_MU}/Mozc/scm/mozc-custom.scm
+	${REINPLACE_CMD} -e "s,SWITCH_INPUT_MODE,SWITCH_COMPOSITION_MODE,g" \
+		${BAZEL_WRKSRC}/unix/uim/mozc.cc
 	${HEAD} --lines 32 ${BAZEL_WRKSRC}/unix/uim/mozc.cc > ${BAZEL_WRKSRC}/unix/uim/LICENSE
 
 post-patch: post-patch-uim_mozc
