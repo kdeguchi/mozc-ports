@@ -1,5 +1,5 @@
 PORTNAME=	mozc
-DISTVERSION=	3.33.6079.2
+DISTVERSION=	3.33.6079.102
 PORTREVISION?=	0
 CATEGORIES=	japanese
 
@@ -36,7 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:02c2c7d
+GH_TUPLE=	fcitx:mozc:acc6b84
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -105,14 +105,14 @@ UTDIC_DESC=		Additional UT Dictionary
 # GPLv2
 ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:69d40ee:altcannadic
 # CC-BY-SA-4.0
-EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:aa2decf:edict2
+EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:5e2db4e:edict2
 JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:4590e06:jawiki
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:a64659b:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:3e835ea:personal
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:2748c88:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:bfa1c9c:place
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 # APACHE20
