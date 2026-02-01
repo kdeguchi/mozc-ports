@@ -36,7 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:fbcc430
+GH_TUPLE=	fcitx:mozc:5a1cb87
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
