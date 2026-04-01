@@ -52,8 +52,8 @@
 +new_local_repository(
      name = "zip_code_jigyosyo",
      build_file_content = "exports_files([\"JIGYOSYO.CSV\"])",
--    sha256 = "8b0c5e9f720dba6d600a2683a260b8f04d14f463d45d10893e7ba08424405a1e",
--    url = "https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/33524763837473258e7ba2f14b17fc3a70519831/jigyosyo.zip",
+-    sha256 = "36e2662ae064c2be1febe435a80127d5ac98fbc4cc9425d612a9c28965c14713",
+-    url = "https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/1150870a506505bbdce5ecef78c6fc1b484e4bc0/jigyosyo.zip",
 +    path = "third_party",
  )
  
@@ -61,8 +61,8 @@
 +new_local_repository(
      name = "zip_code_ken_all",
      build_file_content = "exports_files([\"KEN_ALL.CSV\"])",
--    sha256 = "47a3e63e1379f707af9c49df5c4fa0534332173c73c61f93d14555673bed7599",
--    url = "https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/33524763837473258e7ba2f14b17fc3a70519831/ken_all.zip",
+-    sha256 = "a00fa9474d3f2334eb639ba700bc6976469c944ed0f013fd4689899d540521cb",
+-    url = "https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/1150870a506505bbdce5ecef78c6fc1b484e4bc0/ken_all.zip",
 +    path = "third_party",
  )
 +
