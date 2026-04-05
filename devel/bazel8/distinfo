@@ -1,0 +1,7 @@
+TIMESTAMP = 1775030827
+SHA256 (bazel-8.6.0-dist.zip) = 13a84586429b6084b13bd5040d78deda58d523012151e71e7d4be0c63dd831f9
+SIZE (bazel-8.6.0-dist.zip) = 232875340
+SHA256 (a55aca5.patch) = 1dee0f4ae217952b5f816cf0b1da0697761c71e1d9d90bd2316732655ed276d3
+SIZE (a55aca5.patch) = 3275
+SHA256 (00f76ea.patch) = 1ef9eedb53adaf2ebe566eefe56880a7199faff980cb839f739dfa3b8584662f
+SIZE (00f76ea.patch) = 978
