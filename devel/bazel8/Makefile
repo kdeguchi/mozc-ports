@@ -40,13 +40,13 @@ NO_WRKSUBDIR=	YES
 
 MAKE_ENV+=	BAZEL_SH=${LOCALBASE}/bin/bash \
 		JAVA_HOME=${JAVA_HOME} \
-		JAVA_VERSION=${JAVA_VERSION} \
+		JAVA_VERSION=${JAVA_PORT_VERSION} \
 		TMPDIR=${WRKDIR}/bazel_tmp \
 		EMBED_LABEL='${PORTVERSION}' \
 		PATH=${LOCALBASE}/bin:$$PATH \
 		SOURCE_DATE_EPOCH=$${SOURCE_DATE_EPOCH} \
 		BAZEL_JAVAC_OPTS=${BAZEL_JAVAC_OPTS} \
-		EXTRA_BAZEL_ARGS='--tool_java_runtime_version=local_jdk --java_language_version=${JAVA_VERSION} --tool_java_language_version=${JAVA_VERSION} --linkopt=-lm --host_linkopt=-lm'
+		EXTRA_BAZEL_ARGS='--tool_java_runtime_version=local_jdk --java_language_version=${JAVA_PORT_VERSION} --tool_java_language_version=${JAVA_PORT_VERSION} --linkopt=-lm --host_linkopt=-lm'
 
 .include <bsd.port.pre.mk>
 
