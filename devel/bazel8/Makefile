@@ -19,7 +19,7 @@ BUILD_DEPENDS=	bash:shells/bash \
 
 USES=		cpe java python shebangfix zip
 CPE_VENDOR=	google
-JAVA_VERSION=	21+
+JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
 
 SHEBANG_REGEX=	.*(sh|txt|_stub|stub_.*|bazel|get_workspace_status|protobuf_support|_so)
