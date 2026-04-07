@@ -58,7 +58,7 @@
      pid_t pid = 0;
      if (::connect(socket_, reinterpret_cast<const sockaddr *>(&address),
                    sun_len) != 0 ||
-@@ -378,7 +407,12 @@ IPCServer::IPCServer(const std::string &name, int32_t 
+@@ -381,7 +410,12 @@ IPCServer::IPCServer(const std::string &name, int32_t 
    int on = 1;
    ::setsockopt(socket_, SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<char *>(&on),
                 sizeof(on));

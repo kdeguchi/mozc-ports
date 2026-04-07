@@ -1,6 +1,6 @@
---- src/ipc/ipc_path_manager.cc.orig	2025-07-06 07:09:35 UTC
+--- src/ipc/ipc_path_manager.cc.orig	2026-04-06 14:54:27 UTC
 +++ src/ipc/ipc_path_manager.cc
-@@ -86,6 +86,14 @@
+@@ -85,6 +85,14 @@
  #include <unistd.h>
  #endif  // _WIN32
  
@@ -15,12 +15,13 @@
  namespace mozc {
  namespace {
  
-@@ -283,10 +291,12 @@ bool IPCPathManager::GetPathName(std::string *ipc_name
+@@ -282,10 +290,12 @@ bool IPCPathManager::GetPathName(std::string *ipc_name
    *ipc_name = kIPCPrefix;
  #endif  // _WIN32
  
+-#ifdef __linux__
 +#if !defined(__FreeBSD__)
- #ifdef __linux__
++#if defined(__linux__) || defined(__FreeBSD__)
    // On Linux, use abstract namespace which is independent of the file system.
    (*ipc_name)[0] = '\0';
  #endif  // __linux__
@@ -28,7 +29,7 @@
  
    ipc_name->append(ipc_path_info_.key());
    ipc_name->append(".");
-@@ -392,6 +402,32 @@ bool IPCPathManager::IsValidServer(uint32_t pid,
+@@ -391,6 +401,33 @@ bool IPCPathManager::IsValidServer(uint32_t pid,
  #endif  // __APPLE__
  
  #ifdef __linux__
@@ -57,15 +58,16 @@
 +  }
 +  procstat_freeprocs(prstat, kipp);
 +  procstat_close(prstat);
++  server_path_ = filename;
 +#else
    // load from /proc/<pid>/exe
    std::string proc = absl::StrFormat("/proc/%u/exe", pid);
-   char filename[512];
-@@ -401,6 +437,7 @@ bool IPCPathManager::IsValidServer(uint32_t pid,
-     return false;
+   absl::StatusOr<std::string> filename = FileUtil::ReadSymlink(proc);
+@@ -400,6 +436,7 @@ bool IPCPathManager::IsValidServer(uint32_t pid,
    }
-   filename[size] = '\0';
-+#endif  // __FreeBSD__
  
-   server_path_ = filename;
+   server_path_ = filename.value();
++#endif // __FreeBSD__
    server_pid_ = pid;
+ #endif  // __linux__
+ 
