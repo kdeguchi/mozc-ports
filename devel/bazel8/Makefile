@@ -5,13 +5,8 @@ MASTER_SITES=	https://github.com/bazelbuild/${PORTNAME}/releases/download/${DIST
 PKGNAMESUFFIX=	8
 DISTNAME=	bazel-${DISTVERSION}-dist
 
-# TODO remove after these commits land in a release
-PATCH_SITES=	https://github.com/bazelbuild/bazel/commit/
-PATCHFILES=	a55aca5.patch:-p1 \
-		00f76ea.patch:-p1
-
-MAINTAINER=	vishwin@FreeBSD.org
-COMMENT=	Fast and correct build system
+MAINTAINER=	delphij@FreeBSD.org
+COMMENT=	Fast and correct build system (LTS 8)
 WWW=		https://bazel.build/
 
 LICENSE=	APACHE20
@@ -22,16 +17,14 @@ NOT_FOR_ARCHS=	i386
 BUILD_DEPENDS=	bash:shells/bash \
 		zip:archivers/zip
 
-USES=		cpe compiler:c++17-lang java python:3.10+ shebangfix zip
+USES=		cpe java python shebangfix zip
 CPE_VENDOR=	google
-JAVA_VERSION=	21
+JAVA_VERSION=	21+
 JAVA_VENDOR=	openjdk
 
 SHEBANG_REGEX=	.*(sh|txt|_stub|stub_.*|bazel|get_workspace_status|protobuf_support|_so)
 
 CONFLICTS_INSTALL=	bazel[0-9]*
-
-BINARY_ALIAS=		python3=${PYTHON_CMD}
 
 # The bazel binary is also a zip archive (extracted by the elf part), it must not be stripped
 STRIP=
@@ -46,7 +39,7 @@ MAKE_ENV+=	BAZEL_SH=${LOCALBASE}/bin/bash \
 		PATH=${LOCALBASE}/bin:$$PATH \
 		SOURCE_DATE_EPOCH=$${SOURCE_DATE_EPOCH} \
 		BAZEL_JAVAC_OPTS=${BAZEL_JAVAC_OPTS} \
-		EXTRA_BAZEL_ARGS='--tool_java_runtime_version=local_jdk --java_language_version=${JAVA_PORT_VERSION} --tool_java_language_version=${JAVA_PORT_VERSION} --linkopt=-lm --host_linkopt=-lm'
+		EXTRA_BAZEL_ARGS='--host_javabase=@local_jdk//:jdk --tool_java_runtime_version=local_jdk --java_language_version=${JAVA_PORT_VERSION} --tool_java_language_version=${JAVA_PORT_VERSION} --extra_toolchains=//toolchain_local:freebsd_python3_toolchain,//toolchain_local:local_jdk_21_runtime,//toolchain_local:local_jdk_21_bootstrap --action_env=PATH=${LOCALBASE}/bin:/bin:/usr/bin:/sbin:/usr/sbin --host_linkopt=-lm --linkopt=-lm'
 
 .include <bsd.port.pre.mk>
 
@@ -55,19 +48,41 @@ BAZEL_JAVAC_OPTS+=	"-J-Xmx1g -J-Xms128m"
 .endif
 
 # Have the location of the system-wide rc file reside ${ETCDIR}.
+# Also adapt the sample file to disable persistent java workers as they
+# do not work reliably on FreeBSD.
 post-patch:
 	@${REINPLACE_CMD} -e "s|/etc/bazel.bazelrc|${ETCDIR}/bazel.bazelrc|" \
 		${WRKSRC}/src/main/cpp/BUILD
+	@${ECHO_CMD} build --strategy=Javac=standalone >> ${WRKSRC}/scripts/packages/bazel.bazelrc
+	@${ECHO_CMD} build --java_runtime_version=${JAVA_PORT_VERSION} >> ${WRKSRC}/scripts/packages/bazel.bazelrc
+	@${ECHO_CMD} build --tool_java_runtime_version=${JAVA_PORT_VERSION} >> ${WRKSRC}/scripts/packages/bazel.bazelrc
+	@${ECHO_CMD} build --action_env=PATH=/bin:/usr/bin/:${LOCALBASE}/bin >> ${WRKSRC}/scripts/packages/bazel.bazelrc
+	@${REINPLACE_CMD} \
+		-e 's|^\(PYTHON_BIN=.*\)|if [ "%VERSION%" = "3" ] ; then PYTHON_BIN=${PYTHON_CMD}; else \1 ; fi|' \
+		${WRKSRC}/tools/python/pywrapper_template.txt
+	@${REINPLACE_CMD} -e 's|%%PREFIX%%|${PREFIX}|' \
+		${WRKSRC}/tools/python/python_bootstrap_template.txt
 	@${REINPLACE_CMD} -e 's|%%JAVA_HOME%%|${JAVA_HOME}|' \
 		${WRKSRC}/src/main/cpp/blaze_util_bsd.cc
+	@${REINPLACE_CMD} -e 's|#!/usr/bin/env python3|#!${PYTHON_CMD}|' \
+		${WRKSRC}/src/main/starlark/builtins_bzl/common/python/providers.bzl
+	@${MKDIR} ${WRKSRC}/toolchain_local
+	@${CP} ${FILESDIR}/toolchain_local-BUILD ${WRKSRC}/toolchain_local/BUILD
+	@${CP} ${FILESDIR}/rules_python_freebsd.patch.in \
+		${WRKSRC}/toolchain_local/rules_python_freebsd.patch
+	@${REINPLACE_CMD} -e 's|%%PYTHON_CMD%%|${PYTHON_CMD}|' \
+		${WRKSRC}/toolchain_local/BUILD \
+		${WRKSRC}/toolchain_local/rules_python_freebsd.patch
 
 do-build:
-	${MKDIR} ${WRKDIR}/bazel_tmp
+	@${MKDIR} ${WRKDIR}/bazel_tmp
 	(if [ -z "$${SOURCE_DATE_EPOCH}" ] ; \
 	  then SOURCE_DATE_EPOCH=`grep TIMESTAMP ${DISTINFO_FILE} \
 	    | ${SED} -e 's/[^0-9]//g'`; \
 	fi ; \
-	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} PATH=${BINARY_LINKDIR}:${PATH} ./compile.sh)
+	cd ${WRKSRC} && \
+		${SETENV} ${MAKE_ENV} PATH=${BINARY_LINKDIR}:${PATH} \
+		${LOCALBASE}/bash ./compile.sh)
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/output/bazel ${STAGEDIR}${PREFIX}/bin
