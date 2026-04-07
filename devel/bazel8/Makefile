@@ -82,7 +82,7 @@ do-build:
 	fi ; \
 	cd ${WRKSRC} && \
 		${SETENV} ${MAKE_ENV} PATH=${BINARY_LINKDIR}:${PATH} \
-		${LOCALBASE}/bash ./compile.sh)
+		${LOCALBASE}/bin/bash ./compile.sh)
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/output/bazel ${STAGEDIR}${PREFIX}/bin
