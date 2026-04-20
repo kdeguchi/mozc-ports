@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 DISTVERSION=	3.33.6133.102
-PORTREVISION?=	8
+PORTREVISION?=	9
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -29,14 +29,14 @@ LICENSE_DISTFILES_NAISTL=	${DISTNAME}${EXTRACT_SUFX}
 FETCH_DEPENDS=	git:devel/git
 PATCH_DEPENDS=	${PYTHON_CMD}:${PYTHON_PORTSDIR}
 BUILD_DEPENDS=	bash:shells/bash \
-		bazel:devel/bazel8
+		bazel:devel/bazel9
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
 USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:dba731e
+GH_TUPLE=	fcitx:mozc:12042ad
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -45,7 +45,7 @@ BINARY_ALIAS=	python3=${PYTHON_CMD}
 
 BUILD_MOZC_LIST?=	mozc_server
 
-BUILD_MOZC_CMD=	bazel ${BAZEL_BOOT} build \
+BUILD_MOZC_CMD=	${SETENV} JAVA_HOME=${JAVA_HOME} bazel ${BAZEL_BOOT} build \
 		${BAZEL_COMMON_OPTS} \
 		--action_env=PATH=${JAVA_HOME}/bin:${PATH} \
 		--host_action_env=PATH=${JAVA_HOME}/bin:${PATH} \
@@ -66,6 +66,7 @@ BAZEL_BCR_LOCAL=	${DISTDIR}/bazel-central-registry
 BAZEL_BCR_URL=	https://github.com/bazelbuild/bazel-central-registry.git
 
 BAZEL_BOOT=	\
+		--server_javabase=${JAVA_HOME} \
 		--output_base=${WRKDIR}/bazel_base \
 		--output_user_root=${WRKDIR}/bazel_user_root
 
