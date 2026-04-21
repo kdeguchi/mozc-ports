@@ -14,6 +14,15 @@
  
  
  def main():
+@@ -35,7 +35,7 @@
+     with open(file_ut, 'w', encoding='utf-8') as file:
+         for entry in ut_entry:
+             entry[1] = entry[2] = id_mozc
+-            file.write(f'{'\t'.join(entry)}\n')
++            file.write('\t'.join(entry) + '\n')
+ 
+ 
+ def get_ut_entry(file_ut):
 @@ -64,64 +63,44 @@
  
  
