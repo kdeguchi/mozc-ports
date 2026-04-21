@@ -1,6 +1,6 @@
---- src/bazel/pkg_config_repository.bzl.orig	2025-03-18 01:39:27 UTC
+--- src/bazel/pkg_config_repository.bzl.orig	2026-04-20 11:11:05 UTC
 +++ src/bazel/pkg_config_repository.bzl
-@@ -71,6 +71,9 @@ cc_library(
+@@ -73,6 +73,9 @@ cc_library(
      linkopts = [
          {linkopts}
      ],
@@ -10,7 +10,7 @@
  )
  """
  
-@@ -153,6 +156,17 @@ def _pkg_config_repository_impl(repo_ctx):
+@@ -155,6 +158,17 @@ def _pkg_config_repository_impl(repo_ctx):
          includes = _exec_pkg_config(repo_ctx, ["--cflags-only-I", "--keep-system-cflags"])
      includes = [item[len("-I/"):] for item in includes]
      _symlinks(repo_ctx, includes)
@@ -28,7 +28,7 @@
      data = {
          # In bzlmod, repo_ctx.attr.name has a prefix like "_main~_repo_rules~ibus".
          # Note also that Bazel 8.0+ uses "+" instead of "~".
-@@ -161,7 +175,8 @@ def _pkg_config_repository_impl(repo_ctx):
+@@ -163,7 +177,8 @@ def _pkg_config_repository_impl(repo_ctx):
          "hdrs": _make_strlist([item + "/**" for item in includes]),
          "copts": _make_strlist(_exec_pkg_config(repo_ctx, ["--cflags-only-other"])),
          "includes": _make_strlist(includes),
@@ -38,7 +38,7 @@
      }
      build_file_data = BUILD_TEMPLATE.format(**data)
  
-@@ -178,5 +193,7 @@ pkg_config_repository = repository_rule(
+@@ -180,5 +195,7 @@ pkg_config_repository = repository_rule(
      local = True,
      attrs = {
          "packages": attr.string_list(),

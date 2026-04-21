@@ -34,8 +34,8 @@
 -    date_str = datetime.fromisoformat(date_str)
 -    date_str = date_str.strftime('%Y%m%d')
 +    # Mozc 辞書のファイルリストを取得
-+    all_files = os.listdir('%%WRKSRC%%/src/data/dictionary_oss/')
-+    dict_path = '%%WRKSRC%%/src/data/dictionary_oss/dictionary0'
++    all_files = os.listdir('/tmp/home/deguchi/data/work/github/mozc-ports/japanese/mozc-server/work/mozc-dba731e/src/data/dictionary_oss/')
++    dict_path = '/tmp/home/deguchi/data/work/github/mozc-ports/japanese/mozc-server/work/mozc-dba731e/src/data/dictionary_oss/dictionary0'
 +    dict_files = [f for f in all_files if f.startswith(dict_path)]
  
 -    # Mozc のアーカイブを取得

@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 DISTVERSION=	3.33.6133.102
-PORTREVISION?=	8
+PORTREVISION?=	9
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -36,7 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:dba731e
+GH_TUPLE=	fcitx:mozc:51072be
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -45,7 +45,7 @@ BINARY_ALIAS=	python3=${PYTHON_CMD}
 
 BUILD_MOZC_LIST?=	mozc_server
 
-BUILD_MOZC_CMD=	bazel ${BAZEL_BOOT} build \
+BUILD_MOZC_CMD=	${SETENV} JAVA_HOME=${JAVA_HOME} bazel ${BAZEL_BOOT} build \
 		${BAZEL_COMMON_OPTS} \
 		--action_env=PATH=${JAVA_HOME}/bin:${PATH} \
 		--host_action_env=PATH=${JAVA_HOME}/bin:${PATH} \
@@ -55,8 +55,8 @@ BUILD_MOZC_CMD=	bazel ${BAZEL_BOOT} build \
 		--cxxopt=-Wno-uninitialized \
 		--host_cxxopt=-Wno-uninitialized \
 		--linkopt=-lm --host_linkopt=-lm \
-		--java_language_version=${JAVA_VERSION} \
-		--tool_java_language_version=${JAVA_VERSION} \
+		--java_language_version=${JAVA_PORT_VERSION} \
+		--tool_java_language_version=${JAVA_PORT_VERSION} \
 		--sandbox_debug \
 		--verbose_failures \
 		--config oss_linux \
@@ -66,6 +66,7 @@ BAZEL_BCR_LOCAL=	${DISTDIR}/bazel-central-registry
 BAZEL_BCR_URL=	https://github.com/bazelbuild/bazel-central-registry.git
 
 BAZEL_BOOT=	\
+		--server_javabase=${JAVA_HOME} \
 		--output_base=${WRKDIR}/bazel_base \
 		--output_user_root=${WRKDIR}/bazel_user_root
 
@@ -144,7 +145,7 @@ USE_QT=		base
 
 .elif ${BUILD_MOZC_LIST:Mmozc_el} == "mozc_el"
 
-USES+=		emacs:noflavors
+USES+=		emacs:build
 
 .elif ${BUILD_MOZC_LIST:Mfcitx_mozc}
 
@@ -619,7 +620,7 @@ do-install-mozc_el:
 do-build: ${BUILD_MOZC_LIST:S/^/do-build-/}
 do-install: ${BUILD_MOZC_LIST:S/^/do-install-/}
 
-post-install:
+post-build:
 	cd ${BAZEL_WRKSRC} && bazel ${BAZEL_BOOT} shutdown
 
 _USES_fetch+=	800:fetch-bcr
@@ -670,6 +671,17 @@ bazel-modules: configure
 					$$1, $$2, $$3, $$4, $$5, group, $$6, group ); \
 			} ' > ${MASTERDIR}/Makefile.MASTER_SITES
 	@${MAKE} renew-makesum
+
+print-bazel-modules: configure
+	cd ${BAZEL_WRKSRC} && \
+		bazel ${BAZEL_BOOT} mod show_repo \
+			$$( bazel ${BAZEL_BOOT} mod graph \
+			--output text --charset ascii \
+			${BAZEL_COMMON_OPTS} | \
+		${SED} -E 's/[^[:alnum:]]+//;s/ .*//;' | \
+		${GREP} '@[0-9]' | ${SORT} -u) \
+			--output text --charset ascii \
+			${BAZEL_COMMON_OPTS}
 
 # Create new distinfo: `make renew-makesum`
 renew-makesum:
