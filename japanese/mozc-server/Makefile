@@ -36,7 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:51072be
+GH_TUPLE=	fcitx:mozc:12042ad
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -55,8 +55,8 @@ BUILD_MOZC_CMD=	${SETENV} JAVA_HOME=${JAVA_HOME} bazel ${BAZEL_BOOT} build \
 		--cxxopt=-Wno-uninitialized \
 		--host_cxxopt=-Wno-uninitialized \
 		--linkopt=-lm --host_linkopt=-lm \
-		--java_language_version=${JAVA_PORT_VERSION} \
-		--tool_java_language_version=${JAVA_PORT_VERSION} \
+		--java_language_version=${JAVA_VERSION} \
+		--tool_java_language_version=${JAVA_VERSION} \
 		--sandbox_debug \
 		--verbose_failures \
 		--config oss_linux \
