@@ -1,8 +1,10 @@
-TIMESTAMP = 1777035954
+TIMESTAMP = 1777036641
 SHA256 (mozc/abseil-cpp-20260107.1.tar.gz) = 4314e2a7cbac89cac25a2f2322870f343d81579756ceff7f431803c2c9090195
 SIZE (mozc/abseil-cpp-20260107.1.tar.gz) = 2301097
 SHA256 (mozc/apple_support.2.4.0.tar.gz) = 9f2ee0d23bf46b1c8ac88cea73ab13d415f340ec777e1e68841e09153880a67e
 SIZE (mozc/apple_support.2.4.0.tar.gz) = 115899
+SHA256 (mozc/v1.10.0.tar.gz) = a1a9f7875aa4b6a9480ca384d5865f1ccf1b0b1faead6b47aa47d79709a5c5fd
+SIZE (mozc/v1.10.0.tar.gz) = 159353
 SHA256 (mozc/bazel-lib-v2.22.5.tar.gz) = 94e192033ca8027f26de71c9000a67ef9c73695c2b88e2c559045170917ead0c
 SIZE (mozc/bazel-lib-v2.22.5.tar.gz) = 167962
 SHA256 (mozc/bazel_features-v1.36.0.tar.gz) = 9390b391a68d3b24aef7966bce8556d28003fe3f022a5008efc7807e8acaaf1a
