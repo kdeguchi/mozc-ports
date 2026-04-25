@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 DISTVERSION=	3.33.6133.102
-PORTREVISION?=	10
+PORTREVISION?=	11
 CATEGORIES=	japanese
 
 DIST_SUBDIR=	${PORTNAME}
@@ -36,7 +36,7 @@ USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:d26aa4b
+GH_TUPLE=	fcitx:mozc:4862175
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -657,18 +657,12 @@ bazel-modules: configure
 				${GREP} '@[0-9]' | ${SORT} -u ) \
 			--output text --charset ascii \
 			${BAZEL_COMMON_OPTS} | \
-		${AWK} -F / ' / urls = / { \
-			sub(/.* urls = \["/, ""); sub(/"\],/, ""); \
-			group=$$5; gsub(/[-.]/, "_", group); \
-			if ( $$8 ~ /^[[:alnum:]].*\.[[:alnum:]]+/ ) \
-				printf( "MASTER_SITES+=\t%s/%s/%s/%s/%s/%s/%s/%s/:%s\nDISTFILES+=\t%s:%s\n", \
-					$$1, $$2, $$3, $$4, $$5, $$6, $$7, $$8, group, $$9, group ); \
-			if ( $$7 ~ /^[[:alnum:]].*\.[[:alnum:]]+/ ) \
-				printf( "MASTER_SITES+=\t%s/%s/%s/%s/%s/%s/%s/:%s\nDISTFILES+=\t%s:%s\n", \
-					$$1, $$2, $$3, $$4, $$5, $$6, $$7, group, $$8, group ); \
-			if ( $$6 ~ /^[[:alnum:]].*\.[[:alnum:]]+/ ) \
-				printf( "MASTER_SITES+=\t%s/%s/%s/%s/%s/:%s\nDISTFILES+=\t%s:%s\n", \
-					$$1, $$2, $$3, $$4, $$5, group, $$6, group ); \
+		${AWK} ' / name = / \
+			{ name=$$0; sub(/.* name = "/, "", name); sub(/\+*",/, "", name); gsub(/[-.]/, "_", name); } \
+			/ urls = / \
+			{ url=$$0; sub(/.* urls = \["/, "", url); sub(/"\],/, "", url); \
+				file=url; sub(/.*\//, "", file); sub(/\/[^\/]+$$/, "/", url); \
+			printf("MASTER_SITES+=\t%s:%s\nDISTFILES+=\t%s:%s\n", url, name, file, name); \
 			} ' > ${MASTERDIR}/Makefile.MASTER_SITES
 	@${MAKE} renew-makesum
 
