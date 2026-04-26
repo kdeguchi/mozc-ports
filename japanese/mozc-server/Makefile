@@ -32,7 +32,7 @@ BUILD_DEPENDS=	bash:shells/bash \
 		bazel:devel/bazel8
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
-USES=	compiler:c++20-lang gmake java:build localbase ninja:build pkgconfig \
+USES=	compiler:c++20-lang gmake java:build localbase pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
