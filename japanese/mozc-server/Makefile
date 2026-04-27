@@ -167,6 +167,10 @@ _CCTYPE=	gcc
 
 .include <bsd.port.pre.mk>
 
+post-fetch:
+	@${FETCH_CMD} 'https://go.dev/dl/?mode=json&include=all' \
+		-o ${DISTDIR}/${DIST_SUBDIR}/versions.json
+
 post-patch:
 	@${FIND} ${BAZEL_WRKSRC} -type f -not -path '*/third_party/*' \
 		\( -name 'BUILD' -o -name '*.bzl' -o -name '*.cc' -o -name '*.h' \) \
@@ -187,6 +191,10 @@ post-patch:
 		${BAZEL_WRKSRC}/rules_buf.patch
 	@${CP} ${PATCHDIR}/extra-patch-rules__rust+_rust_platform_triple.bzl \
 		${BAZEL_WRKSRC}/rules_rust.patch
+	@${CP} ${PATCHDIR}/extra-patch-rules__go+_go_private_sdk.bzl \
+		${BAZEL_WRKSRC}/rules_go.patch
+	@${REINPLACE_CMD} -e 's@%%BAZEL_WRKSRC%%@${BAZEL_WRKSRC}@' ${BAZEL_WRKSRC}/rules_go.patch
+	@${CP} ${DISTDIR}/${DIST_SUBDIR}/versions.json ${BAZEL_WRKSRC}
 
 .if ${BUILD_MOZC_LIST:Mfcitx_mozc} == "fcitx_mozc"
 	${REINPLACE_CMD} 's,/po/mo},%po}mo,g' \
