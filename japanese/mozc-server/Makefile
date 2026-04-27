@@ -3,6 +3,11 @@ DISTVERSION=	3.33.6133.102
 PORTREVISION?=	11
 CATEGORIES=	japanese
 
+MASTER_SITES=	https://go.dev/dl/?mode=json&include=all&file=versions.json/:versions_json
+DISTFILES=	versions.json:versions_json
+MASTER_SITES+=	https://github.com/bats-core/bats-core/archive/:bats_core
+DISTFILES+=	v1.10.0.tar.gz:bats_core
+
 DIST_SUBDIR=	${PORTNAME}
 .include "Makefile.MASTER_SITES"
 
@@ -166,10 +171,6 @@ _CCTYPE=	gcc
 .endif
 
 .include <bsd.port.pre.mk>
-
-post-fetch:
-	@${FETCH_CMD} https://go.dev/dl/\?mode=json\&include=all \
-		-o ${DISTDIR}/${DIST_SUBDIR}/versions.json
 
 post-patch:
 	@${FIND} ${BAZEL_WRKSRC} -type f -not -path '*/third_party/*' \
