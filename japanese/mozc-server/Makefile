@@ -168,7 +168,7 @@ _CCTYPE=	gcc
 .include <bsd.port.pre.mk>
 
 post-fetch:
-	@${FETCH_CMD} 'https://go.dev/dl/?mode=json&include=all' \
+	@${FETCH_CMD} https://go.dev/dl/\?mode=json\&include=all \
 		-o ${DISTDIR}/${DIST_SUBDIR}/versions.json
 
 post-patch:
