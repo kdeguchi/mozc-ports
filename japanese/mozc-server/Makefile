@@ -11,7 +11,8 @@ DISTFILES+=	v1.10.0.tar.gz:bats_core
 DIST_SUBDIR=	${PORTNAME}
 .include "Makefile.MASTER_SITES"
 
-EXTRACT_ONLY=	${_DISTFILES:Me-kato-*} \
+EXTRACT_ONLY=	${_DISTFILES:Mbazelbuild-*} \
+		${_DISTFILES:Me-kato-*} \
 		${_DISTFILES:Mfcitx-*} \
 		${_DISTFILES:Mhiroyuki-komatsu-*} \
 		${_DISTFILES:Mjigyosyo*} \
@@ -31,7 +32,6 @@ LICENSE_PERMS_NAISTL=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 LICENSE_DISTFILES_BSD3CLAUSE=	${DISTNAME}${EXTRACT_SUFX}
 LICENSE_DISTFILES_NAISTL=	${DISTNAME}${EXTRACT_SUFX}
 
-FETCH_DEPENDS=	git:devel/git
 PATCH_DEPENDS=	${PYTHON_CMD}:${PYTHON_PORTSDIR}
 BUILD_DEPENDS=	bash:shells/bash \
 		bazel:devel/bazel8
@@ -42,6 +42,7 @@ USES=	compiler:c++20-lang gmake java:build localbase pkgconfig \
 
 USE_GITHUB=	yes
 GH_TUPLE=	fcitx:mozc:4862175
+GH_TUPLE+=	bazelbuild:bazel-central-registry:2d4a147:bcr
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -60,6 +61,7 @@ BUILD_MOZC_CMD=	${SETENV} JAVA_HOME=${JAVA_HOME} bazel ${BAZEL_BOOT} build \
 		--cxxopt=-Wno-uninitialized \
 		--host_cxxopt=-Wno-uninitialized \
 		--linkopt=-lm --host_linkopt=-lm \
+		--jobs=${MAKE_JOBS_NUMBER} \
 		--java_language_version=${JAVA_PORT_VERSION} \
 		--tool_java_language_version=${JAVA_PORT_VERSION} \
 		--sandbox_debug \
@@ -67,16 +69,13 @@ BUILD_MOZC_CMD=	${SETENV} JAVA_HOME=${JAVA_HOME} bazel ${BAZEL_BOOT} build \
 		--config oss_linux \
 		--define server=1
 
-BAZEL_BCR_LOCAL=	${DISTDIR}/bazel-central-registry
-BAZEL_BCR_URL=	https://github.com/bazelbuild/bazel-central-registry.git
+BAZEL_BCR_LOCAL=	${WRKSRC_bcr}
 
-BAZEL_BOOT=	\
-		--server_javabase=${JAVA_HOME} \
+BAZEL_BOOT=	--server_javabase=${JAVA_HOME} \
 		--output_base=${WRKDIR}/bazel_base \
 		--output_user_root=${WRKDIR}/bazel_user_root
 
-BAZEL_COMMON_OPTS=	\
-		--distdir=${DISTDIR}/${DIST_SUBDIR} \
+BAZEL_COMMON_OPTS=	--distdir=${DISTDIR}/${DIST_SUBDIR} \
 		--registry="file://${BAZEL_BCR_LOCAL}"
 
 BAZEL_WRKSRC=	${WRKSRC}/src
@@ -631,21 +630,6 @@ do-install: ${BUILD_MOZC_LIST:S/^/do-install-/}
 
 post-build:
 	cd ${BAZEL_WRKSRC} && bazel ${BAZEL_BOOT} shutdown
-
-_USES_fetch+=	800:fetch-bcr
-fetch-bcr:
-.if defined(FORCE_FETCH_ALL)
-	${RM} -r ${BAZEL_BCR_LOCAL}
-.endif
-.if ! exists(${BAZEL_BCR_LOCAL})
-	cd ${DISTDIR} && git clone ${BAZEL_BCR_URL} ${BAZEL_BCR_LOCAL}
-.else
-. if make(fetch)
-.  if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
-	cd ${BAZEL_BCR_LOCAL} && ( git restore . && git pull ) || exit 0
-.  endif
-. endif
-.endif
 
 bazel-mod: configure
 	@cd ${BAZEL_WRKSRC} && \

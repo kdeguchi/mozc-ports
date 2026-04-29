@@ -1,4 +1,4 @@
-TIMESTAMP = 1777272371
+TIMESTAMP = 1777437689
 SHA256 (mozc/versions.json) = 1d02b5557bdb7955572e07edc11694cb31856e64aef3d8a57f2a51c1d7c57988
 SIZE (mozc/versions.json) = 2026712
 SHA256 (mozc/v1.10.0.tar.gz) = a1a9f7875aa4b6a9480ca384d5865f1ccf1b0b1faead6b47aa47d79709a5c5fd
@@ -91,6 +91,8 @@ SHA256 (mozc/jawiki-latest-pages-articles-multistream-index.txt.bz2) = bfbc4c6dc
 SIZE (mozc/jawiki-latest-pages-articles-multistream-index.txt.bz2) = 30936862
 SHA256 (mozc/fcitx-mozc-3.33.6133.102-4862175_GH0.tar.gz) = c04638ad53bf83e4585344ab1355a2e6bfa9ea9eb8717b787a863ae900f75b9c
 SIZE (mozc/fcitx-mozc-3.33.6133.102-4862175_GH0.tar.gz) = 29150858
+SHA256 (mozc/bazelbuild-bazel-central-registry-2d4a147_GH0.tar.gz) = d56f5ca4d44366220c8d7c90a32c909448a23e70178431574de93d27a5d5e1b6
+SIZE (mozc/bazelbuild-bazel-central-registry-2d4a147_GH0.tar.gz) = 8900086
 SHA256 (mozc/hiroyuki-komatsu-japanese-usage-dictionary-38d3462_GH0.tar.gz) = 87f2a3ff0483e932aab6ac995530ff28929b15a6b0cc0d89c6d44449771f8d89
 SIZE (mozc/hiroyuki-komatsu-japanese-usage-dictionary-38d3462_GH0.tar.gz) = 72005
 SHA256 (mozc/utuhiro78-mozcdic-ut-alt-cannadic-0e23741_GH0.tar.gz) = 83921d1c29a485e49d01fb3aa974e1f8e5e562cb19c5fde44be28689b81dfc49
