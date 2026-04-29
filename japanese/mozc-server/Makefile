@@ -145,7 +145,7 @@ LIB_DEPENDS+=	libfontconfig.so:x11-fonts/fontconfig \
 
 USES+=		gettext-runtime gnome qt:6 xorg
 USE_XORG=	xcb
-USE_GNOME=	cairo gdkpixbuf glib20 gtk20
+USE_GNOME=	cairo gdkpixbuf glib20
 USE_LOCALE=	C.UTF-8
 USE_QT=		base
 
