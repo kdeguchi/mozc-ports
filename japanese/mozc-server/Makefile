@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 DISTVERSION=	3.33.6133.102
-PORTREVISION?=	11
+PORTREVISION?=	12
 CATEGORIES=	japanese
 
 MASTER_SITES=	https://go.dev/dl/?mode=json&include=all&file=versions.json/:versions_json
@@ -41,7 +41,7 @@ USES=	compiler:c++20-lang gmake java:build localbase pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:4862175
+GH_TUPLE=	fcitx:mozc:ed7a47b
 GH_TUPLE+=	bazelbuild:bazel-central-registry:2d4a147:bcr
 
 JAVA_VERSION=	21
