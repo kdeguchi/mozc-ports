@@ -132,6 +132,7 @@ UTDIC_DISTFILES=	jawiki-latest-pages-articles-multistream-index.txt.bz2:jawiki_l
 .elif ${BUILD_MOZC_LIST:Mmozc_tool} == "mozc_tool"
 
 BUILD_DEPENDS+=	libglvnd>0:graphics/libglvnd
+RUN_DEPENDS+=	mozc:japanese/mozc-server
 
 USES+=		qt:6
 USE_LOCALE=	C.UTF-8
@@ -140,12 +141,12 @@ USE_QT=		base
 .elif ${BUILD_MOZC_LIST:Mibus_mozc} == "ibus_mozc"
 
 BUILD_DEPENDS+=	libglvnd>0:graphics/libglvnd
-LIB_DEPENDS+=	libfontconfig.so:x11-fonts/fontconfig \
-		libfreetype.so:print/freetype2
+LIB_DEPENDS+=	libibus-1.0.so:textproc/ibus
+RUN_DEPENDS+=	mozc:japanese/mozc-server \
+		mozc_tool:japanese/mozc-tool
 
-USES+=		gettext-runtime gnome qt:6 xorg
-USE_XORG=	xcb
-USE_GNOME=	cairo gdkpixbuf glib20
+USES+=		gettext-runtime gnome qt:6
+USE_GNOME=	glib20
 USE_LOCALE=	C.UTF-8
 USE_QT=		base
 
@@ -306,10 +307,6 @@ do-install-mozc_tool:
 
 .if ${BUILD_MOZC_LIST:Mibus_mozc} == "ibus_mozc"
 
-LIB_DEPENDS+=	libibus-1.0.so:textproc/ibus
-RUN_DEPENDS+=	mozc:japanese/mozc-server \
-		mozc_tool:japanese/mozc-tool
-
 PLIST_FILES+=	libexec/mozc_renderer \
 		libexec/ibus-engine-mozc \
 		%%DATADIR%%/alpha_full.png \
@@ -366,6 +363,10 @@ do-install-ibus_mozc:
 
 LICENSE_FILE+=	${BAZEL_WRKSRC}/src/unix/uim/LICENSE
 
+LIB_DEPENDS+=	libuim.so:textproc/uim
+RUN_DEPENDS+=	mozc:japanese/mozc-server \
+		mozc_tool:japanese/mozc-tool
+
 GH_TUPLE+=	e-kato:macuim:7beac7b:MU
 
 # These patches are from https://github.com/femshima/uim-mozc
@@ -375,10 +376,6 @@ EXTRA_PATCHES=	${PATCHDIR}/extra-patch-src_MODULE.bazel \
 		${PATCHDIR}/extra-patch-src_unix_uim_key__translator.cc \
 		${PATCHDIR}/extra-patch-src_unix_uim_key__translator.h \
 		${PATCHDIR}/extra-patch-src_unix_uim_mozc.cc
-
-LIB_DEPENDS+=	libuim.so:textproc/uim
-RUN_DEPENDS+=	mozc:japanese/mozc-server \
-		mozc_tool:japanese/mozc-tool
 
 PLIST_FILES+=	lib/uim/plugin/libuim-mozc.so \
 		%%DATADIR%%/mozc.scm \
