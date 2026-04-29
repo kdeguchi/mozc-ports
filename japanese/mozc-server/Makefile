@@ -84,6 +84,8 @@ BAZEL_WRKSRC=	${WRKSRC}/src
 
 PKGNAMESUFFIX=	-server
 
+PKGMESSAGE=	${FILESDIR}/pkg-message
+
 # zip code
 MASTER_SITES+=	https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/:kenall \
 		https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/:jigyosyo
