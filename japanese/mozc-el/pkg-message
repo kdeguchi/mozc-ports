@@ -2,12 +2,11 @@
 { type: install
   message: <<EOM
 To activate mozc, you will need to add the following lines to
-your ~/.emacs:
+your Emacs configuration:
 
-(require ‘mozc)
-(set-language-environment “Japanese”)
-(setq default-input-method “japanese-mozc”)
-(mozc-leim-register-input-method)
+(set-language-environment "Japanese")
+(setq default-input-method "japanese-mozc")
+(global-set-key (kbd "C-o") 'toggle-input-method)
 EOM
 }
 ]
