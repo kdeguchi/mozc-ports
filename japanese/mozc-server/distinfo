@@ -1,4 +1,4 @@
-TIMESTAMP = 1777453377
+TIMESTAMP = 1777518913
 SHA256 (mozc/versions.json) = 1d02b5557bdb7955572e07edc11694cb31856e64aef3d8a57f2a51c1d7c57988
 SIZE (mozc/versions.json) = 2026712
 SHA256 (mozc/v1.10.0.tar.gz) = a1a9f7875aa4b6a9480ca384d5865f1ccf1b0b1faead6b47aa47d79709a5c5fd
@@ -17,8 +17,6 @@ SHA256 (mozc/bazel-lib-v3.0.0.tar.gz) = 6fd3b1e1a38ca744f9664be4627ced80895c7d2e
 SIZE (mozc/bazel-lib-v3.0.0.tar.gz) = 112873
 SHA256 (mozc/bazel-skylib-1.9.0.tar.gz) = 3b5b49006181f5f8ff626ef8ddceaa95e9bb8ad294f7b5d7b11ea9f7ddaf8c59
 SIZE (mozc/bazel-skylib-1.9.0.tar.gz) = 44790
-SHA256 (mozc/bazel-worker-api-v0.0.8.tar.gz) = a58c8c1e53aec7d66498168b0525bfd87add4d3cfd18e3ed03d5bed929dd68fc
-SIZE (mozc/bazel-worker-api-v0.0.8.tar.gz) = 30813
 SHA256 (mozc/bazel-worker-api-v0.0.8.tar.gz) = a58c8c1e53aec7d66498168b0525bfd87add4d3cfd18e3ed03d5bed929dd68fc
 SIZE (mozc/bazel-worker-api-v0.0.8.tar.gz) = 30813
 SHA256 (mozc/gawk-5.3.2.tar.xz) = f8c3486509de705192138b00ef2c00bbbdd0e84c30d5c07d23fc73a9dc4cc9cc

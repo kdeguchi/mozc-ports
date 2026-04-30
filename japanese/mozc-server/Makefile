@@ -8,8 +8,9 @@ DISTFILES=	versions.json:versions_json
 MASTER_SITES+=	https://github.com/bats-core/bats-core/archive/:bats_core
 DISTFILES+=	v1.10.0.tar.gz:bats_core
 
-DIST_SUBDIR=	${PORTNAME}
 .include "Makefile.MASTER_SITES"
+
+DIST_SUBDIR=	${PORTNAME}
 
 EXTRACT_ONLY=	${_DISTFILES:Mbazelbuild-*} \
 		${_DISTFILES:Me-kato-*} \
