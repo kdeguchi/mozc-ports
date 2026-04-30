@@ -109,7 +109,6 @@ _PYSTROKE_VER=	20121124
 _PYTABLE_VER=	20121124
 
 post-patch:
-	@${REINPLACE_CMD} -e 's@"Enable GTK2 IM Module" ON@"Enable GTK2 IM Module" OFF@' ${WRKSRC}/CMakeLists.txt
 	@${CP} ${_DISTDIR}/en_dict-${_DICT_VER}.tar.gz ${WRKSRC}/src/module/spell/dict/.
 	@${CP} ${_DISTDIR}/pinyin.tar.gz ${WRKSRC}/src/im/pinyin/data/.
 	@${CP} ${_DISTDIR}/py_stroke-${_PYSTROKE_VER}.tar.gz ${WRKSRC}/src/module/pinyin-enhance/data/.
