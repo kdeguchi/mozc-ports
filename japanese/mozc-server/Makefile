@@ -262,7 +262,6 @@ post-extract: post-extract-mozc_server
 post-patch: post-patch-mozc_server
 
 do-build-mozc_server:
-	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC} && \
 		${BUILD_MOZC_CMD} //server:mozc_server
 
@@ -285,7 +284,6 @@ PLIST_FILES+=	libexec/mozc_tool \
 SUB_FILES+=	mozc_tool
 
 do-build-mozc_tool:
-	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC} && \
 		${BUILD_MOZC_CMD} //gui/tool:mozc_tool
 
@@ -330,7 +328,6 @@ post-patch-ibus_mozc:
 post-patch: post-patch-ibus_mozc
 
 do-build-ibus_mozc:
-	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC} && \
 		${BUILD_MOZC_CMD} //unix/ibus:ibus_mozc \
 			//unix/ibus:gen_mozc_xml \
@@ -343,7 +340,7 @@ do-install-ibus_mozc:
 	${INSTALL_PROGRAM} \
 		${BAZEL_WRKSRC}/bazel-out/freebsd-opt/bin/unix/ibus/ibus_mozc \
 		${STAGEDIR}${PREFIX}/libexec/ibus-engine-mozc
-	${MKDIR} ${STAGEDIR}${PREFIX}/share/ibus/component
+	@${MKDIR} ${STAGEDIR}${PREFIX}/share/ibus/component
 	${INSTALL_DATA} \
 		${BAZEL_WRKSRC}/bazel-out/freebsd-opt/bin/unix/ibus/mozc.xml \
 		${STAGEDIR}${PREFIX}/share/ibus/component/mozc.xml
@@ -403,20 +400,19 @@ post-patch-uim_mozc:
 post-patch: post-patch-uim_mozc
 
 do-build-uim_mozc:
-	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC}&& \
 		${BUILD_MOZC_CMD} //unix/uim:uim-mozc
 
 do-install-uim_mozc:
-	${MKDIR} ${STAGEDIR}${PREFIX}/lib/uim/plugin
+	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/uim/plugin
 	${INSTALL_LIB} \
 		${BAZEL_WRKSRC}/bazel-out/freebsd-opt/bin/unix/uim/libuim-mozc.so \
 		${STAGEDIR}${PREFIX}/lib/uim/plugin
-	${MKDIR} ${STAGEDIR}${DATADIR}
+	@${MKDIR} ${STAGEDIR}${DATADIR}
 	cd ${WRKSRC_MU}/Mozc/scm && \
 		${INSTALL_DATA} mozc.scm mozc-custom.scm mozc-key-custom.scm \
 		${STAGEDIR}${DATADIR}
-	${MKDIR} ${STAGEDIR}${DATADIR}/pixmaps
+	@${MKDIR} ${STAGEDIR}${DATADIR}/pixmaps
 	${INSTALL_DATA} \
 		${BAZEL_WRKSRC}/data/images/product_icon_32bpp-128.png \
 		${STAGEDIR}${DATADIR}/pixmaps/mozc.png
@@ -461,7 +457,6 @@ PLIST_FILES+=	lib/fcitx/fcitx-mozc.so \
 PLIST_DIRS+=	%%DATADIR%%/icon ${DATADIR_REL}
 
 do-build-fcitx_mozc:
-	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC} && \
 		${BUILD_MOZC_CMD} //unix/fcitx:fcitx-mozc.so
 	cd ${BAZEL_WRKSRC}/unix/fcitx && ${SH} gen_fcitx_mozc_i18n.sh ./po
@@ -535,7 +530,6 @@ PLIST_FILES+=	lib/fcitx5/fcitx5-mozc.so \
 		share/metainfo/org.fcitx.Fcitx5.Addon.Mozc.metainfo.xml
 
 do-build-fcitx5_mozc:
-	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC} && \
 		${BUILD_MOZC_CMD} //unix/fcitx5:fcitx5-mozc.so; \
 		msgfmt --xml -d unix/fcitx5/po/ \
@@ -590,8 +584,7 @@ CATEGORIES+=	elisp
 RUN_DEPENDS+=	mozc:japanese/mozc-server
 
 NO_ARCH=	yes
-PLIST_FILES+=	${EMACS_SITE_LISPDIR}/mozc/mozc.elc \
-		${EMACS_SITE_LISPDIR}/mozc/mozc.el.gz \
+PLIST_FILES+=	${EMACS_SITE_LISPDIR}/mozc/mozc.el.gz \
 		${EMACS_SITE_LISPDIR}/mozc/leim-list.el \
 		libexec/mozc_emacs_helper
 PLIST_DIRS+=	${EMACS_SITE_LISPDIR}/mozc
@@ -603,13 +596,9 @@ post-patch-mozc_el:
 post-patch: post-patch-mozc_el
 
 do-build-mozc_el:
-	${MKDIR} ${WRKDIR}/bazel_tmp
 	cd ${BAZEL_WRKSRC} && \
 		${BUILD_MOZC_CMD} //unix/emacs:mozc_emacs_helper
-	cd ${BAZEL_WRKSRC}/unix/emacs && \
-		${EMACS_CMD} -batch -q -no-site-file -no-init-file \
-			-f batch-byte-compile mozc.el && \
-		${GZIP_CMD} mozc.el
+	cd ${BAZEL_WRKSRC}/unix/emacs && ${GZIP_CMD} mozc.el
 
 do-install-mozc_el:
 	@${MKDIR} ${STAGEDIR}${PREFIX}/${EMACS_SITE_LISPDIR}/mozc
@@ -618,11 +607,13 @@ do-install-mozc_el:
 		${STAGEDIR}${PREFIX}/libexec
 	${INSTALL_DATA} \
 		${BAZEL_WRKSRC}/unix/emacs/mozc.el.gz \
-		${BAZEL_WRKSRC}/unix/emacs/mozc.elc \
 		${FILESDIR}/leim-list.el \
 		${STAGEDIR}${PREFIX}/${EMACS_SITE_LISPDIR}/mozc/
 
 .endif
+
+pre-build:
+	@${MKDIR} ${WRKDIR}/bazel_tmp
 
 do-build: ${BUILD_MOZC_LIST:S/^/do-build-/}
 do-install: ${BUILD_MOZC_LIST:S/^/do-install-/}
