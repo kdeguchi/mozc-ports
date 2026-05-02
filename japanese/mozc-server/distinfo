@@ -1,4 +1,4 @@
-TIMESTAMP = 1777596565
+TIMESTAMP = 1777682978
 SHA256 (mozc/versions.json) = 1d02b5557bdb7955572e07edc11694cb31856e64aef3d8a57f2a51c1d7c57988
 SIZE (mozc/versions.json) = 2026712
 SHA256 (mozc/v1.10.0.tar.gz) = a1a9f7875aa4b6a9480ca384d5865f1ccf1b0b1faead6b47aa47d79709a5c5fd
@@ -85,8 +85,8 @@ SHA256 (mozc/ken_all.zip) = ba4c5f20741eaa34651cbdea1e2832806cd12344c5ea15f5c0e8
 SIZE (mozc/ken_all.zip) = 1694716
 SHA256 (mozc/jigyosyo.zip) = 5233fc9f7d2664eeb2cb35c82e78261e9450243ef818cfd27f823c4507f0714c
 SIZE (mozc/jigyosyo.zip) = 775090
-SHA256 (mozc/jawiki-latest-pages-articles-multistream-index.txt.bz2) = bfbc4c6dc0b3b5a212954cfcad4945a551f2b6c9a5deda22aab5863f57fd7a09
-SIZE (mozc/jawiki-latest-pages-articles-multistream-index.txt.bz2) = 30936862
+SHA256 (mozc/jawiki-latest-pages-articles-multistream-index.txt.bz2) = 030252445d446d630741b94145c3d1896696d41a3d49fd131c9787bb01a62765
+SIZE (mozc/jawiki-latest-pages-articles-multistream-index.txt.bz2) = 31015361
 SHA256 (mozc/fcitx-mozc-3.33.6133.102-ed7a47b_GH0.tar.gz) = 8012e03ec15595427be9ca44792d8a48fb2713299f60c1d2fec5971a3a9177ea
 SIZE (mozc/fcitx-mozc-3.33.6133.102-ed7a47b_GH0.tar.gz) = 29141749
 SHA256 (mozc/bazelbuild-bazel-central-registry-2d4a147_GH0.tar.gz) = d56f5ca4d44366220c8d7c90a32c909448a23e70178431574de93d27a5d5e1b6
