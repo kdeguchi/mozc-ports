@@ -244,7 +244,7 @@ PLIST_FILES+=	bin/mozc \
 SUB_FILES+=	mozc
 
 post-extract-mozc_server:
-	@${CP} -a ${WRKDIR}/*.CSV ${BAZEL_WRKSRC}/third_party
+	@${RLN}  ${WRKDIR}/*.CSV ${BAZEL_WRKSRC}/third_party
 
 post-patch-mozc_server:
 .if ${PORT_OPTIONS:MUTDIC}
@@ -252,7 +252,7 @@ post-patch-mozc_server:
 	cd ${WRKSRC_ut}/src/merge && \
 		${PATCH} < ${PATCHDIR}/extra-patch-merge_dictionaries.py && \
 		${REINPLACE_CMD} -e 's@%%WRKSRC%%@${WRKSRC}@' merge_dictionaries.py && \
-		${CP} ${BAZEL_WRKSRC}/data/dictionary_oss/id.def . && \
+		${RLN} ${BAZEL_WRKSRC}/data/dictionary_oss/id.def . && \
 		${CP} ${DISTDIR}/${DIST_SUBDIR}/${UTDIC_DISTFILES:M*\:jawiki_latest_pages_articles_multistream_index:C@\:jawiki_latest_pages_articles_multistream_index@@} jawiki-latest-pages-articles-multistream-index.txt.bz2 && \
 		${BZCAT} ../../../mozcdic-ut-*/mozcdic-ut-*.txt.bz2 > mozcdic-ut.txt && \
 		${PYTHON_CMD} merge_dictionaries.py mozcdic-ut.txt && \
@@ -389,7 +389,7 @@ PLIST_FILES+=	lib/uim/plugin/libuim-mozc.so \
 		"@preunexec ${LOCALBASE}/bin/uim-module-manager --unregister mozc"
 
 post-extract-uim_mozc:
-	${CP} -a ${WRKSRC_MU}/Mozc/uim ${BAZEL_WRKSRC}/unix
+	${RLN} ${WRKSRC_MU}/Mozc/uim ${BAZEL_WRKSRC}/unix
 
 post-extract: post-extract-uim_mozc
 
