@@ -1,6 +1,6 @@
 PORTNAME=	mozc
 DISTVERSION=	3.33.6133.102
-PORTREVISION?=	13
+PORTREVISION?=	0
 CATEGORIES=	japanese
 
 MASTER_SITES=	https://go.dev/dl/?mode=json&include=all&file=versions.json/:versions_json
@@ -20,7 +20,7 @@ EXTRACT_ONLY=	${_DISTFILES:Mbazelbuild-*} \
 		${_DISTFILES:Mken_all*} \
 		${_DISTFILES:Mutuhiro78-*}
 
-MAINTAINER=	kdeguchi@sz.tokoha-u.ac.jp
+MAINTAINER=	hrs@FreeBSD.org
 COMMENT?=	Mozc Japanese Input Method, Server
 WWW=		https://github.com/google/mozc
 
@@ -101,7 +101,7 @@ OPTIONS_MULTI_UTDIC=	ALTCANNADIC EDICT2 JAWIKI NEOLOGD PERSONALNAME \
 		PLACENAME SKKJISYO SUDACHIDICT
 
 ADDTILDE_DESC=	Add FULLWIDTH TILDE
-ADDTILDE_PATCHFILES=	${FILESDIR}/extra-patch-src_data_symbol_symbol.tsv
+ADDTILDE_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-src_data_symbol_symbol.tsv
 
 UTDIC_PATCH_DEPENDS=	${PYTHON_CMD}:${PYTHON_PORTSDIR}
 
@@ -636,7 +636,6 @@ bazel-mod: configure
 		${GREP} '@[0-9]' | ${SORT} -u
 
 bazel-modules: configure
-	@${CP} -a ${MASTERDIR}/Makefile.MASTER_SITES ${MASTERDIR}/Makefile.MASTER_SITES.bak
 	@cd ${BAZEL_WRKSRC} && \
 		bazel ${BAZEL_BOOT} mod show_repo \
 			$$( bazel ${BAZEL_BOOT} mod graph \
@@ -653,7 +652,6 @@ bazel-modules: configure
 				file=url; sub(/.*\//, "", file); sub(/\/[^\/]+$$/, "/", url); \
 			printf("MASTER_SITES+=\t%s:%s\nDISTFILES+=\t%s:%s\n", url, name, file, name); \
 			} ' > ${MASTERDIR}/Makefile.MASTER_SITES
-	@${MAKE} renew-makesum
 
 print-bazel-modules: configure
 	cd ${BAZEL_WRKSRC} && \
@@ -666,8 +664,7 @@ print-bazel-modules: configure
 			--output text --charset ascii \
 			${BAZEL_COMMON_OPTS}
 
-# Create new distinfo: `make renew-makesum`
-renew-makesum:
+update-jawiki:
 	@${FETCH_CMD} -q \
 		https://dumps.wikimedia.org/jawiki/latest/jawiki-latest-pages-articles-multistream-index.txt.bz2-rss.xml -o - | \
 		${AWK} ' / href="/ \
@@ -675,6 +672,9 @@ renew-makesum:
 			url=$$0; file=$$0; sub(/\/[^\/]+$$/, "/", url); sub(/.*\//, "", file); \
 			printf("UTDIC_MASTER_SITES+=\t%s:jawiki_latest_pages_articles_multistream_index\nUTDIC_DISTFILES+=\t%s:jawiki_latest_pages_articles_multistream_index\n", url, file); \
 			} ' > ${MASTERDIR}/Makefile.jawiki_latest_pages_articles_multistream_index
+
+renew-makesum:
+	@${MAKE} bazel-modules update-jawiki
 	@${MAKE} makesum
 
 .include <bsd.port.post.mk>
