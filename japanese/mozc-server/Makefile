@@ -3,10 +3,10 @@ DISTVERSION=	3.33.6133.102
 PORTREVISION?=	0
 CATEGORIES=	japanese
 
-MASTER_SITES=	https://go.dev/dl/?mode=json&include=all&file=versions.json/:versions_json
-DISTFILES=	versions.json:versions_json
-MASTER_SITES+=	https://github.com/bats-core/bats-core/archive/:bats_core
-DISTFILES+=	v1.10.0.tar.gz:bats_core
+MASTER_SITES=	https://github.com/bats-core/bats-core/archive/:bats_core
+DISTFILES=	v1.10.0.tar.gz:bats_core
+#MASTER_SITES+=	https://go.dev/dl/?mode=json&include=all&file=versions.json/:versions_json
+#DISTFILES+=	versions.json:versions_json
 
 .include "Makefile.MASTER_SITES"
 
@@ -200,10 +200,10 @@ post-patch:
 		${BAZEL_WRKSRC}/rules_buf.patch
 	@${CP} ${PATCHDIR}/extra-patch-rules__rust+_rust_platform_triple.bzl \
 		${BAZEL_WRKSRC}/rules_rust.patch
-	@${CP} ${PATCHDIR}/extra-patch-rules__go+_go_private_sdk.bzl \
+	#@${CP} ${PATCHDIR}/extra-patch-rules__go+_go_private_sdk.bzl \
 		${BAZEL_WRKSRC}/rules_go.patch
-	@${REINPLACE_CMD} -e 's@%%BAZEL_WRKSRC%%@${BAZEL_WRKSRC}@' ${BAZEL_WRKSRC}/rules_go.patch
-	@${CP} ${DISTDIR}/${DIST_SUBDIR}/versions.json ${BAZEL_WRKSRC}
+	#@${REINPLACE_CMD} -e 's@%%BAZEL_WRKSRC%%@${BAZEL_WRKSRC}@' ${BAZEL_WRKSRC}/rules_go.patch
+	#@${CP} ${DISTDIR}/${DIST_SUBDIR}/versions.json ${BAZEL_WRKSRC}
 
 .if ${BUILD_MOZC_LIST:Mfcitx_mozc} == "fcitx_mozc"
 	${REINPLACE_CMD} 's,/po/mo},%po}mo,g' \

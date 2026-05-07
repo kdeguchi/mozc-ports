@@ -1,6 +1,4 @@
-TIMESTAMP = 1777933257
-SHA256 (mozc/versions.json) = 1d02b5557bdb7955572e07edc11694cb31856e64aef3d8a57f2a51c1d7c57988
-SIZE (mozc/versions.json) = 2026712
+TIMESTAMP = 1778187973
 SHA256 (mozc/v1.10.0.tar.gz) = a1a9f7875aa4b6a9480ca384d5865f1ccf1b0b1faead6b47aa47d79709a5c5fd
 SIZE (mozc/v1.10.0.tar.gz) = 159353
 SHA256 (mozc/abseil-cpp-20260107.1.tar.gz) = 4314e2a7cbac89cac25a2f2322870f343d81579756ceff7f431803c2c9090195
