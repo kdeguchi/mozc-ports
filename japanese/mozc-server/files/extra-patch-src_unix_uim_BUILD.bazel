@@ -1,6 +1,6 @@
 --- src/unix/uim/BUILD.bazel.orig	2024-11-12 21:29:29 UTC
 +++ src/unix/uim/BUILD.bazel
-@@ -0,0 +1,92 @@
+@@ -0,0 +1,91 @@
 +# Copyright 2010-2021, Google Inc.
 +# All rights reserved.
 +#
@@ -37,9 +37,8 @@
 +    "//:build_defs.bzl",
 +    "mozc_cc_binary",
 +    "mozc_cc_library",
-+    "cc_library",
-+    "cc_shared_library",
 +)
++load("@rules_cc//cc:defs.bzl", "cc_library", "cc_shared_library")
 +
 +mozc_cc_library(
 +    name = "uim_header",
