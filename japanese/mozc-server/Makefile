@@ -41,8 +41,8 @@ USES=	compiler:c++20-lang gmake java:build localbase pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:a897811
-GH_TUPLE+=	bazelbuild:bazel-central-registry:2d4a147:bcr
+GH_TUPLE=	fcitx:mozc:e31f77a
+GH_TUPLE+=	bazelbuild:bazel-central-registry:1a24301:bcr
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -84,7 +84,6 @@ BAZEL_WRKSRC=	${WRKSRC}/src
 .if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server"
 
 PKGNAMESUFFIX=	-server
-
 PKGMESSAGE=	${FILESDIR}/pkg-message
 
 # zip code
@@ -120,17 +119,17 @@ UTDIC_DESC=		Additional UT Dictionary
 ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:0e23741:altcannadic
 # CC-BY-SA-4.0
 EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:44ac6ff:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:0e16421:jawiki
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:0ba1d14:jawiki
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:c89e517:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:382f09a:personal
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:8718b6a:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:97d3e9b:place
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 # APACHE20
-SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:6c8307c:sudachi
+SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:7def3da:sudachi
 # APACHE20 multi
 UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:aae6bec:ut
 
@@ -157,15 +156,36 @@ USE_GNOME=	glib20
 USE_LOCALE=	C.UTF-8
 USE_QT=		base
 
+.elif ${BUILD_MOZC_LIST:Muim_mozc} == "uim_mozc"
+
+LICENSE_FILE+=	${BAZEL_WRKSRC}/src/unix/uim/LICENSE
+
+LIB_DEPENDS+=	libuim.so:textproc/uim
+RUN_DEPENDS+=	mozc:japanese/mozc-server \
+		mozc_tool:japanese/mozc-tool
+
 .elif ${BUILD_MOZC_LIST:Mmozc_el} == "mozc_el"
+
+CATEGORIES+=	elisp
+RUN_DEPENDS+=	mozc:japanese/mozc-server
+
+NO_ARCH=	yes
 
 USES+=		emacs:build
 
 .elif ${BUILD_MOZC_LIST:Mfcitx_mozc}
 
+LIB_DEPENDS+=	libfcitx-core.so:chinese/fcitx
+RUN_DEPENDS+=	mozc:japanese/mozc-server \
+		mozc_tool:japanese/mozc-tool
+
 USES+=		gettext-tools
 
 .elif ${BUILD_MOZC_LIST:Mfcitx5_mozc}
+
+LIB_DEPENDS+=	libFcitx5Core.so:textproc/fcitx5
+RUN_DEPENDS+=	mozc:japanese/mozc-server \
+		mozc_tool:japanese/mozc-tool
 
 USES+=		gettext-tools
 
@@ -223,7 +243,9 @@ post-patch:
 
 .if ${BUILD_MOZC_LIST:Mmozc_server} == "mozc_server" || make(makesum)
 
-#utuhiro78-merge-ut-dictionaries-e3200d9_GH0.tar.gz:ut
+PLIST_FILES+=	bin/mozc \
+		libexec/mozc_server
+SUB_FILES+=	mozc
 
 .if ${PORT_OPTIONS:MUTDIC} || ${PORT_OPTIONS:MNEOLOGD} || \
 	${PORT_OPTIONS:MPERSONALNAME} || ${PORT_OPTIONS:MPLACENAME}
@@ -243,10 +265,6 @@ LICENSE+=	GPLv2
 LICENSE_DISTFILES_GPLv2=	${DISTFILES:M*\:altcannadic:C@\:altcannadic@@} \
 		${DISTFILES:M*\:skkjisyo:C@\:skkjisyo@@}
 .endif
-
-PLIST_FILES+=	bin/mozc \
-		libexec/mozc_server
-SUB_FILES+=	mozc
 
 post-extract-mozc_server:
 	@${RLN}  ${WRKDIR}/*.CSV ${BAZEL_WRKSRC}/third_party
@@ -281,7 +299,7 @@ do-install-mozc_server:
 		${WRKDIR}/mozc ${STAGEDIR}/${PREFIX}/bin
 .endif
 
-.if ${BUILD_MOZC_LIST:Mmozc_tool} == "mozc_tool"
+.if ${BUILD_MOZC_LIST:Mmozc_tool} == "mozc_tool" || make(makesum)
 
 PLIST_FILES+=	libexec/mozc_tool \
 		bin/mozc_tool \
@@ -366,12 +384,6 @@ do-install-ibus_mozc:
 
 .if ${BUILD_MOZC_LIST:Muim_mozc} == "uim_mozc" || make(makesum)
 
-LICENSE_FILE+=	${BAZEL_WRKSRC}/src/unix/uim/LICENSE
-
-LIB_DEPENDS+=	libuim.so:textproc/uim
-RUN_DEPENDS+=	mozc:japanese/mozc-server \
-		mozc_tool:japanese/mozc-tool
-
 GH_TUPLE+=	e-kato:macuim:7beac7b:MU
 
 # These patches are from https://github.com/femshima/uim-mozc
@@ -435,11 +447,7 @@ do-install-uim_mozc:
 		${STAGEDIR}${DATADIR}/pixmaps/mozc_tool_selector.png
 .endif
 
-.if ${BUILD_MOZC_LIST:Mfcitx_mozc} == "fcitx_mozc"
-
-LIB_DEPENDS+=	libfcitx-core.so:chinese/fcitx
-RUN_DEPENDS+=	mozc:japanese/mozc-server \
-		mozc_tool:japanese/mozc-tool
+.if ${BUILD_MOZC_LIST:Mfcitx_mozc} == "fcitx_mozc" || make(makesum)
 
 PLIST_FILES+=	lib/fcitx/fcitx-mozc.so \
 		share/fcitx/addon/fcitx-mozc.conf \
@@ -503,11 +511,7 @@ do-install-fcitx_mozc:
 
 .endif #fcitx_mozc
 
-.if ${BUILD_MOZC_LIST:Mfcitx5_mozc} == "fcitx5_mozc"
-
-LIB_DEPENDS+=	libFcitx5Core.so:textproc/fcitx5
-RUN_DEPENDS+=	mozc:japanese/mozc-server \
-		mozc_tool:japanese/mozc-tool
+.if ${BUILD_MOZC_LIST:Mfcitx5_mozc} == "fcitx5_mozc" || make(makesum)
 
 PLIST_FILES+=	lib/fcitx5/fcitx5-mozc.so \
 		share/fcitx5/addon/mozc.conf \
@@ -586,12 +590,8 @@ do-install-fcitx5_mozc:
 			${STAGEDIR}${PREFIX}/share/metainfo
 .endif #fcitx5_mozc
 
-.if ${BUILD_MOZC_LIST:Mmozc_el} == "mozc_el"
+.if ${BUILD_MOZC_LIST:Mmozc_el} == "mozc_el" || make(makesum)
 
-CATEGORIES+=	elisp
-RUN_DEPENDS+=	mozc:japanese/mozc-server
-
-NO_ARCH=	yes
 PLIST_FILES+=	${EMACS_SITE_LISPDIR}/mozc/mozc.el.gz \
 		${EMACS_SITE_LISPDIR}/mozc/leim-list.el \
 		libexec/mozc_emacs_helper
