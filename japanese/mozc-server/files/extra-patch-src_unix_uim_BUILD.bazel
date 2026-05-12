@@ -67,7 +67,7 @@
 +)
 +
 +
-+cc_library(
++mozc_cc_library(
 +    name = "uim_mozc_lib",
 +    srcs = ["mozc.cc"],
 +    deps = [
