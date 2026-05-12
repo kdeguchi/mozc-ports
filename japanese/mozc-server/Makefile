@@ -34,7 +34,7 @@ LICENSE_DISTFILES_BSD3CLAUSE=	${DISTNAME}${EXTRACT_SUFX}
 LICENSE_DISTFILES_NAISTL=	${DISTNAME}${EXTRACT_SUFX}
 
 BUILD_DEPENDS=	bash:shells/bash \
-		bazel:devel/bazel8
+		bazel:devel/bazel9
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
 USES=	compiler:c++20-lang gmake java:build localbase pkgconfig \
@@ -51,7 +51,8 @@ BINARY_ALIAS=	python3=${PYTHON_CMD}
 
 BUILD_MOZC_LIST?=	mozc_server
 
-BUILD_MOZC_CMD=	${SETENV} JAVA_HOME=${JAVA_HOME} bazel ${BAZEL_BOOT} build \
+BUILD_MOZC_CMD=	${SETENV} JAVA_HOME=${JAVA_HOME} \
+	bazel ${BAZEL_BOOT} build \
 		${BAZEL_COMMON_OPTS} \
 		--action_env=PATH=${JAVA_HOME}/bin:${PATH} \
 		--host_action_env=PATH=${JAVA_HOME}/bin:${PATH} \
@@ -182,7 +183,7 @@ _CCTYPE=	gcc
 
 post-patch:
 	@${FIND} ${BAZEL_WRKSRC} -type f -not -path '*/third_party/*' \
-		\( -name 'BUILD' -o -name '*.bzl' -o -name '*.cc' -o -name '*.h' \) \
+		\( -name 'BUILD' -o -name '*.bzl' -o -name '*.cc' -o -name '*.h' -o -name MODULE.bazel \) \
 		-exec ${REINPLACE_CMD} -E -e "s,'python','${PYTHON_CMD}',g;" \
 			-e 's,/usr/bin/xdg-open,${PREFIX}/bin/xdg-open,g;' \
 			-e 's,/usr/lib/mozc,${PREFIX}/libexec,g;' \
@@ -190,6 +191,7 @@ post-patch:
 			-e 's,/usr/lib/mozc/documents,${DATADIR},g;' \
 			-e 's,/usr/share,${PREFIX}/share,g;' \
 			-e 's,/usr/lib,${PREFIX}/lib,g;' \
+			-e 's,%%LOCALBASE%%,${LOCALBASE},g;' \
 			-e 's,OS=="linux",OS=="linux" or OS=="freebsd",g;' \
 			-e 's,target_platform=="Linux",target_platform=="Linux" or target_platform=="FreeBSD",g;' \
 			-e 's,defined\(__linux__\),defined(__linux__) || defined(__FreeBSD__),g;' \
