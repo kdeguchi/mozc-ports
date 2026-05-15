@@ -45,7 +45,7 @@
 -    strip_prefix = "japanese-usage-dictionary-%s" % JA_USAGE_DICT_TAG,
 -    url = "https://github.com/hiroyuki-komatsu/japanese-usage-dictionary/archive/refs/tags/%s.zip" % JA_USAGE_DICT_TAG,
 +    build_file = "@//bazel:BUILD.ja_usage_dict.bazel",
-+    path = "third_party/japanese_usage_dictionary",
++    path = "japanese_usage_dictionary",
  )
  
  # Zip code (2026-04-03, 621d059fbcbfae17bfca15b439692bae934268c3)
@@ -59,7 +59,7 @@
      build_file_content = "exports_files([\"JIGYOSYO.CSV\"])",
 -    sha256 = "14be1030f607c5f819f2f45a485e89511907bdd1d62e7fb1931b6e48a3431c3a",
 -    url = "https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/621d059fbcbfae17bfca15b439692bae934268c3/jigyosyo.zip",
-+    path = "third_party",
++    path = "japanpost_zipcode",
  )
  
 -http_archive(
@@ -68,7 +68,7 @@
      build_file_content = "exports_files([\"KEN_ALL.CSV\"])",
 -    sha256 = "3adc97d8e19e1168a6cdcb2fce759d0e9e613a9a3b630cc180aecfd56ae81eaf",
 -    url = "https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/621d059fbcbfae17bfca15b439692bae934268c3/ken_all.zip",
-+    path = "third_party",
++    path = "japanpost_zipcode",
  )
 +
 +register_toolchains("@bazel_tools//tools/python:autodetecting_toolchain")

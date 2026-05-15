@@ -16,8 +16,6 @@ EXTRACT_ONLY=	${_DISTFILES:Mbazelbuild-*} \
 		${_DISTFILES:Me-kato-*} \
 		${_DISTFILES:Mfcitx-*} \
 		${_DISTFILES:Mhiroyuki-komatsu-*} \
-		${_DISTFILES:Mjigyosyo*} \
-		${_DISTFILES:Mken_all*} \
 		${_DISTFILES:Mutuhiro78-*}
 
 MAINTAINER=	hrs@FreeBSD.org
@@ -87,13 +85,10 @@ PKGNAMESUFFIX=	-server
 PKGMESSAGE=	${FILESDIR}/pkg-message
 
 # zip code
-ZIP_CODE_TAGNAME=	621d059fbcbfae17bfca15b439692bae934268c3
-MASTER_SITES+=	https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/${ZIP_CODE_TAGNAME}/:kenall \
-		https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/${ZIP_CODE_TAGNAME}/:jigyosyo
-DISTFILES+=	ken_all.zip:kenall \
-		jigyosyo.zip:jigyosyo
+GH_TUPLE+=	hiroyuki-komatsu:japanpost_zipcode:621d059:zipcode/src/japanpost_zipcode
+
 # usage dictionary
-GH_TUPLE+=	hiroyuki-komatsu:japanese-usage-dictionary:38d3462:udic/src/third_party/japanese_usage_dictionary
+GH_TUPLE+=	hiroyuki-komatsu:japanese-usage-dictionary:38d3462:udic/src/japanese_usage_dictionary
 
 OPTIONS_DEFINE=	ADDTILDE UTDIC
 OPTIONS_MULTI=	UTDIC
@@ -202,7 +197,7 @@ _CCTYPE=	gcc
 .include <bsd.port.pre.mk>
 
 post-patch:
-	@${FIND} ${BAZEL_WRKSRC} -type f -not -path '*/third_party/*' \
+	@${FIND} ${BAZEL_WRKSRC} -type f \
 		\( -name 'BUILD' -o -name '*.bzl' -o -name '*.cc' -o -name '*.h' -o -name MODULE.bazel \) \
 		-exec ${REINPLACE_CMD} -E -e "s,'python','${PYTHON_CMD}',g;" \
 			-e 's,/usr/bin/xdg-open,${PREFIX}/bin/xdg-open,g;' \
@@ -267,12 +262,14 @@ LICENSE_DISTFILES_GPLv2=	${DISTFILES:M*\:altcannadic:C@\:altcannadic@@} \
 .endif
 
 post-extract-mozc_server:
-	@${RLN}  ${WRKDIR}/*.CSV ${BAZEL_WRKSRC}/third_party
+	@cd ${WRKSRC_zipcode} && \
+		${UNZIP_NATIVE_CMD} -q jigyosyo.zip && \
+		${UNZIP_NATIVE_CMD} -q ken_all.zip
 
 post-patch-mozc_server:
 .if ${PORT_OPTIONS:MUTDIC}
 	@${ECHO_MSG} "===> Creating mozcdic-ut.txt for UT Dictionary. It takes a long time!"
-	cd ${WRKSRC_ut}/src/merge && \
+	@cd ${WRKSRC_ut}/src/merge && \
 		${PATCH} < ${PATCHDIR}/extra-patch-merge_dictionaries.py && \
 		${REINPLACE_CMD} -e 's@%%WRKSRC%%@${WRKSRC}@' merge_dictionaries.py && \
 		${RLN} ${BAZEL_WRKSRC}/data/dictionary_oss/id.def . && \
