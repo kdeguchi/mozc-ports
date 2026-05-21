@@ -85,7 +85,7 @@ PKGNAMESUFFIX=	-server
 PKGMESSAGE=	${FILESDIR}/pkg-message
 
 # zip code
-GH_TUPLE+=	hiroyuki-komatsu:japanpost_zipcode:621d059:zipcode/src/japanpost_zipcode
+GH_TUPLE+=	hiroyuki-komatsu:japanpost_zipcode:ab0c74c:zipcode/src/japanpost_zipcode
 
 # usage dictionary
 GH_TUPLE+=	hiroyuki-komatsu:japanese-usage-dictionary:38d3462:udic/src/japanese_usage_dictionary
