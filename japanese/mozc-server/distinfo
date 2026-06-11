@@ -1,4 +1,4 @@
-TIMESTAMP = 1781151514
+TIMESTAMP = 1781164280
 SHA256 (mozc/v1.10.0.tar.gz) = a1a9f7875aa4b6a9480ca384d5865f1ccf1b0b1faead6b47aa47d79709a5c5fd
 SIZE (mozc/v1.10.0.tar.gz) = 159353
 SHA256 (mozc/abseil-cpp-20260107.1.tar.gz) = 4314e2a7cbac89cac25a2f2322870f343d81579756ceff7f431803c2c9090195
@@ -83,8 +83,8 @@ SHA256 (mozc/jawiki-20260501-pages-articles-multistream-index.txt.bz2) = 0302524
 SIZE (mozc/jawiki-20260501-pages-articles-multistream-index.txt.bz2) = 31015361
 SHA256 (mozc/fcitx-mozc-3.33.6133.102-379a0cd_GH0.tar.gz) = d90a45ff2811972a3a9c040ef8cfcdd0aa3c4c136ed6944be0e27afffe33088b
 SIZE (mozc/fcitx-mozc-3.33.6133.102-379a0cd_GH0.tar.gz) = 29152711
-SHA256 (mozc/bazelbuild-bazel-central-registry-d24bce5_GH0.tar.gz) = 78afd47fd37d046c4e2c1d018119287a0e1468f6df4ad7fbfe72cda4d30a1fdb
-SIZE (mozc/bazelbuild-bazel-central-registry-d24bce5_GH0.tar.gz) = 9392669
+SHA256 (mozc/bazelbuild-bazel-central-registry-bc68abc_GH0.tar.gz) = 9fcd5e61047a0e72298066acf4e5926123cfffdd7e7de01cac1c24c65bd519b0
+SIZE (mozc/bazelbuild-bazel-central-registry-bc68abc_GH0.tar.gz) = 9528230
 SHA256 (mozc/hiroyuki-komatsu-japanpost_zipcode-c63a2cf_GH0.tar.gz) = 6215dfc27ec5123673fb2fb34c4f556b0ff1d825db9da31937906f6d16309ba5
 SIZE (mozc/hiroyuki-komatsu-japanpost_zipcode-c63a2cf_GH0.tar.gz) = 4492061
 SHA256 (mozc/hiroyuki-komatsu-japanese-usage-dictionary-38d3462_GH0.tar.gz) = 87f2a3ff0483e932aab6ac995530ff28929b15a6b0cc0d89c6d44449771f8d89
