@@ -39,7 +39,7 @@ USES=	compiler:c++20-lang gmake java:build localbase pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:21a58fc
+GH_TUPLE=	fcitx:mozc:379a0cd
 GH_TUPLE+=	bazelbuild:bazel-central-registry:d24bce5:bcr
 
 JAVA_VERSION=	21
@@ -85,7 +85,7 @@ PKGNAMESUFFIX=	-server
 PKGMESSAGE=	${FILESDIR}/pkg-message
 
 # zip code
-GH_TUPLE+=	hiroyuki-komatsu:japanpost_zipcode:ab0c74c:zipcode/src/japanpost_zipcode
+GH_TUPLE+=	hiroyuki-komatsu:japanpost_zipcode:c63a2cf:zipcode/src/japanpost_zipcode
 
 # usage dictionary
 GH_TUPLE+=	hiroyuki-komatsu:japanese-usage-dictionary:38d3462:udic/src/japanese_usage_dictionary
@@ -113,14 +113,14 @@ UTDIC_DESC=		Additional UT Dictionary
 # GPLv2
 ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:0e23741:altcannadic
 # CC-BY-SA-4.0
-EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:44ac6ff:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:0ba1d14:jawiki
+EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:d7279ba:edict2
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:b50caba:jawiki
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:382f09a:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:5896ebe:personal
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:97d3e9b:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:6f9d9bd:place
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 # APACHE20
