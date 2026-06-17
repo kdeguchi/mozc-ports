@@ -39,8 +39,8 @@ USES=	compiler:c++20-lang gmake java:build localbase pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:379a0cd
-GH_TUPLE+=	bazelbuild:bazel-central-registry:bc68abc:bcr
+GH_TUPLE=	fcitx:mozc:d4d8961
+GH_TUPLE+=	bazelbuild:bazel-central-registry:d817455:bcr
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -126,7 +126,7 @@ SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 # APACHE20
 SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:7def3da:sudachi
 # APACHE20 multi
-UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:aae6bec:ut
+UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:15c1c64:ut
 
 .include "Makefile.jawiki_latest_pages_articles_multistream_index"
 
