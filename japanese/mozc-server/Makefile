@@ -40,7 +40,7 @@ USES=	compiler:c++20-lang gmake java:build localbase pkgconfig \
 
 USE_GITHUB=	yes
 GH_TUPLE=	fcitx:mozc:d4d8961
-GH_TUPLE+=	bazelbuild:bazel-central-registry:d817455:bcr
+GH_TUPLE+=	bazelbuild:bazel-central-registry:f5e4e4d:bcr
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
