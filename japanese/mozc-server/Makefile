@@ -1,5 +1,5 @@
 PORTNAME=	mozc
-DISTVERSION=	3.33.6239.102
+DISTVERSION=	3.34.6239.102
 PORTREVISION?=	0
 CATEGORIES=	japanese
 
@@ -39,8 +39,8 @@ USES=	compiler:c++20-lang gmake java:build localbase pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:767a4de
-GH_TUPLE+=	bazelbuild:bazel-central-registry:ebf1319:bcr
+GH_TUPLE=	fcitx:mozc:35898ee
+GH_TUPLE+=	bazelbuild:bazel-central-registry:851429d:bcr
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
