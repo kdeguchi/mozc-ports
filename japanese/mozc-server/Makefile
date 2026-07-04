@@ -136,7 +136,6 @@ BUILD_DEPENDS+=	libglvnd>0:graphics/libglvnd
 RUN_DEPENDS+=	mozc:japanese/mozc-server
 
 USES+=		qt:6
-USE_LOCALE=	C.UTF-8
 USE_QT=		base
 
 .elif ${BUILD_MOZC_LIST:Mibus_mozc} == "ibus_mozc"
@@ -148,7 +147,6 @@ RUN_DEPENDS+=	mozc:japanese/mozc-server \
 
 USES+=		gettext-runtime gnome qt:6
 USE_GNOME=	glib20
-USE_LOCALE=	C.UTF-8
 USE_QT=		base
 
 .elif ${BUILD_MOZC_LIST:Muim_mozc} == "uim_mozc"
