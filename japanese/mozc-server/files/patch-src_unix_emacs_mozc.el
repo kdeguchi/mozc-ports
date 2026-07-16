@@ -1,6 +1,6 @@
---- src/unix/emacs/mozc.el.orig	2026-04-06 14:54:27 UTC
+--- src/unix/emacs/mozc.el.orig	2026-07-15 15:24:24 UTC
 +++ src/unix/emacs/mozc.el
-@@ -1545,7 +1545,7 @@ Return the new value of `mozc-session-seq'."
+@@ -1551,7 +1551,7 @@ Return the new value of `mozc-session-seq'."
  
  ;;;; Communication with Mozc server through the helper process
  
@@ -9,7 +9,7 @@
    "Helper program's name or path to the helper program.
  The helper program helps Emacs communicate with Mozc server,
  which doesn't understand S-expression.")
-@@ -1956,12 +1956,12 @@ CONDITIONS is a list of error conditions and shouldn't
+@@ -1962,12 +1962,12 @@ CONDITIONS is a list of error conditions and shouldn't
  
  ;;;###autoload
  (progn  ; Put the program code into the autoload file.
@@ -28,7 +28,7 @@
  
    (defun mozc-leim-register-input-method ()
      "Register function `mozc-mode' as an input method of LEIM.
-@@ -1984,10 +1984,10 @@ Do nothing if LEIM is not available."
+@@ -1990,10 +1990,10 @@ Do nothing if LEIM is not available."
    ;; Register mozc-mode as an input method after the init file has been read
    ;; so the user has a chance to specify `mozc-leim-title' in the init file
    ;; after loading this file.

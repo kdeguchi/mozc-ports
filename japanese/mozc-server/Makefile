@@ -39,8 +39,8 @@ USES=	compiler:c++20-lang gmake java:build localbase pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:35898ee
-GH_TUPLE+=	bazelbuild:bazel-central-registry:851429d:bcr
+GH_TUPLE=	fcitx:mozc:102eb17
+GH_TUPLE+=	bazelbuild:bazel-central-registry:e63a988:bcr
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -113,14 +113,14 @@ UTDIC_DESC=		Additional UT Dictionary
 # GPLv2
 ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:0e23741:altcannadic
 # CC-BY-SA-4.0
-EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:d7279ba:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:b50caba:jawiki
+EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:8fe8f79:edict2
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:4d32dfc:jawiki
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:5896ebe:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:159e01b:personal
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:6f9d9bd:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:9951ef8:place
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 # APACHE20
