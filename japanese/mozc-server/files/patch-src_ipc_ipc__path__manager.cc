@@ -15,7 +15,7 @@
  namespace mozc {
  namespace {
  
-@@ -282,10 +290,12 @@ bool IPCPathManager::GetPathName(std::string *ipc_name
+@@ -281,10 +289,12 @@ bool IPCPathManager::GetPathName(std::string *ipc_name
    *ipc_name = kIPCPrefix;
  #endif  // _WIN32
  
@@ -29,7 +29,7 @@
  
    ipc_name->append(ipc_path_info_.key());
    ipc_name->append(".");
-@@ -391,6 +401,33 @@ bool IPCPathManager::IsValidServer(uint32_t pid,
+@@ -390,6 +400,33 @@ bool IPCPathManager::IsValidServer(uint32_t pid,
  #endif  // __APPLE__
  
  #ifdef __linux__
@@ -63,7 +63,7 @@
    // load from /proc/<pid>/exe
    std::string proc = absl::StrFormat("/proc/%u/exe", pid);
    absl::StatusOr<std::string> filename = FileUtil::ReadSymlink(proc);
-@@ -400,6 +436,7 @@ bool IPCPathManager::IsValidServer(uint32_t pid,
+@@ -399,6 +436,7 @@ bool IPCPathManager::IsValidServer(uint32_t pid,
    }
  
    server_path_ = filename.value();

@@ -45,7 +45,7 @@
  
    return true;
  }
-@@ -265,7 +289,12 @@ void IPCClient::Init(const absl::string_view name,
+@@ -265,7 +289,12 @@ void IPCClient::Init(absl::string_view name,
      address.sun_family = AF_UNIX;
      absl::SNPrintF(address.sun_path, sizeof(address.sun_path), "%s",
                     server_address);
@@ -58,7 +58,7 @@
      pid_t pid = 0;
      if (::connect(socket_, reinterpret_cast<const sockaddr *>(&address),
                    sun_len) != 0 ||
-@@ -381,7 +410,12 @@ IPCServer::IPCServer(const std::string &name, int32_t 
+@@ -381,7 +410,12 @@ IPCServer::IPCServer(absl::string_view name, int32_t n
    int on = 1;
    ::setsockopt(socket_, SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<char *>(&on),
                 sizeof(on));
