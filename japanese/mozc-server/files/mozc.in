@@ -6,8 +6,8 @@ case $(id -u) in
 0)	exit 0 ;;
 esac
 
-if [ -d ${HOME}/.mozc ]; then
-	MOZCDIR=${HOME}/.mozc
+if [ ! -d ${MOZCDIR} ]; then
+  [ -d ${HOME}/.mozc ] && MOZCDIR=${HOME}/.mozc
 fi
 
 mkdir -m 0700 -p "${MOZCDIR}"
