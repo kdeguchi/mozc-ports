@@ -587,6 +587,8 @@ do-install-fcitx5_mozc:
 
 .if ${BUILD_MOZC_LIST:Mmozc_el} == "mozc_el" || make(makesum)
 
+EXTRA_PATCHES=	${PATCHDIR}/extra-patch-src_unix_emacs_mozc.el
+
 PLIST_FILES+=	${EMACS_SITE_LISPDIR}/mozc/mozc.el.gz \
 		${EMACS_SITE_LISPDIR}/mozc/leim-list.el \
 		libexec/mozc_emacs_helper
