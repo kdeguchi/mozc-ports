@@ -1,12 +1,13 @@
 --- src/MODULE.bazel
 +++ src/MODULE.bazel
-@@ -127,6 +127,12 @@ pkg_config_repository(
+@@ -127,6 +127,13 @@ pkg_config_repository(
      ],
  )
  
 +# uim
 +pkg_config_repository(
 +    name = "uim",
++    exec_os = ["linux","freebsd"],
 +    packages = ["uim"],
 +)
 +

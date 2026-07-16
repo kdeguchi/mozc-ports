@@ -3,8 +3,8 @@ DISTVERSION=	3.34.6239.102
 PORTREVISION?=	0
 CATEGORIES=	japanese
 
-MASTER_SITES=	https://github.com/bats-core/bats-core/archive/:bats_core
-DISTFILES=	v1.10.0.tar.gz:bats_core
+#MASTER_SITES=	https://github.com/bats-core/bats-core/archive/:bats_core
+#DISTFILES=	v1.10.0.tar.gz:bats_core
 #MASTER_SITES+=	https://go.dev/dl/?mode=json&include=all&file=versions.json/:versions_json
 #DISTFILES+=	versions.json:versions_json
 
