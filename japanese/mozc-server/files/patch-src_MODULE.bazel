@@ -9,7 +9,7 @@
      packages = [
          "glib-2.0",
          "gobject-2.0",
-@@ -228,11 +228,13 @@ pkg_config_repository(
+@@ -228,16 +228,20 @@ pkg_config_repository(
  )
  
  # Fcitx
@@ -19,6 +19,7 @@
 -    build_file = "BUILD.fcitx.bazel",
 -    # This path should be updated per the environment.
 -    path = "/usr",  # For Debian
++    exec_os = ["linux","freebsd"],
 +    packages = [
 +      "fcitx",
 +      "fcitx-config",
@@ -27,7 +28,13 @@
  )
  
  # Fcitx 5
-@@ -247,12 +249,18 @@ pkg_config_repository(
+ pkg_config_repository(
+     name = "fcitx5",
++    exec_os = ["linux","freebsd"],
+     packages = [
+         "Fcitx5Core",
+         "Fcitx5Module",
+@@ -247,12 +251,18 @@ pkg_config_repository(
  # Qt for Linux
  pkg_config_repository(
      name = "qt_linux",
@@ -47,7 +54,7 @@
  )
  
  # Qt for macOS
-@@ -384,13 +392,12 @@ http_archive(
+@@ -384,13 +394,12 @@ http_archive(
  )
  
  # Japanese Usage Dictionary (2025-01-25)
@@ -65,7 +72,7 @@
  )
  
  # Zip code (2026-04-03, 621d059fbcbfae17bfca15b439692bae934268c3)
-@@ -399,16 +406,37 @@ http_archive(
+@@ -399,16 +408,37 @@ http_archive(
  # The data files are mirror of the following files.
  # * https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip
  # * https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip
