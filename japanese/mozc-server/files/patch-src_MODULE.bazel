@@ -1,5 +1,14 @@
 --- src/MODULE.bazel.orig	2026-07-15 15:24:24 UTC
 +++ src/MODULE.bazel
+@@ -219,7 +219,7 @@ pkg_config_repository(
+ # iBus
+ pkg_config_repository(
+     name = "ibus",
+-    exec_os = ["linux"],
++    exec_os = ["linux", "freebsd"],
+     packages = [
+         "glib-2.0",
+         "gobject-2.0",
 @@ -228,11 +228,13 @@ pkg_config_repository(
  )
  
@@ -18,7 +27,14 @@
  )
  
  # Fcitx 5
-@@ -253,6 +255,12 @@ pkg_config_repository(
+@@ -247,12 +249,18 @@ pkg_config_repository(
+ # Qt for Linux
+ pkg_config_repository(
+     name = "qt_linux",
+-    exec_os = ["linux"],
++    exec_os = ["linux","freebsd"],
+     packages = [
+         "Qt6Core",
          "Qt6Gui",
          "Qt6Widgets",
      ],
