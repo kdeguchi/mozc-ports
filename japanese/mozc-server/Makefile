@@ -85,7 +85,7 @@ PKGNAMESUFFIX=	-server
 PKGMESSAGE=	${FILESDIR}/pkg-message
 
 # zip code
-GH_TUPLE+=	hiroyuki-komatsu:japanpost_zipcode:c63a2cf:zipcode/src/japanpost_zipcode
+GH_TUPLE+=	hiroyuki-komatsu:japanpost_zipcode:066dff3:zipcode/src/japanpost_zipcode
 
 # usage dictionary
 GH_TUPLE+=	hiroyuki-komatsu:japanese-usage-dictionary:38d3462:udic/src/japanese_usage_dictionary
@@ -124,9 +124,9 @@ PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:9951ef8:place
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 # APACHE20
-SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:7def3da:sudachi
+SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:c686771:sudachi
 # APACHE20 multi
-UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:15c1c64:ut
+UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:c1de921:ut
 
 .include "Makefile.jawiki_latest_pages_articles_multistream_index"
 
