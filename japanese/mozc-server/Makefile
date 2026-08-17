@@ -39,8 +39,8 @@ USES=	compiler:c++20-lang gmake java:build localbase pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:102eb17
-GH_TUPLE+=	bazelbuild:bazel-central-registry:e63a988:bcr
+GH_TUPLE=	fcitx:mozc:3f8dea4
+GH_TUPLE+=	bazelbuild:bazel-central-registry:b80d9bf:bcr
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
