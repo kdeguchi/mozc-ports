@@ -39,8 +39,8 @@ USES=	compiler:c++20-lang gmake java:build localbase pkgconfig \
 	python:3.10+,build shebangfix tar:bzip2
 
 USE_GITHUB=	yes
-GH_TUPLE=	fcitx:mozc:07f5445
-GH_TUPLE+=	bazelbuild:bazel-central-registry:bfcfef9:bcr
+GH_TUPLE=	fcitx:mozc:239bb00
+GH_TUPLE+=	bazelbuild:bazel-central-registry:218d866:bcr
 
 JAVA_VERSION=	21
 JAVA_VENDOR=	openjdk
@@ -114,19 +114,19 @@ UTDIC_DESC=		Additional UT Dictionary
 ALTCANNADIC_GH_TUPLE=	utuhiro78:mozcdic-ut-alt-cannadic:0e23741:altcannadic
 # CC-BY-SA-4.0
 EDICT2_GH_TUPLE=	utuhiro78:mozcdic-ut-edict2:8fe8f79:edict2
-JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:1f160b9:jawiki
+JAWIKI_GH_TUPLE=	utuhiro78:mozcdic-ut-jawiki:57af6ad:jawiki
 # APACHE20
 NEOLOGD_GH_TUPLE=	utuhiro78:mozcdic-ut-neologd:e33ac4c:neologd
 # APACHE20
-PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:5e0d754:personal
+PERSONALNAME_GH_TUPLE=	utuhiro78:mozcdic-ut-personal-names:b557dd4:personal
 # APCHE20
-PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:1c25190:place
+PLACENAME_GH_TUPLE=	utuhiro78:mozcdic-ut-place-names:98cf8e9:place
 # APACHE20 GPLv2
 SKKJISYO_GH_TUPLE=	utuhiro78:mozcdic-ut-skk-jisyo:384ad92:skkjisyo
 # APACHE20
 SUDACHIDICT_GH_TUPLE=	utuhiro78:mozcdic-ut-sudachidict:c686771:sudachi
 # APACHE20 multi
-UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:c1de921:ut
+UTDIC_GH_TUPLE=		utuhiro78:merge-ut-dictionaries:6239884:ut
 
 .include "Makefile.jawiki_latest_pages_articles_multistream_index"
 
@@ -673,7 +673,7 @@ update-jawiki:
 			} ' > ${MASTERDIR}/Makefile.jawiki_latest_pages_articles_multistream_index
 
 renew-makesum:
-	@${MAKE} bazel-modules update-jawiki
+	@${MAKE} makesum bazel-modules update-jawiki
 	@${MAKE} makesum
 
 .include <bsd.port.post.mk>
